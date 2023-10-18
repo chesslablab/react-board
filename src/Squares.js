@@ -7,10 +7,8 @@ import AlgebraicNotation from './AlgebraicNotation';
 const Squares = ({ props }) => {
   const stateBoard = useSelector(state => state.board);
 
-  const statePanel = useSelector(state => state.panel);
-
   const sqs = () => {
-    const fen = stateBoard.fen[stateBoard.fen.length - 1 + statePanel.history.back].split(' ');
+    const fen = props.fen.split(' ');
     const ascii = Ascii.toAscii(fen[0]);
     return Ascii.flip(
       stateBoard.flip,
@@ -110,7 +108,7 @@ const Squares = ({ props }) => {
   }
 
   return (
-    <div className={[props.className, statePanel.history.back !== 0 ? 'past' : 'present'].join(' ')}>
+    <div className={[props.className].join(' ')}>
       {sqs()}
     </div>
   );

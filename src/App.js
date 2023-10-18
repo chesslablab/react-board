@@ -30,15 +30,25 @@ function App() {
   };
 
   const onMouseDown = () => {
-    // TODO
+    if (filterMove()) {
+      // TODO
+      console.log('mouse down');
+    }
+  };
 
-    return true;
+  const onDragStart = () => {
+    if (filterMove()) {
+      // TODO
+      console.log('drag start');
+    }
   };
 
   const onDrop = (ev) => {
-    // TODO
-
-    return true;
+    ev.preventDefault();
+    if (filterMove()) {
+      // TODO
+      console.log('drop');
+    }
   };
 
   return (
@@ -47,6 +57,7 @@ function App() {
       filterMove={filterMove}
       handleMove={handleMove}
       onMouseDown={onMouseDown}
+      onDragStart={onDragStart}
       onDrop={onDrop}
     />
   );

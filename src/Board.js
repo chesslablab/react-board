@@ -9,6 +9,7 @@ const Board = ({
   filterMove,
   handleMove,
   onMouseDown,
+  onDragStart,
   onDrop
 }) => {
   if (props.variant === variantConst.CAPABLANCA) {
@@ -22,6 +23,7 @@ const Board = ({
         filterMove={filterMove}
         handleMove={handleMove}
         onMouseDown={onMouseDown}
+        onDragStart={onDragStart}
         onDrop={onDrop}
       />
     );
@@ -36,6 +38,7 @@ const Board = ({
         filterMove={filterMove}
         handleMove={handleMove}
         onMouseDown={onMouseDown}
+        onDragStart={onDragStart}
         onDrop={onDrop}
       />
     );
@@ -50,6 +53,7 @@ const Board = ({
         filterMove={filterMove}
         handleMove={handleMove}
         onMouseDown={onMouseDown}
+        onDragStart={onDragStart}
         onDrop={onDrop}
       />
     );
@@ -65,6 +69,7 @@ const Board = ({
       filterMove={filterMove}
       handleMove={handleMove}
       onMouseDown={onMouseDown}
+      onDragStart={onDragStart}
       onDrop={onDrop}
     />
   );

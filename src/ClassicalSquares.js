@@ -1,7 +1,14 @@
 import { useRef } from 'react';
 import Squares from './Squares';
 
-const ClassicalSquares = ({ props }) => {
+const ClassicalSquares = ({
+  props,
+  filterMove,
+  handleMove,
+  onMouseDown,
+  onDragStart,
+  onDrop
+}) => {
   const sqsRef = useRef([]);
 
   const imgsRef = useRef([]);
@@ -11,7 +18,14 @@ const ClassicalSquares = ({ props }) => {
   props.sqsRef = sqsRef;
 
   return (
-    <Squares props={props}/>
+    <Squares
+      props={props}
+      filterMove={filterMove}
+      handleMove={handleMove}
+      onMouseDown={onMouseDown}
+      onDragStart={onDragStart}
+      onDrop={onDrop}
+    />
   );
 }
 

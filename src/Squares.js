@@ -8,6 +8,7 @@ const Squares = ({
   filterMove,
   handleMove,
   onMouseDown,
+  onDragStart,
   onDrop
 }) => {
   const sqs = () => {
@@ -71,17 +72,8 @@ const Squares = ({
               isCheck
             ].join(' ')
           }
-          onMouseDown={() => {
-            if (filterMove()) {
-              // TODO
-            }
-          }}
-          onDrop={(ev) => {
-            ev.preventDefault();
-            if (props.filterMove()) {
-              // TODO
-            }
-          }}
+          onMouseDown={onMouseDown}
+          onDrop={onDrop}
           onContextMenu={(ev)=>{
             ev.preventDefault();
             ev.target.classList.toggle('square-right-clicked');
@@ -96,11 +88,7 @@ const Squares = ({
                     ref={el => props.imgsRef.current[payload.sq] = el}
                     src={Piece.unicode[piece].char}
                     draggable={Piece.color(piece) === fen[1] ? true : false}
-                    onDragStart={() => {
-                      if (props.filterMove()) {
-                        // TODO
-                      }
-                    }}
+                    onDragStart={onDragStart}
                   />
                 : null
             }

@@ -2,8 +2,7 @@ import { useSelector } from 'react-redux';
 import Ascii from 'common/Ascii';
 import Pgn from 'common/Pgn';
 import Piece from 'common/Piece';
-import AlgebraicNotation from 'features/board/AlgebraicNotation';
-import * as eventConst from 'features/eventConst';
+import AlgebraicNotation from './AlgebraicNotation';
 
 const Squares = ({props}) => {
   const stateBoard = useSelector(state => state.board);

@@ -13,13 +13,16 @@ const CapablancaFischerSquares = ({
 
   const imgsRef = useRef([]);
 
-  props.className = 'capablancaSquares';
-  props.imgsRef = imgsRef;
-  props.sqsRef = sqsRef;
-
   return (
     <Squares
-      props={props}
+      props={{
+        ...props,
+        ...{
+          className: 'capablancaSquares',
+          imgsRef: imgsRef,
+          sqsRef: sqsRef,
+        },
+      }}
       filterMove={filterMove}
       handleMove={handleMove}
       onMouseDown={onMouseDown}

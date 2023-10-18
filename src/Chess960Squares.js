@@ -13,13 +13,16 @@ const Chess960Squares = ({
 
   const imgsRef = useRef([]);
 
-  props.className = 'classicalSquares';
-  props.imgsRef = imgsRef;
-  props.sqsRef = sqsRef;
-
   return (
     <Squares
-      props={props}
+      props={{
+        ...props,
+        ...{
+          className: 'classicalSquares',
+          imgsRef: imgsRef,
+          sqsRef: sqsRef,
+        },
+      }}
       filterMove={filterMove}
       handleMove={handleMove}
       onMouseDown={onMouseDown}

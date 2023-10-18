@@ -13,7 +13,7 @@ const ActiveSquares = ({ props }) => {
     return <Chess960Squares props={props} />;
   }
 
-  return <ClassicalSquares />;
+  return <ClassicalSquares props={props} />;
 }
 
 export default ActiveSquares;

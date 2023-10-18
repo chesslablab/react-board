@@ -7,7 +7,7 @@ const CapablancaFischerSquares = () => {
       props={{
         className: 'capablancaSquares',
         imgsRef:  useRef([]),
-        sqsRef: useRef([])
+        sqsRef: useRef([]),
       }}
     />
   );

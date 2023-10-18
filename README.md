@@ -5,9 +5,10 @@ An easy-to-use React chessboard.
 ### Usage
 
 ```js
-import { Board, variantConst } from 'react-board';
+import Board from './Board';
+import * as variantConst from './variantConst';
 
-const MyBoard = ({ props }) => {
+function App() {
   return (
     <Board
       props={{
@@ -35,7 +36,7 @@ const MyBoard = ({ props }) => {
   );
 }
 
-export default MyBoard;
+export default App;
 ```
 
 ### License

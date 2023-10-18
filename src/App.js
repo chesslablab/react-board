@@ -1,30 +1,53 @@
+import Ascii from './common/Ascii';
+import Pgn from './common/Pgn';
 import Board from './Board';
 import * as variantConst from './variantConst';
 
 function App() {
+  const initialState = {
+    variant: variantConst.CLASSICAL,
+    turn: Pgn.symbol.WHITE,
+    isCapture: false,
+    isCheck: false,
+    isMate: false,
+    isStalemate: false,
+    fen: [Ascii.initialFen()],
+    flip: Pgn.symbol.WHITE,
+    size: {
+      files: 8,
+      ranks: 8
+    },
+  };
+
+  const filterMove = () => {
+    // TODO
+
+    return true;
+  };
+
+  const handleMove = () => {
+    // TODO
+  };
+
+  const onMouseDown = () => {
+    // TODO
+
+    return true;
+  };
+
+  const onDrop = (ev) => {
+    // TODO
+
+    return true;
+  };
+
   return (
     <Board
-      props={{
-        fen: 'rnb1k2r/ppp2ppp/5n2/4pq2/1b1P4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -',
-        variant: variantConst.CLASSICAL,
-        flip: false,
-        isCheck: false,
-        pieceGrabbed: {},
-        filterMove: () => {
-          // TODO
-
-          return true;
-        },
-        onMouseDown: () => {
-          // TODO
-        },
-        onDrop: (ev) => {
-          // TODO
-        },
-        handleMove: (payload) => {
-          // TODO
-        },
-      }}
+      props={initialState}
+      filterMove={filterMove}
+      handleMove={handleMove}
+      onMouseDown={onMouseDown}
+      onDrop={onDrop}
     />
   );
 }

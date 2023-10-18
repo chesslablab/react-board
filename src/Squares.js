@@ -3,9 +3,15 @@ import Pgn from './common/Pgn';
 import Piece from './common/Piece';
 import AlgebraicNotation from './AlgebraicNotation';
 
-const Squares = ({ props }) => {
+const Squares = ({
+  props,
+  filterMove,
+  handleMove,
+  onMouseDown,
+  onDrop
+}) => {
   const sqs = () => {
-    const fen = props.fen.split(' ');
+    const fen = props.fen[props.fen.length - 1].split(' ');
     const ascii = Ascii.toAscii(fen[0]);
     return Ascii.flip(
       props.flip,
@@ -66,7 +72,7 @@ const Squares = ({ props }) => {
             ].join(' ')
           }
           onMouseDown={() => {
-            if (props.filterMove()) {
+            if (filterMove()) {
               // TODO
             }
           }}

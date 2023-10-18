@@ -1,8 +1,8 @@
 import ActiveSquares from './ActiveSquares';
 
-const Board = () => {
+const Board = ({ props }) => {
   return (
-    <ActiveSquares />
+    <ActiveSquares props={props} />
   );
 }
 

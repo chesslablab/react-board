@@ -6,11 +6,11 @@ import * as variantConst from './variantConst';
 
 const ActiveSquares = ({ props }) => {
   if (props.variant === variantConst.CAPABLANCA) {
-    return <CapablancaSquares />;
+    return <CapablancaSquares props={props} />;
   } else if (props.variant === variantConst.CAPABLANCA_FISCHER) {
-    return <CapablancaFischerSquares />;
+    return <CapablancaFischerSquares props={props} />;
   } else if (props.variant === variantConst.CHESS_960) {
-    return <Chess960Squares />;
+    return <Chess960Squares props={props} />;
   }
 
   return <ClassicalSquares />;

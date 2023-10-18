@@ -1,5 +1,4 @@
 import ActiveSquares from './ActiveSquares';
-import PawnPromotionDialog from './PawnPromotionDialog';
 import ResizeSlider from './ResizeSlider';
 import BoardAudio from './BoardAudio';
 
@@ -8,7 +7,6 @@ const Board = () => {
     <>
       <ActiveSquares />
       <ResizeSlider />
-      <PawnPromotionDialog />
       <BoardAudio />
     </>
   );

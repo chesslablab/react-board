@@ -2,14 +2,16 @@ import { useRef } from 'react';
 import Squares from './Squares';
 
 const CapablancaSquares = ({ props }) => {
+  const sqsRef = useRef([]);
+
+  const imgsRef = useRef([]);
+  
+  props.className = 'capablancaSquares';
+  props.imgsRef = imgsRef;
+  props.sqsRef = sqsRef;
+
   return (
-    <Squares
-      props={{
-        className: 'capablancaSquares',
-        imgsRef:  useRef([]),
-        sqsRef: useRef([]),
-      }}
-    />
+    <Squares props={props}/>
   );
 }
 

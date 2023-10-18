@@ -9,10 +9,6 @@ function App() {
         variant: variantConst.CLASSICAL,
         flip: false,
         isCheck: false,
-        size: {
-          files: 8,
-          ranks: 8,
-        },
         pieceGrabbed: {},
         filterMove: () => {
           // TODO

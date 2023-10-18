@@ -98,7 +98,7 @@ const Squares = ({ props }) => {
                   />
                 : null
             }
-            <AlgebraicNotation props={payload} />
+            <AlgebraicNotation props={payload} size={props.size} />
         </div>
       });
     });

@@ -6,14 +6,12 @@ const Chess960Squares = ({ props }) => {
 
   const imgsRef = useRef([]);
 
+  props.className = 'classicalSquares';
+  props.imgsRef = imgsRef;
+  props.sqsRef = sqsRef;
+
   return (
-    <Squares
-      props={{
-        className: 'classicalSquares',
-        imgsRef: imgsRef,
-        sqsRef: sqsRef,
-      }}
-    />
+    <Squares props={props}/>
   );
 }
 

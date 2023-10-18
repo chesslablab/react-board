@@ -4,7 +4,7 @@ import Pgn from 'common/Pgn';
 import Piece from 'common/Piece';
 import AlgebraicNotation from './AlgebraicNotation';
 
-const Squares = ({props}) => {
+const Squares = ({ props }) => {
   const stateBoard = useSelector(state => state.board);
 
   const statePanel = useSelector(state => state.panel);

@@ -1,20 +1,28 @@
+import Board from './Board';
+import * as variantConst from './variantConst';
+
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Board
+      props={{
+        fen: 'rnb1k2r/ppp2ppp/5n2/4pq2/1b1P4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -',
+        variant: variantConst.CLASSICAL,
+        filterMove: () => {
+          // TODO
+
+          return true;
+        },
+        onMouseDown: () => {
+          // TODO
+        },
+        onDrop: (ev) => {
+          // TODO
+        },
+        handleMove: (payload) => {
+          // TODO
+        }
+      }}
+    />
   );
 }
 

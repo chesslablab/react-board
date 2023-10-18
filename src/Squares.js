@@ -15,35 +15,7 @@ const Squares = ({props}) => {
   const statePanel = useSelector(state => state.panel);
 
   const filterMove = () => {
-    if (stateRavMode.active) {
-      return false;
-    } else if (statePlayMode.active) {
-      if (
-        !statePlayMode.accepted ||
-        stateBoard.isMate ||
-        stateBoard.isStalemate ||
-        statePlayMode.draw ||
-        statePlayMode.resign ||
-        statePlayMode.leave ||
-        statePlayMode.timeOut ||
-        statePanel.history.back !== 0
-      ) {
-        return false;
-      }
-      if (statePlayMode.accepted) {
-        if (stateBoard.turn !== statePlayMode.play.color) {
-          return false;
-        }
-      }
-    } else {
-      if (
-        stateBoard.isMate ||
-        stateBoard.isStalemate ||
-        statePanel.history.back !== 0
-      ) {
-        return false;
-      }
-    }
+    // TODO
 
     return true;
   }

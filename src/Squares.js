@@ -1,50 +1,47 @@
-import { useSelector } from 'react-redux';
-import Ascii from 'common/Ascii';
-import Pgn from 'common/Pgn';
-import Piece from 'common/Piece';
+import Ascii from './common/Ascii';
+import Pgn from './common/Pgn';
+import Piece from './common/Piece';
 import AlgebraicNotation from './AlgebraicNotation';
 
 const Squares = ({ props }) => {
-  const stateBoard = useSelector(state => state.board);
-
   const sqs = () => {
     const fen = props.fen.split(' ');
     const ascii = Ascii.toAscii(fen[0]);
     return Ascii.flip(
-      stateBoard.flip,
+      props.flip,
       ascii
     ).map((rank, i) => {
       return rank.map((piece, j) => {
         let payload = { piece: piece };
         let isLegal, isSelected, isCheck = '';
         let color = (i + j) % 2 !== 0 ? Pgn.symbol.BLACK : Pgn.symbol.WHITE;
-        stateBoard.flip === Pgn.symbol.WHITE
+        props.flip === Pgn.symbol.WHITE
           ? payload = {
               ...payload,
               i: i,
               j: j,
-              sq: Ascii.fromIndexToAlgebraic(i, j, stateBoard.size)
+              sq: Ascii.fromIndexToAlgebraic(i, j, props.size)
             }
           : payload = {
             ...payload,
-            i: stateBoard.size.ranks - 1 - i,
-            j: stateBoard.size.files - 1 - j,
+            i: props.size.ranks - 1 - i,
+            j: props.size.files - 1 - j,
             sq: Ascii.fromIndexToAlgebraic(
-              stateBoard.size.ranks - 1 - i,
-              stateBoard.size.files - 1 - j,
-              stateBoard.size
+              props.size.ranks - 1 - i,
+              props.size.files - 1 - j,
+              props.size
             )
           };
-        if (stateBoard.pieceGrabbed) {
-          if (stateBoard.pieceGrabbed.sq === payload.sq) {
+        if (props.pieceGrabbed) {
+          if (props.pieceGrabbed.sq === payload.sq) {
             isSelected = 'isSelected';
           }
-          if (stateBoard.pieceGrabbed.fen) {
-            if (Object.keys(stateBoard.pieceGrabbed.fen).includes(payload.sq)) {
+          if (props.pieceGrabbed.fen) {
+            if (Object.keys(props.pieceGrabbed.fen).includes(payload.sq)) {
               isLegal = 'isLegal';
             }
           }
-        } else if (stateBoard.isCheck) {
+        } else if (props.isCheck) {
           if (fen[1] === Pgn.symbol.WHITE) {
             if (piece === ' K ') {
               isCheck = 'isCheck';

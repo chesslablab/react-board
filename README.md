@@ -13,6 +13,11 @@ const MyBoard = ({ props }) => {
     <Board
       props={
         variant: variantConst.CLASSICAL,
+        filterMove: () => {
+          // TODO
+
+          return true;
+        },
         onMouseDown: () => {
           // TODO
         },

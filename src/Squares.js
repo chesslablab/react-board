@@ -9,12 +9,6 @@ const Squares = ({ props }) => {
 
   const statePanel = useSelector(state => state.panel);
 
-  const filterMove = () => {
-    // TODO
-
-    return true;
-  }
-
   const sqs = () => {
     const fen = stateBoard.fen[stateBoard.fen.length - 1 + statePanel.history.back].split(' ');
     const ascii = Ascii.toAscii(fen[0]);

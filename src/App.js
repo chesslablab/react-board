@@ -1,6 +1,6 @@
 import Ascii from './common/Ascii';
 import Pgn from './common/Pgn';
-import Board from './Board';
+import ClassicalSquares from './ClassicalSquares';
 import * as variantConst from './variantConst';
 
 function App() {
@@ -52,7 +52,7 @@ function App() {
   };
 
   return (
-    <Board
+    <ClassicalSquares
       props={initialState}
       filterMove={filterMove}
       handleMove={handleMove}

@@ -5,33 +5,67 @@ An easy-to-use React chessboard.
 ### Usage
 
 ```js
-import Board from './Board';
+import Ascii from './common/Ascii';
+import Pgn from './common/Pgn';
+import ClassicalSquares from './ClassicalSquares';
 import * as variantConst from './variantConst';
 
 function App() {
-  return (
-    <Board
-      props={{
-        fen: 'rnb1k2r/ppp2ppp/5n2/4pq2/1b1P4/2N2N2/PP2PPPP/R1BQKB1R w KQkq -',
-        variant: variantConst.CLASSICAL,
-        flip: false,
-        isCheck: false,
-        pieceGrabbed: {},
-        filterMove: () => {
-          // TODO
+  const initialState = {
+    variant: variantConst.CLASSICAL,
+    turn: Pgn.symbol.WHITE,
+    isCapture: false,
+    isCheck: false,
+    isMate: false,
+    isStalemate: false,
+    fen: [Ascii.initialFen()],
+    flip: Pgn.symbol.WHITE,
+    size: {
+      files: 8,
+      ranks: 8
+    },
+  };
 
-          return true;
-        },
-        onMouseDown: () => {
-          // TODO
-        },
-        onDrop: (ev) => {
-          // TODO
-        },
-        handleMove: (payload) => {
-          // TODO
-        },
-      }}
+  const filterMove = () => {
+    // TODO
+
+    return true;
+  };
+
+  const handleMove = () => {
+    // TODO
+  };
+
+  const onMouseDown = () => {
+    if (filterMove()) {
+      // TODO
+      console.log('mouse down');
+    }
+  };
+
+  const onDragStart = () => {
+    if (filterMove()) {
+      // TODO
+      console.log('drag start');
+    }
+  };
+
+  const onDrop = (ev) => {
+    ev.preventDefault();
+    if (filterMove()) {
+      // TODO
+      console.log('drop');
+    }
+  };
+
+  return (
+    <ClassicalSquares
+      props={initialState}
+      filterMove={filterMove}
+      handleMove={handleMove}
+      onMouseDown={onMouseDown}
+      onDragStart={onDragStart}
+      onDrop={onDrop}
     />
   );
 }

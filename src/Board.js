@@ -13,13 +13,17 @@ const Board = ({
   onDrop
 }) => {
   if (props.variant === variantConst.CAPABLANCA) {
-    props.size = {
-      files: 10,
-      ranks: 8,
-    };
     return (
       <CapablancaSquares
-        props={props}
+        props={{
+          ...props,
+          ...{
+            size: {
+              files: 10,
+              ranks: 8,
+            },
+          },
+        }}
         filterMove={filterMove}
         handleMove={handleMove}
         onMouseDown={onMouseDown}
@@ -28,13 +32,17 @@ const Board = ({
       />
     );
   } else if (props.variant === variantConst.CAPABLANCA_FISCHER) {
-    props.size = {
-      files: 10,
-      ranks: 8,
-    };
     return (
       <CapablancaFischerSquares
-        props={props}
+        props={{
+          ...props,
+          ...{
+            size: {
+              files: 10,
+              ranks: 8,
+            },
+          },
+        }}
         filterMove={filterMove}
         handleMove={handleMove}
         onMouseDown={onMouseDown}
@@ -43,13 +51,17 @@ const Board = ({
       />
     );
   } else if (props.variant === variantConst.CHESS_960) {
-    props.size = {
-      files: 8,
-      ranks: 8,
-    };
     return (
       <Chess960Squares
-        props={props}
+        props={{
+          ...props,
+          ...{
+            size: {
+              files: 8,
+              ranks: 8,
+            },
+          },
+        }}
         filterMove={filterMove}
         handleMove={handleMove}
         onMouseDown={onMouseDown}
@@ -59,13 +71,17 @@ const Board = ({
     );
   }
 
-  props.size = {
-    files: 8,
-    ranks: 8,
-  };
   return (
     <ClassicalSquares
-      props={props}
+      props={{
+        ...props,
+        ...{
+          size: {
+            files: 8,
+            ranks: 8,
+          },
+        },
+      }}
       filterMove={filterMove}
       handleMove={handleMove}
       onMouseDown={onMouseDown}

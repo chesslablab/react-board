@@ -1,7 +1,7 @@
 import { useRef } from 'react';
 import Squares from './Squares';
 
-const CapablancaFischerSquares = () => {
+const CapablancaFischerSquares = ({ props }) => {
   return (
     <Squares
       props={{

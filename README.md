@@ -5,7 +5,29 @@ An easy-to-use React chessboard.
 ### Usage
 
 ```js
-// TODO
+import { Board, variantConst } from 'react-board';
+
+const MyBoard = ({ props }) => {
+
+  return (
+    <Board
+      props={
+        variant: variantConst.CLASSICAL,
+        onMouseDown: () => {
+          // TODO
+        },
+        onDrop: (ev) => {
+          // TODO
+        },
+        handleMove: (payload) => {
+          // TODO
+        }
+      }
+    />
+  );
+}
+
+export default MyBoard;
 ```
 
 ### License

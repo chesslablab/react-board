@@ -1,27 +1,14 @@
-import { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import CapablancaSquares from 'features/board/CapablancaSquares';
-import CapablancaFischerSquares from 'features/board/CapablancaFischerSquares';
-import Chess960Squares from 'features/board/Chess960Squares';
-import ClassicalSquares from 'features/board/ClassicalSquares';
-import * as modeConst from 'features/mode/modeConst';
-import * as variantConst from 'features/mode/variantConst';
-import Ws from 'features/ws/Ws';
+import CapablancaSquares from './CapablancaSquares';
+import CapablancaFischerSquares from './CapablancaFischerSquares';
+import Chess960Squares from './Chess960Squares';
+import ClassicalSquares from './ClassicalSquares';
 
-const ActiveSquares = () => {
-  const stateActiveMode = useSelector(state => Object.values(state).find((val, key) => val.active));
-
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    dispatch(Ws.connect()).then(() => Ws.start(variantConst.CLASSICAL, modeConst.FEN));
-  }, [dispatch]);
-
-  if (stateActiveMode?.variant === variantConst.CAPABLANCA) {
+const ActiveSquares = ({ props }) => {
+  if (props.variant === variantConst.CAPABLANCA) {
     return <CapablancaSquares />;
-  } else if (stateActiveMode?.variant === variantConst.CAPABLANCA_FISCHER) {
+  } else if (props.variant === variantConst.CAPABLANCA_FISCHER) {
     return <CapablancaFischerSquares />;
-  } else if (stateActiveMode?.variant === variantConst.CHESS_960) {
+  } else if (props.variant === variantConst.CHESS_960) {
     return <Chess960Squares />;
   }
 

@@ -1,5 +1,7 @@
+import { useState } from 'react';
 import Ascii from './common/Ascii';
 import Pgn from './common/Pgn';
+import Piece from './common/Piece';
 import ClassicalSquares from './ClassicalSquares';
 import * as variantConst from './variantConst';
 
@@ -19,46 +21,47 @@ function App() {
     },
   };
 
+  const [state, setState] = useState(initialState);
+
+  const grabPiece = (payload) => {
+    const fen = state.fen[state.fen.length - 1].split(' ');
+    const ascii = Ascii.toAscii(fen[0]);
+    setState({
+      ...state,
+      ...{
+        lan: payload.sq,
+        pieceGrabbed: {
+          i: payload.i,
+          j: payload.j,
+          sq: payload.sq,
+          ascii: ascii[payload.i][payload.j]
+        }
+      }});
+  };
+
+  const placePiece = (payload) => {
+    // TODO
+  };
+
   const filterMove = () => {
     // TODO
 
     return true;
   };
 
-  const handleMove = () => {
-    // TODO
-  };
-
-  const onMouseDown = () => {
-    if (filterMove()) {
-      // TODO
-      console.log('mouse down');
-    }
-  };
-
-  const onDragStart = () => {
-    if (filterMove()) {
-      // TODO
-      console.log('drag start');
-    }
-  };
-
-  const onDrop = (ev) => {
-    ev.preventDefault();
-    if (filterMove()) {
-      // TODO
-      console.log('drop');
+  const handleMove = (payload) => {
+    if (state.turn === Piece.color(payload.piece)) {
+      grabPiece(payload);
+    } else {
+      placePiece(payload);
     }
   };
 
   return (
     <ClassicalSquares
-      props={initialState}
+      props={state}
       filterMove={filterMove}
       handleMove={handleMove}
-      onMouseDown={onMouseDown}
-      onDragStart={onDragStart}
-      onDrop={onDrop}
     />
   );
 }

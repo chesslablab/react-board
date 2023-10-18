@@ -4,10 +4,7 @@ import Squares from './Squares';
 const CapablancaSquares = ({
   props,
   filterMove,
-  handleMove,
-  onMouseDown,
-  onDragStart,
-  onDrop
+  handleMove
 }) => {
   const sqsRef = useRef([]);
 
@@ -25,9 +22,6 @@ const CapablancaSquares = ({
       }}
       filterMove={filterMove}
       handleMove={handleMove}
-      onMouseDown={onMouseDown}
-      onDragStart={onDragStart}
-      onDrop={onDrop}
     />
   );
 }

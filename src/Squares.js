@@ -2,14 +2,12 @@ import Ascii from './common/Ascii';
 import Pgn from './common/Pgn';
 import Piece from './common/Piece';
 import AlgebraicNotation from './AlgebraicNotation';
+import * as eventConst from './eventConst';
 
 const Squares = ({
   props,
   filterMove,
-  handleMove,
-  onMouseDown,
-  onDragStart,
-  onDrop
+  handleMove
 }) => {
   const sqs = () => {
     const fen = props.fen[props.fen.length - 1].split(' ');
@@ -72,8 +70,25 @@ const Squares = ({
               isCheck
             ].join(' ')
           }
-          onMouseDown={onMouseDown}
-          onDrop={onDrop}
+          onMouseDown={() => {
+            if (filterMove()) {
+              payload.piecePlaced = {
+                ascii: props?.pieceGrabbed?.ascii,
+                event: eventConst.ON_MOUSE_DOWN
+              };
+              handleMove(payload);
+            }
+          }}
+          onDrop={(ev) => {
+            ev.preventDefault();
+            if (filterMove()) {
+              payload.piecePlaced = {
+                ascii: props?.pieceGrabbed?.ascii,
+                event: eventConst.ON_DROP
+              };
+              handleMove(payload);
+            }
+          }}
           onContextMenu={(ev)=>{
             ev.preventDefault();
             ev.target.classList.toggle('square-right-clicked');
@@ -88,7 +103,12 @@ const Squares = ({
                     ref={el => props.imgsRef.current[payload.sq] = el}
                     src={Piece.unicode[piece].char}
                     draggable={Piece.color(piece) === fen[1] ? true : false}
-                    onDragStart={onDragStart}
+                    onDragStart={() => {
+                      if (filterMove()) {
+                        payload.piecePlaced = { event: eventConst.ON_DRAG_START };
+                        handleMove(payload);
+                      }
+                    }}
                   />
                 : null
             }

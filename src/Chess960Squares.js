@@ -1,6 +1,5 @@
-import { useEffect, useRef } from 'react';
+import { useRef } from 'react';
 import { useMediaQuery } from '@mui/material';
-import Animation from './common/Animation';
 import Squares from './Squares';
 
 const Chess960Squares = ({ props }) => {
@@ -14,13 +13,6 @@ const Chess960Squares = ({ props }) => {
   const sqsRef = useRef([]);
 
   const imgsRef = useRef([]);
-
-  useEffect(() => {
-    new Animation(sqSize, imgsRef, sqsRef).piece();
-  }, [
-    props.fen,
-    sqSize
-  ]);
 
   return (
     <Squares

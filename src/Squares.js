@@ -69,13 +69,13 @@ const Squares = ({ props }) => {
             ].join(' ')
           }
           onMouseDown={() => {
-            if (filterMove()) {
+            if (props.filterMove()) {
               // TODO
             }
           }}
           onDrop={(ev) => {
             ev.preventDefault();
-            if (filterMove()) {
+            if (props.filterMove()) {
               // TODO
             }
           }}
@@ -94,7 +94,7 @@ const Squares = ({ props }) => {
                     src={Piece.unicode[piece].char}
                     draggable={Piece.color(piece) === fen[1] ? true : false}
                     onDragStart={() => {
-                      if (filterMove()) {
+                      if (props.filterMove()) {
                         // TODO
                       }
                     }}

@@ -8,7 +8,7 @@ import * as modeConst from 'features/mode/modeConst';
 import * as variantConst from 'features/mode/variantConst';
 import Ws from 'features/ws/Ws';
 
-const ActiveBoard = () => {
+const ActiveSquares = () => {
   const stateActiveMode = useSelector(state => Object.values(state).find((val, key) => val.active));
 
   const dispatch = useDispatch();
@@ -28,4 +28,4 @@ const ActiveBoard = () => {
   return <ClassicalSquares />;
 }
 
-export default ActiveBoard;
+export default ActiveSquares;

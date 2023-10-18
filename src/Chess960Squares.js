@@ -1,17 +1,9 @@
 import { useEffect, useRef } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from '@mui/material';
-import Animation from 'common/Animation';
-import Piece from 'common/Piece';
-import * as board from 'features/board/boardSlice';
-import Squares from 'features/board/Squares';
-import Ws from 'features/ws/Ws';
+import Animation from './common/Animation';
+import Squares from './Squares';
 
-const Chess960Squares = () => {
-  const state = useSelector(state => state.board);
-
-  const dispatch = useDispatch();
-
+const Chess960Squares = ({ props }) => {
   const maxWidth = {
     '600': useMediaQuery("(max-width:600px)"),
     '900': useMediaQuery("(max-width:900px)")
@@ -26,34 +18,18 @@ const Chess960Squares = () => {
   useEffect(() => {
     new Animation(sqSize, imgsRef, sqsRef).piece();
   }, [
-    state.fen,
+    props.fen,
     sqSize
   ]);
 
   return (
-    <Squares props={{
-      className: 'classicalSquares',
-      imgsRef: imgsRef,
-      sqsRef: sqsRef,
-      handleMove: (payload) => {
-        if (state.turn === Piece.color(payload.piece)) {
-          // allow the king to be dropped into the castling rook
-          if (state.pieceGrabbed?.fen) {
-            if (Object.keys(state.pieceGrabbed.fen).includes(payload.sq)) {
-              dispatch(board.placePiece(payload));
-            } else {
-              dispatch(board.grabPiece(payload));
-              Ws.legal(payload.sq);
-            }
-          } else {
-            dispatch(board.grabPiece(payload));
-            Ws.legal(payload.sq);
-          }
-        } else {
-          dispatch(board.placePiece(payload));
-        }
-      }
-    }} />
+    <Squares
+      props={{
+        className: 'classicalSquares',
+        imgsRef: imgsRef,
+        sqsRef: sqsRef,
+      }}
+    />
   );
 }
 

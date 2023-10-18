@@ -45,11 +45,11 @@ const Squares = ({ props }) => {
             }
           }
         } else if (stateBoard.isCheck) {
-          if (stateBoard.turn === Pgn.symbol.WHITE) {
+          if (fen[1] === Pgn.symbol.WHITE) {
             if (piece === ' K ') {
               isCheck = 'isCheck';
             }
-          } else if (stateBoard.turn === Pgn.symbol.BLACK) {
+          } else if (fen[1] === Pgn.symbol.BLACK) {
             if (piece === ' k ') {
               isCheck = 'isCheck';
             }
@@ -92,7 +92,7 @@ const Squares = ({ props }) => {
                     alt={Piece.unicode[piece].char}
                     ref={el => props.imgsRef.current[payload.sq] = el}
                     src={Piece.unicode[piece].char}
-                    draggable={Piece.color(piece) === stateBoard.turn ? true : false}
+                    draggable={Piece.color(piece) === fen[1] ? true : false}
                     onDragStart={() => {
                       if (filterMove()) {
                         // TODO

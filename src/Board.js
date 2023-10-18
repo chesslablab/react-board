@@ -1,7 +1,7 @@
-import ActiveSquares from 'features/board/ActiveSquares';
-import PawnPromotionDialog from 'features/board/PawnPromotionDialog';
-import ResizeSlider from 'features/board/ResizeSlider';
-import BoardAudio from 'features/board/BoardAudio';
+import ActiveSquares from './ActiveSquares';
+import PawnPromotionDialog from './PawnPromotionDialog';
+import ResizeSlider from './ResizeSlider';
+import BoardAudio from './BoardAudio';
 
 const Board = () => {
   return (

@@ -78,21 +78,13 @@ const Squares = ({props}) => {
           }
           onMouseDown={() => {
             if (filterMove()) {
-              payload.piecePlaced = {
-                ascii: stateBoard?.pieceGrabbed?.ascii,
-                event: eventConst.ON_MOUSE_DOWN
-              };
-              props.handleMove(payload);
+              // TODO
             }
           }}
           onDrop={(ev) => {
             ev.preventDefault();
             if (filterMove()) {
-              payload.piecePlaced = {
-                ascii: stateBoard?.pieceGrabbed?.ascii,
-                event: eventConst.ON_DROP
-              };
-              props.handleMove(payload);
+              // TODO
             }
           }}
           onContextMenu={(ev)=>{
@@ -111,8 +103,7 @@ const Squares = ({props}) => {
                     draggable={Piece.color(piece) === stateBoard.turn ? true : false}
                     onDragStart={() => {
                       if (filterMove()) {
-                        payload.piecePlaced = { event: eventConst.ON_DRAG_START };
-                        props.handleMove(payload);
+                        // TODO
                       }
                     }}
                   />

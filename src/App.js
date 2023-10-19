@@ -2,7 +2,7 @@ import { useState } from 'react';
 import Ascii from './common/Ascii';
 import Pgn from './common/Pgn';
 import Piece from './common/Piece';
-import ClassicalSquares from './ClassicalSquares';
+import Board from './Board';
 import * as variantConst from './variantConst';
 
 function App() {
@@ -67,7 +67,7 @@ function App() {
   };
 
   return (
-    <ClassicalSquares
+    <Board
       props={state}
       filterMove={filterMove}
       handleMove={handleMove}

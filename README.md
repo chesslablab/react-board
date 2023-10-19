@@ -7,7 +7,7 @@ An easy-to-use React chessboard.
 ```js
 import Ascii from './common/Ascii';
 import Pgn from './common/Pgn';
-import ClassicalSquares from './ClassicalSquares';
+import Board from './Board';
 import * as variantConst from './variantConst';
 
 function App() {
@@ -59,7 +59,7 @@ function App() {
   };
 
   return (
-    <ClassicalSquares
+    <Board
       props={initialState}
       filterMove={filterMove}
       handleMove={handleMove}

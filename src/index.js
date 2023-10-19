@@ -1,17 +1,46 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
+import CapablancaFischerSquares from './CapablancaFischerSquares';
+import CapablancaSquares from './CapablancaSquares';
+import Chess960Squares from './Chess960Squares';
+import ClassicalSquares from './ClassicalSquares';
 import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import * as variantConst from './variantConst';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+export const Board = ({
+  props,
+  filterMove,
+  handleMove
+}) => {
+  if (props.variant === variantConst.CAPABLANCA_FISCHER) {
+    return (
+      <CapablancaFischerSquares
+        props={props}
+        filterMove={filterMove}
+        handleMove={handleMove}
+      />
+    );
+  } else if (props.variant === variantConst.CAPABLANCA) {
+    return (
+      <CapablancaSquares
+        props={props}
+        filterMove={filterMove}
+        handleMove={handleMove}
+      />
+    );
+  } else if (props.variant === variantConst.CHESS_960) {
+    return (
+      <Chess960Squares
+        props={props}
+        filterMove={filterMove}
+        handleMove={handleMove}
+      />
+    );
+  }
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  return (
+    <ClassicalSquares
+      props={props}
+      filterMove={filterMove}
+      handleMove={handleMove}
+    />
+  );
+}

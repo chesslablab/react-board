@@ -3,6 +3,9 @@ import SvgBlackBishop from 'features/board/piece/SvgBlackBishop';
 import SvgBlackChancellor from 'features/board/piece/SvgBlackChancellor';
 import SvgBlackKing from 'features/board/piece/SvgBlackKing';
 import SvgBlackKnight from 'features/board/piece/SvgBlackKnight';
+import SvgBlackPawn from 'features/board/piece/SvgBlackPawn';
+import SvgBlackQueen from 'features/board/piece/SvgBlackQueen';
+import SvgBlackRook from 'features/board/piece/SvgBlackRook';
 
 export const Svg = ({ props }) => {
   if (props.unicode === ' a ') {
@@ -25,8 +28,19 @@ export const Svg = ({ props }) => {
     return (
       <SvgBlackKnight />
     );
+  } else if (props.unicode === ' p ') {
+    return (
+      <SvgBlackPawn />
+    );
+  } else if (props.unicode === ' q ') {
+    return (
+      <SvgBlackQueen />
+    );
+  } else if (props.unicode === ' r ') {
+    return (
+      <SvgBlackRook />
+    );
   }
-
 
   return null;
 }

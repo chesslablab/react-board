@@ -6,18 +6,12 @@ const ClassicalSquares = ({
   filterMove,
   handleMove
 }) => {
-  const sqsRef = useRef([]);
-
-  const imgsRef = useRef([]);
-
   return (
     <Squares
       props={{
         ...props,
         ...{
           className: 'classicalSquares',
-          imgsRef: imgsRef,
-          sqsRef: sqsRef,
         },
       }}
       filterMove={filterMove}

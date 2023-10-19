@@ -1,17 +1,19 @@
-import SvgBlackArchbishop from 'features/board/piece/SvgBlackArchbishop';
-import SvgBlackBishop from 'features/board/piece/SvgBlackBishop';
-import SvgBlackChancellor from 'features/board/piece/SvgBlackChancellor';
-import SvgBlackKing from 'features/board/piece/SvgBlackKing';
-import SvgBlackKnight from 'features/board/piece/SvgBlackKnight';
-import SvgBlackPawn from 'features/board/piece/SvgBlackPawn';
-import SvgBlackQueen from 'features/board/piece/SvgBlackQueen';
-import SvgBlackRook from 'features/board/piece/SvgBlackRook';
-import SvgWhiteArchbishop from 'features/board/piece/SvgWhiteArchbishop';
-import SvgWhiteBishop from 'features/board/piece/SvgWhiteBishop';
-import SvgWhiteChancellor from 'features/board/piece/SvgWhiteChancellor';
-import SvgWhiteKing from 'features/board/piece/SvgWhiteKing';
-import SvgWhiteKnight from 'features/board/piece/SvgWhiteKnight';
-import SvgWhitePawn from 'features/board/piece/SvgWhitePawn';
+import SvgBlackArchbishop from './SvgBlackArchbishop';
+import SvgBlackBishop from './SvgBlackBishop';
+import SvgBlackChancellor from './SvgBlackChancellor';
+import SvgBlackKing from './SvgBlackKing';
+import SvgBlackKnight from './SvgBlackKnight';
+import SvgBlackPawn from './SvgBlackPawn';
+import SvgBlackQueen from './SvgBlackQueen';
+import SvgBlackRook from './SvgBlackRook';
+import SvgWhiteArchbishop from './SvgWhiteArchbishop';
+import SvgWhiteBishop from './SvgWhiteBishop';
+import SvgWhiteChancellor from './SvgWhiteChancellor';
+import SvgWhiteKing from './SvgWhiteKing';
+import SvgWhiteKnight from './SvgWhiteKnight';
+import SvgWhitePawn from './SvgWhitePawn';
+import SvgWhiteQueen from './SvgWhiteQueen';
+import SvgWhiteRook from './SvgWhiteRook';
 
 export const Svg = ({ props }) => {
   if (props.unicode === ' a ') {
@@ -69,6 +71,14 @@ export const Svg = ({ props }) => {
   } else if (props.unicode === ' P ') {
     return (
       <SvgWhitePawn />
+    );
+  } else if (props.unicode === ' Q ') {
+    return (
+      <SvgWhiteQueen />
+    );
+  } else if (props.unicode === ' R ') {
+    return (
+      <SvgWhiteRook />
     );
   }
 

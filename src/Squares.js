@@ -1,6 +1,6 @@
 import Ascii from './common/Ascii';
 import Pgn from './common/Pgn';
-import Piece from './common/Piece';
+import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';
 import * as eventConst from './eventConst';
 
@@ -96,22 +96,7 @@ const Squares = ({
           onDragOver={(ev) => {
             ev.preventDefault();
           }}>
-            {
-              Piece.unicode[piece].char
-                ? <img
-                    alt={Piece.unicode[piece].char}
-                    ref={el => props.imgsRef.current[payload.sq] = el}
-                    src={Piece.unicode[piece].char}
-                    draggable={Piece.color(piece) === fen[1] ? true : false}
-                    onDragStart={() => {
-                      if (filterMove()) {
-                        payload.piecePlaced = { event: eventConst.ON_DRAG_START };
-                        handleMove(payload);
-                      }
-                    }}
-                  />
-                : null
-            }
+            <SvgPiece.Svg props={{ unicode: piece }} />
             <AlgebraicNotation props={payload} size={props.size} />
         </div>
       });

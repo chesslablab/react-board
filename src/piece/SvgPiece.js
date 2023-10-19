@@ -6,6 +6,12 @@ import SvgBlackKnight from 'features/board/piece/SvgBlackKnight';
 import SvgBlackPawn from 'features/board/piece/SvgBlackPawn';
 import SvgBlackQueen from 'features/board/piece/SvgBlackQueen';
 import SvgBlackRook from 'features/board/piece/SvgBlackRook';
+import SvgWhiteArchbishop from 'features/board/piece/SvgWhiteArchbishop';
+import SvgWhiteBishop from 'features/board/piece/SvgWhiteBishop';
+import SvgWhiteChancellor from 'features/board/piece/SvgWhiteChancellor';
+import SvgWhiteKing from 'features/board/piece/SvgWhiteKing';
+import SvgWhiteKnight from 'features/board/piece/SvgWhiteKnight';
+import SvgWhitePawn from 'features/board/piece/SvgWhitePawn';
 
 export const Svg = ({ props }) => {
   if (props.unicode === ' a ') {
@@ -39,6 +45,30 @@ export const Svg = ({ props }) => {
   } else if (props.unicode === ' r ') {
     return (
       <SvgBlackRook />
+    );
+  } else if (props.unicode === ' A ') {
+    return (
+      <SvgWhiteArchbishop />
+    );
+  } else if (props.unicode === ' B ') {
+    return (
+      <SvgWhiteBishop />
+    );
+  } else if (props.unicode === ' C ') {
+    return (
+      <SvgWhiteChancellor />
+    );
+  } else if (props.unicode === ' K ') {
+    return (
+      <SvgWhiteKing />
+    );
+  } else if (props.unicode === ' N ') {
+    return (
+      <SvgWhiteKnight />
+    );
+  } else if (props.unicode === ' P ') {
+    return (
+      <SvgWhitePawn />
     );
   }
 

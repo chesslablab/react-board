@@ -4,7 +4,7 @@ import Chess960Squares from './Chess960Squares';
 import ClassicalSquares from './ClassicalSquares';
 import './index.css';
 
-export const CapablancaFischer = ({
+export const CapablancaFischerBoard = ({
   props,
   filterMove,
   handleMove
@@ -18,7 +18,7 @@ export const CapablancaFischer = ({
   );
 }
 
-export const Capablanca = ({
+export const CapablancaBoard = ({
   props,
   filterMove,
   handleMove
@@ -32,7 +32,7 @@ export const Capablanca = ({
   );
 }
 
-export const Chess960 = ({
+export const Chess960Board = ({
   props,
   filterMove,
   handleMove
@@ -46,7 +46,7 @@ export const Chess960 = ({
   );
 }
 
-export const Classical = ({
+export const ClassicalBoard = ({
   props,
   filterMove,
   handleMove

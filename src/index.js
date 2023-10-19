@@ -59,3 +59,5 @@ export const ClassicalBoard = ({
     />
   );
 }
+
+export * from './piece/SvgPiece';

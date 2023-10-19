@@ -60,4 +60,6 @@ export const ClassicalBoard = ({
   );
 }
 
+export * from './common/Ascii';
+
 export * from './piece/SvgPiece';

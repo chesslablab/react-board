@@ -1,4 +1,4 @@
-import Ascii from './common/Ascii';
+import { Ascii } from './common/Ascii';
 import Pgn from './common/Pgn';
 import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';

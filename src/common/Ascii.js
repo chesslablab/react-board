@@ -1,6 +1,6 @@
 import Pgn from './Pgn.js';
 
-export default class Ascii {
+export class Ascii {
   static initialFen = () => {
     return 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -';
   }

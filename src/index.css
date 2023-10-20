@@ -35,30 +35,6 @@
   opacity: 0.75;
 }
 
-.sq svg {
-  width: 100%;
-  position: relative;
-  z-index: 1;
-}
-
-.sq svg[draggable=true] {
-  cursor: grab;
-  cursor: -moz-grab;
-  cursor: -webkit-grab;
-}
-
-.sq svg[draggable=false] {
-  cursor: default;
-}
-
-.sq svg[draggable=true]:active {
-  cursor: grabbing;
-  cursor: -moz-grabbing;
-  cursor: -webkit-grabbing;
-  padding-right: 0.25em;
-  width: 105%;
-}
-
 .sq span.file {
   position: absolute;
   font-weight: bold;

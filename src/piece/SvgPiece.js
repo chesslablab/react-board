@@ -16,9 +16,9 @@ import SvgWhiteQueen from './SvgWhiteQueen';
 import SvgWhiteRook from './SvgWhiteRook';
 
 export const Svg = ({ props }) => {
-  const handlePointerDown = (event) => {
+  const handleMouseDown = (event) => {
     // TODO
-    console.log('pointer down!');
+    console.log('mouse down!');
   }
 
   if (props.unicode === ' a ') {
@@ -75,7 +75,7 @@ export const Svg = ({ props }) => {
     );
   } else if (props.unicode === ' P ') {
     return (
-      <SvgWhitePawn onPointerDown={handlePointerDown} />
+      <SvgWhitePawn onMouseDown={handleMouseDown} />
     );
   } else if (props.unicode === ' Q ') {
     return (

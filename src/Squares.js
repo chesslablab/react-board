@@ -105,7 +105,9 @@ const Squares = ({
           onDragOver={(ev) => {
             ev.preventDefault();
           }}>
-            <SvgPiece.Svg props={{ unicode: piece }} />
+            <SvgPiece.Svg
+              piece={piece}
+            />
             <AlgebraicNotation props={payload} size={props.size} />
         </div>
       });

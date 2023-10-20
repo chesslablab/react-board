@@ -15,103 +15,103 @@ import SvgWhitePawn from './SvgWhitePawn';
 import SvgWhiteQueen from './SvgWhiteQueen';
 import SvgWhiteRook from './SvgWhiteRook';
 
-export const Svg = ({ props }) => {
+export const Svg = ({ piece }) => {
   const handleMouseDown = (event) => {
     // TODO
     console.log('mouse down!');
   }
 
-  if (props.unicode === ' a ') {
+  if (piece === ' a ') {
     return (
       <SvgBlackArchbishop
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' b ') {
+  } else if (piece === ' b ') {
     return (
       <SvgBlackBishop
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' c ') {
+  } else if (piece === ' c ') {
     return (
       <SvgBlackChancellor
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' k ') {
+  } else if (piece === ' k ') {
     return (
       <SvgBlackKing
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' n ') {
+  } else if (piece === ' n ') {
     return (
       <SvgBlackKnight
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' p ') {
+  } else if (piece === ' p ') {
     return (
       <SvgBlackPawn
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' q ') {
+  } else if (piece === ' q ') {
     return (
       <SvgBlackQueen
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' r ') {
+  } else if (piece === ' r ') {
     return (
       <SvgBlackRook
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' A ') {
+  } else if (piece === ' A ') {
     return (
       <SvgWhiteArchbishop
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' B ') {
+  } else if (piece === ' B ') {
     return (
       <SvgWhiteBishop
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' C ') {
+  } else if (piece === ' C ') {
     return (
       <SvgWhiteChancellor
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' K ') {
+  } else if (piece === ' K ') {
     return (
       <SvgWhiteKing
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' N ') {
+  } else if (piece === ' N ') {
     return (
       <SvgWhiteKnight
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' P ') {
+  } else if (piece === ' P ') {
     return (
       <SvgWhitePawn
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' Q ') {
+  } else if (piece === ' Q ') {
     return (
       <SvgWhiteQueen
         onMouseDown={handleMouseDown}
       />
     );
-  } else if (props.unicode === ' R ') {
+  } else if (piece === ' R ') {
     return (
       <SvgWhiteRook
         onMouseDown={handleMouseDown}

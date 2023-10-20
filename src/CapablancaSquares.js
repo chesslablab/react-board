@@ -2,6 +2,7 @@ import Squares from './Squares';
 
 const CapablancaSquares = ({
   stateBoard,
+  goBack,
   filterMove,
   handleMove
 }) => {
@@ -9,6 +10,7 @@ const CapablancaSquares = ({
     <Squares
       className="capablancaSquares"
       stateBoard={stateBoard}
+      goBack={goBack}
       filterMove={filterMove}
       handleMove={handleMove}
     />

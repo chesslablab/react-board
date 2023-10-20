@@ -4,12 +4,14 @@ import './index.css';
 
 export const CapablancaBoard = ({
   stateBoard,
+  goBack,
   filterMove,
   handleMove
 }) => {
   return (
     <CapablancaSquares
       stateBoard={stateBoard}
+      goBack={goBack}
       filterMove={filterMove}
       handleMove={handleMove}
     />
@@ -18,12 +20,14 @@ export const CapablancaBoard = ({
 
 export const ClassicalBoard = ({
   stateBoard,
+  goBack,
   filterMove,
   handleMove
 }) => {
   return (
     <ClassicalSquares
       stateBoard={stateBoard}
+      goBack={goBack}
       filterMove={filterMove}
       handleMove={handleMove}
     />

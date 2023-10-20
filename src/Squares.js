@@ -5,11 +5,12 @@ import AlgebraicNotation from './AlgebraicNotation';
 const Squares = ({
   className,
   stateBoard,
+  goBack,
   filterMove,
   handleMove
 }) => {
   const sqs = () => {
-    const fen = stateBoard.fen[stateBoard.fen.length - 1].split(' ');
+    const fen = stateBoard.fen[stateBoard.fen.length - 1 + goBack].split(' ');
     const ascii = Ascii.toAscii(fen[0]);
     return Ascii.flip(
       stateBoard.flip,

@@ -21,11 +21,6 @@ export const Svg = ({ props }) => {
     console.log('mouse down!');
   }
 
-  const handleMouseUp = (event) => {
-    // TODO
-    console.log('mouse up!');
-  }
-
   if (props.unicode === ' a ') {
     return (
       <SvgBlackArchbishop />
@@ -82,7 +77,6 @@ export const Svg = ({ props }) => {
     return (
       <SvgWhitePawn
         onMouseDown={handleMouseDown}
-        onMouseUp={handleMouseUp}
       />
     );
   } else if (props.unicode === ' Q ') {

@@ -14,6 +14,11 @@ const Squares = ({
     console.log('mouse move!');
   }
 
+  const handleMouseUp = (event) => {
+    // TODO
+    console.log('mouse up!');
+  }
+
   const sqs = () => {
     const fen = props.fen[props.fen.length - 1].split(' ');
     const ascii = Ascii.toAscii(fen[0]);
@@ -111,6 +116,7 @@ const Squares = ({
     <div
       className={[props.className].join(' ')}
       onMouseMove={handleMouseMove}
+      onMouseUp={handleMouseUp}
     >
       {sqs()}
     </div>

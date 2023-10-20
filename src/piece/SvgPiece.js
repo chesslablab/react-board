@@ -1,3 +1,4 @@
+import Pgn from '../common/Pgn.js';
 import SvgBlackArchbishop from './SvgBlackArchbishop';
 import SvgBlackBishop from './SvgBlackBishop';
 import SvgBlackChancellor from './SvgBlackChancellor';
@@ -86,14 +87,14 @@ export const Svg = ({ piece }) => {
 }
 
 export const color = (piece) => {
-  const pieces = {
-    'w': [' A ', ' B ', ' C ', ' K ', ' N ', ' P ', ' Q ', ' R '],
-    'b': [' a ', ' b ', ' c ', ' k ', ' n ', ' p ', ' q ', ' r ']
-  };
-  if (pieces['w'].includes(piece)) {
-    return 'w';
-  } else if (pieces['b'].includes(piece)) {
-    return 'b';
+  const wPieces = [' A ', ' B ', ' C ', ' K ', ' N ', ' P ', ' Q ', ' R '];
+
+  const bPieces = [' a ', ' b ', ' c ', ' k ', ' n ', ' p ', ' q ', ' r '];
+  
+  if (wPieces.includes(piece)) {
+    return Pgn.symbol.WHITE;
+  } else if (bPieces.includes(piece)) {
+    return Pgn.symbol.BLACK;
   }
 
   return null;

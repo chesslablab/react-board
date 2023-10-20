@@ -23,55 +23,81 @@ export const Svg = ({ props }) => {
 
   if (props.unicode === ' a ') {
     return (
-      <SvgBlackArchbishop />
+      <SvgBlackArchbishop
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' b ') {
     return (
-      <SvgBlackBishop />
+      <SvgBlackBishop
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' c ') {
     return (
-      <SvgBlackChancellor />
+      <SvgBlackChancellor
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' k ') {
     return (
-      <SvgBlackKing />
+      <SvgBlackKing
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' n ') {
     return (
-      <SvgBlackKnight />
+      <SvgBlackKnight
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' p ') {
     return (
-      <SvgBlackPawn />
+      <SvgBlackPawn
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' q ') {
     return (
-      <SvgBlackQueen />
+      <SvgBlackQueen
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' r ') {
     return (
-      <SvgBlackRook />
+      <SvgBlackRook
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' A ') {
     return (
-      <SvgWhiteArchbishop />
+      <SvgWhiteArchbishop
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' B ') {
     return (
-      <SvgWhiteBishop />
+      <SvgWhiteBishop
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' C ') {
     return (
-      <SvgWhiteChancellor />
+      <SvgWhiteChancellor
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' K ') {
     return (
-      <SvgWhiteKing />
+      <SvgWhiteKing
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' N ') {
     return (
-      <SvgWhiteKnight />
+      <SvgWhiteKnight
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' P ') {
     return (
@@ -81,11 +107,15 @@ export const Svg = ({ props }) => {
     );
   } else if (props.unicode === ' Q ') {
     return (
-      <SvgWhiteQueen />
+      <SvgWhiteQueen
+        onMouseDown={handleMouseDown}
+      />
     );
   } else if (props.unicode === ' R ') {
     return (
-      <SvgWhiteRook />
+      <SvgWhiteRook
+        onMouseDown={handleMouseDown}
+      />
     );
   }
 

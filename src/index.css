@@ -35,23 +35,23 @@
   opacity: 0.75;
 }
 
-.sq img {
+.sq svg {
   width: 100%;
   position: relative;
   z-index: 1;
 }
 
-.sq img[draggable=true] {
+.sq svg[draggable=true] {
   cursor: grab;
   cursor: -moz-grab;
   cursor: -webkit-grab;
 }
 
-.sq img[draggable=false] {
+.sq svg[draggable=false] {
   cursor: default;
 }
 
-.sq img[draggable=true]:active {
+.sq svg[draggable=true]:active {
   cursor: grabbing;
   cursor: -moz-grabbing;
   cursor: -webkit-grabbing;
@@ -170,7 +170,7 @@
 .past {
 }
 
-img,
+svg,
 .noTextSelection,
 .classicalSquares,
 .capablancaSquares {

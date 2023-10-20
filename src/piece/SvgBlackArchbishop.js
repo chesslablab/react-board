@@ -1,5 +1,5 @@
-const SvgBlackArchbishop = (props) => (
-  <svg xmlns="http://www.w3.org/2000/svg" width={45} height={45} {...props}>
+const SvgBlackArchbishop = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="100%" height="100%">
     <path
       fillRule="evenodd"
       stroke="#000"

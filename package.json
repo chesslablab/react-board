@@ -13,7 +13,8 @@
   "unpkg": "./dist/index.umd.js",
   "scripts": {
     "build": "microbundle --no-compress --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react --globals react/jsx-runtime=jsx",
-    "dev": "microbundle watch"
+    "dev": "microbundle watch",
+    "test": "react-scripts test"
   },
   "devDependencies": {
     "microbundle": "^0.15.1"

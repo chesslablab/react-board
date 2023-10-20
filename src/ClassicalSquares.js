@@ -1,4 +1,3 @@
-import { useRef } from 'react';
 import Squares from './Squares';
 
 const ClassicalSquares = ({

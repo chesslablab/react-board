@@ -15,7 +15,12 @@ const SvgBlackArchbishop = (props) => (
       d="M30 32c-2.5 2.5-12.5 2.5-15 0-.5-1.5 0-2 0-2h15s.5.5 0 2z"
     />
     <path fill="none" stroke="#000" strokeWidth={1.5} d="M30 30H15" />
-    <g strokeLinecap="round">
+    <g
+      strokeLinecap="round"
+      style={{
+        cursor: "grab",
+      }}
+    >
       <path
         fillRule="evenodd"
         stroke="#000"

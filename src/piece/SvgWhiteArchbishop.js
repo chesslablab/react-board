@@ -1,6 +1,11 @@
 const SvgWhiteArchbishop = (props) => (
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 45 45" width="100%" height="100%" {...props}>
-    <g stroke="#000">
+    <g
+      stroke="#000"
+      style={{
+        cursor: "grab",
+      }}
+    >
       <path
         fill="#fff"
         fillRule="evenodd"

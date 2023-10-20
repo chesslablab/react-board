@@ -22,7 +22,12 @@ const SvgBlackChancellor = (props) => (
       d="M31.553 32.109v-2.115H13.448v2.115"
     />
     <path fill="none" stroke="#fff" strokeLinecap="round" d="M11 34.82h23" />
-    <g strokeLinecap="round">
+    <g
+      strokeLinecap="round"
+      style={{
+        cursor: "grab",
+      }}
+    >
       <path
         fillRule="evenodd"
         stroke="#000"

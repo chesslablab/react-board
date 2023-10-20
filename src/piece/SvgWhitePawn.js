@@ -14,6 +14,7 @@ const SvgWhitePawn = (props) => (
         strokeMiterlimit: 4,
         strokeDasharray: "none",
         strokeOpacity: 1,
+        cursor: "grab",
       }}
     />
   </svg>

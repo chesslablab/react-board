@@ -7,6 +7,7 @@ const SvgBlackQueen = (props) => (
         strokeWidth: 1.5,
         strokeLinecap: "round",
         strokeLinejoin: "round",
+        cursor: "grab",
       }}
     >
       <path

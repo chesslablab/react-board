@@ -21,6 +21,11 @@ export const Svg = ({ props }) => {
     console.log('mouse down!');
   }
 
+  const handleMouseMove = (event) => {
+    // TODO
+    console.log('mouse move!');
+  }
+
   if (props.unicode === ' a ') {
     return (
       <SvgBlackArchbishop />
@@ -75,7 +80,10 @@ export const Svg = ({ props }) => {
     );
   } else if (props.unicode === ' P ') {
     return (
-      <SvgWhitePawn onMouseDown={handleMouseDown} />
+      <SvgWhitePawn
+        onMouseDown={handleMouseDown}
+        onMouseMove={handleMouseMove} 
+      />
     );
   } else if (props.unicode === ' Q ') {
     return (

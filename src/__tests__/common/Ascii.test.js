@@ -1,5 +1,5 @@
 import { Ascii } from '../../common/Ascii';
-import Pgn from '../../common/Pgn';
+import { Pgn } from '../../common/Pgn';
 
 describe('toFen()', () => {
   it('is a classical starting position', () => {

@@ -1,4 +1,4 @@
-import Pgn from '../common/Pgn.js';
+import { Pgn } from '../common/Pgn.js';
 import SvgBlackArchbishop from './SvgBlackArchbishop';
 import SvgBlackBishop from './SvgBlackBishop';
 import SvgBlackChancellor from './SvgBlackChancellor';

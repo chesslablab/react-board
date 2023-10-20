@@ -1,4 +1,4 @@
-export default class Pgn {
+export class Pgn {
   static symbol = {
       WHITE: 'w',
       BLACK: 'b',

@@ -1,4 +1,4 @@
-import Pgn from './common/Pgn';
+import { Pgn } from './common/Pgn';
 
 const AlgebraicNotation = ({ props, size }) => {
   const spans = [];

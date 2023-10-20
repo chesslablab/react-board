@@ -1,4 +1,4 @@
-import Pgn from './Pgn.js';
+import { Pgn } from './Pgn.js';
 
 export class Ascii {
   static initialFen = () => {

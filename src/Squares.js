@@ -1,5 +1,4 @@
 import { Ascii } from './common/Ascii';
-import { Pgn } from './common/Pgn';
 import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';
 import * as eventConst from './eventConst';
@@ -19,8 +18,7 @@ const Squares = ({
       return rank.map((piece, j) => {
         let payload = { piece: piece };
         let isLegal, isSelected, isCheck = '';
-        let color = (i + j) % 2 !== 0 ? Pgn.symbol.BLACK : Pgn.symbol.WHITE;
-        props.flip === Pgn.symbol.WHITE
+        props.flip === 'w'
           ? payload = {
               ...payload,
               i: i,
@@ -47,11 +45,11 @@ const Squares = ({
             }
           }
         } else if (props.isCheck) {
-          if (fen[1] === Pgn.symbol.WHITE) {
+          if (fen[1] === 'w') {
             if (piece === ' K ') {
               isCheck = 'isCheck';
             }
-          } else if (fen[1] === Pgn.symbol.BLACK) {
+          } else if (fen[1] === 'b') {
             if (piece === ' k ') {
               isCheck = 'isCheck';
             }
@@ -62,7 +60,7 @@ const Squares = ({
           key={payload.sq}
           className={[
               'sq',
-              color,
+              (i + j) % 2 !== 0 ? 'b' : 'w',
               payload.sq,
               isLegal,
               isSelected,

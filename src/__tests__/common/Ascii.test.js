@@ -1,5 +1,4 @@
 import { Ascii } from '../../common/Ascii';
-import { Pgn } from '../../common/Pgn';
 
 describe('toFen()', () => {
   it('is a classical starting position', () => {
@@ -110,7 +109,7 @@ describe('flip()', () => {
       [ ' R ', ' N ', ' B ', ' Q ', ' K ', ' B ', ' N ', ' R ' ]
     ];
     const expected = board;
-    expect(Ascii.flip(Pgn.symbol.WHITE, board)).toEqual(expected);
+    expect(Ascii.flip('w', board)).toEqual(expected);
   });
   it('is a capablanca starting position for White', () => {
     const board = [
@@ -124,7 +123,7 @@ describe('flip()', () => {
       [ ' R ', ' N ', ' A ', ' B ', ' Q ', ' K ', ' B ', ' C ', ' N ', ' R ' ]
     ];
     const expected = board;
-    expect(Ascii.flip(Pgn.symbol.WHITE, board)).toEqual(expected);
+    expect(Ascii.flip('w', board)).toEqual(expected);
   });
   it('is a starting position for Black', () => {
     const board = [
@@ -147,7 +146,7 @@ describe('flip()', () => {
       [ ' p ', ' p ', ' p ', ' p ', ' p ', ' p ', ' p ', ' p ' ],
       [ ' r ', ' n ', ' b ', ' k ', ' q ', ' b ', ' n ', ' r ' ]
     ];
-    expect(Ascii.flip(Pgn.symbol.BLACK, board)).toEqual(expected);
+    expect(Ascii.flip('b', board)).toEqual(expected);
   });
   it('is a capablanca starting position for Black', () => {
     const board = [
@@ -170,7 +169,7 @@ describe('flip()', () => {
       [ ' p ', ' p ', ' p ', ' p ', ' p ', ' p ', ' p ', ' p ', ' p ', ' p ' ],
       [ ' r ', ' n ', ' c ', ' b ', ' k ', ' q ', ' b ', ' a ', ' n ', ' r ' ]
     ];
-    expect(Ascii.flip(Pgn.symbol.BLACK, board)).toEqual(expected);
+    expect(Ascii.flip('b', board)).toEqual(expected);
   });
   it('is the Sicilian Defense for White', () => {
     const board = [
@@ -184,7 +183,7 @@ describe('flip()', () => {
       [ ' R ', ' N ', ' B ', ' Q ', ' K ', ' B ', ' N ', ' R ' ]
     ];
     const expected = board;
-    expect(Ascii.flip(Pgn.symbol.WHITE, board)).toEqual(expected);
+    expect(Ascii.flip('w', board)).toEqual(expected);
   });
   it('is the Sicilian Defense for Black', () => {
     const board = [
@@ -207,7 +206,7 @@ describe('flip()', () => {
       [ ' p ', ' p ', ' p ', ' p ', ' p ', ' . ', ' p ', ' p ' ],
       [ ' r ', ' n ', ' b ', ' k ', ' q ', ' b ', ' n ', ' r ' ]
     ];
-    expect(Ascii.flip(Pgn.symbol.BLACK, board)).toEqual(expected);
+    expect(Ascii.flip('b', board)).toEqual(expected);
   });
 });
 

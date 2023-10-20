@@ -1,5 +1,3 @@
-import { Pgn } from './Pgn.js';
-
 export class Ascii {
   static initialFen = () => {
     return 'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -';
@@ -33,7 +31,7 @@ export class Ascii {
   }
 
   static flip = (color, ascii) => {
-    if (color === Pgn.symbol.BLACK) {
+    if (color === 'b') {
       let flipped = ascii.map(rank => new Array(rank.length));
       const nFiles = ascii[0].length;
       const nRanks = ascii.length;
@@ -119,14 +117,14 @@ export class Ascii {
 
   static xAxisSign = (a, b, color, flip) => {
     const sign =  Math.sign(a.charCodeAt(0) - b.charCodeAt(0));
-    if (color === Pgn.symbol.WHITE) {
-      if (flip === Pgn.symbol.WHITE) {
+    if (color === 'w') {
+      if (flip === 'w') {
         return -sign;
       } else {
         return sign;
       }
     } else {
-      if (flip === Pgn.symbol.WHITE) {
+      if (flip === 'w') {
         return -sign;
       } else {
         return sign;
@@ -136,14 +134,14 @@ export class Ascii {
 
   static yAxisSign = (a, b, color, flip) => {
     const sign =  Math.sign(a.charCodeAt(1) - b.charCodeAt(1));
-    if (color === Pgn.symbol.WHITE) {
-      if (flip === Pgn.symbol.WHITE) {
+    if (color === 'w') {
+      if (flip === 'w') {
         return sign;
       } else {
         return -sign;
       }
     } else {
-      if (flip === Pgn.symbol.WHITE) {
+      if (flip === 'w') {
         return sign;
       } else {
         return -sign;

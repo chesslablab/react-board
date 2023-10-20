@@ -3,47 +3,48 @@ import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';
 
 const Squares = ({
-  props,
+  className,
+  stateBoard,
   filterMove,
   handleMove
 }) => {
   const sqs = () => {
-    const fen = props.fen[props.fen.length - 1].split(' ');
+    const fen = stateBoard.fen[stateBoard.fen.length - 1].split(' ');
     const ascii = Ascii.toAscii(fen[0]);
     return Ascii.flip(
-      props.flip,
+      stateBoard.flip,
       ascii
     ).map((rank, i) => {
       return rank.map((piece, j) => {
         let payload = { piece: piece };
         let isLegal, isSelected, isCheck = '';
-        props.flip === 'w'
+        stateBoard.flip === 'w'
           ? payload = {
               ...payload,
               i: i,
               j: j,
-              sq: Ascii.fromIndexToAlgebraic(i, j, props.size)
+              sq: Ascii.fromIndexToAlgebraic(i, j, stateBoard.size)
             }
           : payload = {
             ...payload,
-            i: props.size.ranks - 1 - i,
-            j: props.size.files - 1 - j,
+            i: stateBoard.size.ranks - 1 - i,
+            j: stateBoard.size.files - 1 - j,
             sq: Ascii.fromIndexToAlgebraic(
-              props.size.ranks - 1 - i,
-              props.size.files - 1 - j,
-              props.size
+              stateBoard.size.ranks - 1 - i,
+              stateBoard.size.files - 1 - j,
+              stateBoard.size
             )
           };
-        if (props.pieceGrabbed) {
-          if (props.pieceGrabbed.sq === payload.sq) {
+        if (stateBoard.pieceGrabbed) {
+          if (stateBoard.pieceGrabbed.sq === payload.sq) {
             isSelected = 'isSelected';
           }
-          if (props.pieceGrabbed.fen) {
-            if (Object.keys(props.pieceGrabbed.fen).includes(payload.sq)) {
+          if (stateBoard.pieceGrabbed.fen) {
+            if (Object.keys(stateBoard.pieceGrabbed.fen).includes(payload.sq)) {
               isLegal = 'isLegal';
             }
           }
-        } else if (props.isCheck) {
+        } else if (stateBoard.isCheck) {
           if (fen[1] === 'w') {
             if (piece === ' K ') {
               isCheck = 'isCheck';
@@ -69,7 +70,7 @@ const Squares = ({
           onMouseDown={() => {
             if (filterMove()) {
               payload.piecePlaced = {
-                ascii: props?.pieceGrabbed?.ascii,
+                ascii: stateBoard?.pieceGrabbed?.ascii,
               };
               handleMove(payload);
             }
@@ -78,7 +79,7 @@ const Squares = ({
             ev.preventDefault();
             if (filterMove()) {
               payload.piecePlaced = {
-                ascii: props?.pieceGrabbed?.ascii,
+                ascii: stateBoard?.pieceGrabbed?.ascii,
               };
               handleMove(payload);
             }
@@ -93,14 +94,14 @@ const Squares = ({
             <SvgPiece.Svg
               piece={piece}
             />
-            <AlgebraicNotation props={props} payload={payload} />
+            <AlgebraicNotation props={stateBoard} payload={payload} />
         </div>
       });
     });
   }
 
   return (
-    <div className={[props.className].join(' ')}>
+    <div className={[className].join(' ')}>
       {sqs()}
     </div>
   );

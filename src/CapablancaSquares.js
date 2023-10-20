@@ -1,18 +1,14 @@
 import Squares from './Squares';
 
 const CapablancaSquares = ({
-  props,
+  stateBoard,
   filterMove,
   handleMove
 }) => {
   return (
     <Squares
-      props={{
-        ...props,
-        ...{
-          className: 'capablancaSquares',
-        },
-      }}
+      className="capablancaSquares"
+      stateBoard={stateBoard}
       filterMove={filterMove}
       handleMove={handleMove}
     />

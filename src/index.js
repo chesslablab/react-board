@@ -3,13 +3,13 @@ import ClassicalSquares from './ClassicalSquares';
 import './index.css';
 
 export const CapablancaBoard = ({
-  props,
+  stateBoard,
   filterMove,
   handleMove
 }) => {
   return (
     <CapablancaSquares
-      props={props}
+      stateBoard={stateBoard}
       filterMove={filterMove}
       handleMove={handleMove}
     />
@@ -17,13 +17,13 @@ export const CapablancaBoard = ({
 }
 
 export const ClassicalBoard = ({
-  props,
+  stateBoard,
   filterMove,
   handleMove
 }) => {
   return (
     <ClassicalSquares
-      props={props}
+      stateBoard={stateBoard}
       filterMove={filterMove}
       handleMove={handleMove}
     />

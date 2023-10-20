@@ -1,7 +1,6 @@
 import { Ascii } from './common/Ascii';
 import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';
-import * as eventConst from './eventConst';
 
 const Squares = ({
   props,
@@ -71,7 +70,6 @@ const Squares = ({
             if (filterMove()) {
               payload.piecePlaced = {
                 ascii: props?.pieceGrabbed?.ascii,
-                event: eventConst.ON_MOUSE_DOWN
               };
               handleMove(payload);
             }
@@ -81,7 +79,6 @@ const Squares = ({
             if (filterMove()) {
               payload.piecePlaced = {
                 ascii: props?.pieceGrabbed?.ascii,
-                event: eventConst.ON_DROP
               };
               handleMove(payload);
             }

@@ -16,6 +16,11 @@ import SvgWhiteQueen from './SvgWhiteQueen';
 import SvgWhiteRook from './SvgWhiteRook';
 
 export const Svg = ({ props }) => {
+  const handlePointerDown = (event) => {
+    // TODO
+    console.log('pointer down!');
+  }
+
   if (props.unicode === ' a ') {
     return (
       <SvgBlackArchbishop />
@@ -70,7 +75,7 @@ export const Svg = ({ props }) => {
     );
   } else if (props.unicode === ' P ') {
     return (
-      <SvgWhitePawn />
+      <SvgWhitePawn onPointerDown={handlePointerDown} />
     );
   } else if (props.unicode === ' Q ') {
     return (

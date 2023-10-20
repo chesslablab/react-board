@@ -16,106 +16,69 @@ import SvgWhiteQueen from './SvgWhiteQueen';
 import SvgWhiteRook from './SvgWhiteRook';
 
 export const Svg = ({ piece }) => {
-  const handleMouseDown = (event) => {
-    // TODO
-    console.log('mouse down!');
-  }
-
   if (piece === ' a ') {
     return (
-      <SvgBlackArchbishop
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackArchbishop />
     );
   } else if (piece === ' b ') {
     return (
-      <SvgBlackBishop
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackBishop />
     );
   } else if (piece === ' c ') {
     return (
-      <SvgBlackChancellor
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackChancellor />
     );
   } else if (piece === ' k ') {
     return (
-      <SvgBlackKing
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackKing />
     );
   } else if (piece === ' n ') {
     return (
-      <SvgBlackKnight
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackKnight />
     );
   } else if (piece === ' p ') {
     return (
-      <SvgBlackPawn
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackPawn />
     );
   } else if (piece === ' q ') {
     return (
-      <SvgBlackQueen
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackQueen />
     );
   } else if (piece === ' r ') {
     return (
-      <SvgBlackRook
-        onMouseDown={handleMouseDown}
-      />
+      <SvgBlackRook />
     );
   } else if (piece === ' A ') {
     return (
-      <SvgWhiteArchbishop
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhiteArchbishop />
     );
   } else if (piece === ' B ') {
     return (
-      <SvgWhiteBishop
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhiteBishop />
     );
   } else if (piece === ' C ') {
     return (
-      <SvgWhiteChancellor
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhiteChancellor />
     );
   } else if (piece === ' K ') {
     return (
-      <SvgWhiteKing
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhiteKing />
     );
   } else if (piece === ' N ') {
     return (
-      <SvgWhiteKnight
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhiteKnight />
     );
   } else if (piece === ' P ') {
     return (
-      <SvgWhitePawn
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhitePawn />
     );
   } else if (piece === ' Q ') {
     return (
-      <SvgWhiteQueen
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhiteQueen />
     );
   } else if (piece === ' R ') {
     return (
-      <SvgWhiteRook
-        onMouseDown={handleMouseDown}
-      />
+      <SvgWhiteRook />
     );
   }
 

@@ -21,11 +21,6 @@ export const Svg = ({ props }) => {
     console.log('mouse down!');
   }
 
-  const handleMouseMove = (event) => {
-    // TODO
-    console.log('mouse move!');
-  }
-
   const handleMouseUp = (event) => {
     // TODO
     console.log('mouse up!');
@@ -87,7 +82,6 @@ export const Svg = ({ props }) => {
     return (
       <SvgWhitePawn
         onMouseDown={handleMouseDown}
-        onMouseMove={handleMouseMove}
         onMouseUp={handleMouseUp}
       />
     );

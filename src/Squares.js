@@ -96,7 +96,7 @@ const Squares = ({
             <SvgPiece.Svg
               piece={piece}
             />
-            <AlgebraicNotation props={payload} size={props.size} />
+            <AlgebraicNotation props={props} payload={payload} />
         </div>
       });
     });

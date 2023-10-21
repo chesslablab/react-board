@@ -62,6 +62,7 @@ const Squares = ({
         return <div
           key={payload.sq}
           style={{
+            ...styles.sq,
             ...styles[color],
             ...styles[isLegal],
             ...styles[isSelected],

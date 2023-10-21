@@ -19,6 +19,11 @@ const styles = {
     alignContent: "center",
     margin: "0 auto"
   },
+  sq: {
+    position: "relative",
+    textAlign: "center",
+    cursor: "default"
+  },
   w: {
     backgroundColor: '#ffce9e',
   },
@@ -40,7 +45,6 @@ const styles = {
     boxShadow:
       "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d,\n    inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
   },
-  ".sq": { position: "relative", textAlign: "center", cursor: "default" },
   ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },
   ".sq span.file": {
     position: "absolute",

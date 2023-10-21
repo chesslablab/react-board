@@ -20,6 +20,7 @@ const Squares = ({
       return rank.map((piece, j) => {
         let payload = { piece: piece };
         let isLegal, isSelected, isCheck = '';
+        let color = (i + j) % 2 !== 0 ? 'b' : 'w';
         stateBoard.flip === 'w'
           ? payload = {
               ...payload,
@@ -60,9 +61,10 @@ const Squares = ({
 
         return <div
           key={payload.sq}
+          style={styles[color]}
           className={[
               'sq',
-              (i + j) % 2 !== 0 ? 'b' : 'w',
+              color,
               payload.sq,
               isLegal,
               isSelected,

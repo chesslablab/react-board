@@ -9,6 +9,12 @@ const styles = {
     alignContent: "center",
     margin: "0 auto"
   },
+  w: {
+    backgroundColor: '#ffce9e',
+  },
+  b: {
+    backgroundColor: '#d18b47',
+  },
   ".capablancaSquares": {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",

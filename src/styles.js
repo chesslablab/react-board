@@ -1,10 +1,10 @@
-const converted = {
-  ".classicalSquares": {
+const styles = {
+  classicalSquares: {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",
     gridGap: "0",
-    gridTemplateColumns: "repeat(8, [col] calc(var(--slider-value)*0.0500vw))",
-    gridTemplateRows: "repeat(8, [row] calc(var(--slider-value)*0.0500vw))",
+    gridTemplateColumns: "repeat(8, [col] 4vw)",
+    gridTemplateRows: "repeat(8, [row] 4vw)",
     justifyContent: "center",
     alignContent: "center",
     margin: "0 auto"
@@ -98,3 +98,5 @@ const converted = {
     }
   }
 }
+
+export default styles;

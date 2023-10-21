@@ -1,6 +1,7 @@
 import { Ascii } from './common/Ascii';
 import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';
+import styles from './styles';
 
 const Squares = ({
   className,
@@ -102,7 +103,7 @@ const Squares = ({
   }
 
   return (
-    <div className={[className].join(' ')}>
+    <div style={styles.classicalSquares}>
       {sqs()}
     </div>
   );

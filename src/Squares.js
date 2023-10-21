@@ -64,14 +64,11 @@ const Squares = ({
           style={{
             ...styles[color],
             ...styles[isLegal],
-            ...isLegal && {isLegal: styles[isLegal]},
+            ...styles[isSelected],
           }}
           className={[
               'sq',
-              color,
               payload.sq,
-              isLegal,
-              isSelected,
               isCheck
             ].join(' ')
           }

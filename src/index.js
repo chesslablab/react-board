@@ -10,7 +10,15 @@ export const CapablancaBoard = ({
 }) => {
   return (
     <CapablancaSquares
-      stateBoard={stateBoard}
+      stateBoard={{
+        ...stateBoard,
+        ...{
+          size: {
+            files: 10,
+            ranks: 8,
+          }
+        }
+      }}
       goBack={goBack}
       filterMove={filterMove}
       handleMove={handleMove}
@@ -26,7 +34,15 @@ export const ClassicalBoard = ({
 }) => {
   return (
     <ClassicalSquares
-      stateBoard={stateBoard}
+      stateBoard={{
+        ...stateBoard,
+        ...{
+          size: {
+            files: 8,
+            ranks: 8,
+          }
+        }
+      }}
       goBack={goBack}
       filterMove={filterMove}
       handleMove={handleMove}

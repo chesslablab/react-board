@@ -15,12 +15,12 @@ const styles = {
   b: {
     backgroundColor: '#d18b47',
   },
-  ".capablancaSquares": {
+  capablancaSquares: {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",
     gridGap: "0",
-    gridTemplateColumns: "repeat(10, [col] calc(var(--slider-value)*0.0400vw))",
-    gridTemplateRows: "repeat(8, [row] calc(var(--slider-value)*0.0400vw))",
+    gridTemplateColumns: "repeat(10, [col] 3.29vw)",
+    gridTemplateRows: "repeat(8, [row] 3.29vw)",
     justifyContent: "center",
     alignContent: "center",
     margin: "0 auto"
@@ -72,9 +72,6 @@ const styles = {
     boxShadow:
       "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d,\n    inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
   },
-  ".sq.w": { backgroundColor: "#ffce9e" },
-  ".sq.b": { backgroundColor: "#d18b47" },
-  ".past": {},
   "svg,\n.classicalSquares,\n.capablancaSquares": {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",

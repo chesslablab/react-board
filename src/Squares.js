@@ -105,7 +105,7 @@ const Squares = ({
   }
 
   return (
-    <div style={styles.classicalSquares}>
+    <div style={styles[className]}>
       {sqs()}
     </div>
   );

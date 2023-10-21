@@ -9,12 +9,6 @@ const styles = {
     alignContent: "center",
     margin: "0 auto"
   },
-  w: {
-    backgroundColor: '#ffce9e',
-  },
-  b: {
-    backgroundColor: '#d18b47',
-  },
   capablancaSquares: {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",
@@ -24,6 +18,17 @@ const styles = {
     justifyContent: "center",
     alignContent: "center",
     margin: "0 auto"
+  },
+  w: {
+    backgroundColor: '#ffce9e',
+  },
+  b: {
+    backgroundColor: '#d18b47',
+  },
+  isLegal: {
+    boxShadow:
+      "inset -4px 0 0 #ffdd43, inset 0 -4px 0 #ffdd43,\n    inset 4px 0 0 #ffeb8e, inset 0 4px 0 #ffeb8e",
+    cursor: "pointer"
   },
   ".sq": { position: "relative", textAlign: "center", cursor: "default" },
   ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },

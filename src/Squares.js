@@ -61,7 +61,11 @@ const Squares = ({
 
         return <div
           key={payload.sq}
-          style={styles[color]}
+          style={{
+            ...styles[color],
+            ...styles[isLegal],
+            ...isLegal && {isLegal: styles[isLegal]},
+          }}
           className={[
               'sq',
               color,

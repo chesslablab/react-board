@@ -65,11 +65,11 @@ const Squares = ({
             ...styles[color],
             ...styles[isLegal],
             ...styles[isSelected],
+            ...styles[isCheck],
           }}
           className={[
               'sq',
               payload.sq,
-              isCheck
             ].join(' ')
           }
           onMouseDown={() => {

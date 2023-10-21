@@ -36,6 +36,10 @@ const styles = {
     boxShadow:
       "inset -4px 0 0 yellow, inset 0 -4px 0 yellow,\n    inset 4px 0 0 yellow, inset 0 4px 0 yellow"
   },
+  isCheck: {
+    boxShadow:
+      "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d,\n    inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
+  },
   ".sq": { position: "relative", textAlign: "center", cursor: "default" },
   ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },
   ".sq span.file": {
@@ -68,10 +72,6 @@ const styles = {
   ".sq.j3 span,\n.sq.j5 span,\n.sq.j7 span": { color: "#d18b47" },
   ".sq.a2 span,\n.sq.a4 span,\n.sq.a6 span": { color: "#d18b47" },
   ".sq.h7 span,\n.sq.h5 span,\n.sq.h3 span": { color: "#d18b47" },
-  ".sq.isCheck": {
-    boxShadow:
-      "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d,\n    inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
-  },
   "svg,\n.classicalSquares,\n.capablancaSquares": {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",

@@ -1,5 +1,5 @@
 {
-  "name": "react-board",
+  "name": "@chesslablab/react-board",
   "type": "module",
   "version": "0.1.0",
   "description": "An easy-to-use React chessboard.",
@@ -39,5 +39,14 @@
     "react-dom": "^18.2.0",
     "react-scripts": "5.0.1",
     "web-vitals": "^2.1.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chesslablab/react-board.git"
+  },
+  "author": "Jordi Bassagana",
+  "bugs": {
+    "url": "https://github.com/chesslablab/react-board/issues"
+  },
+  "homepage": "https://github.com/chesslablab/react-board#readme"
 }

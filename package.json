@@ -13,6 +13,7 @@
     "state",
     "ui"
   ],
+  "license": "MIT",
   "private": false,
   "source": "src/index.js",
   "exports": {

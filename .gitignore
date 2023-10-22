@@ -6,7 +6,6 @@
 
 # builds
 build
-dist
 .rpt2_cache
 
 # misc

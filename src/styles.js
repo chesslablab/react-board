@@ -1,10 +1,14 @@
+const maxWidth = {
+  '900': window.matchMedia("(max-width:900px)")
+};
+
 const styles = {
   classicalSquares: {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",
     gridGap: "0",
-    gridTemplateColumns: "repeat(8, [col] 4vw)",
-    gridTemplateRows: "repeat(8, [row] 4vw)",
+    gridTemplateColumns: maxWidth['900'].matches ? "repeat(8, [col] 12vw)" : "repeat(8, [col] 5vw)",
+    gridTemplateRows: maxWidth['900'].matches ? "repeat(8, [col] 12vw)" : "repeat(8, [col] 5vw)",
     justifyContent: "center",
     alignContent: "center",
     margin: "0 auto"
@@ -13,8 +17,8 @@ const styles = {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",
     gridGap: "0",
-    gridTemplateColumns: "repeat(10, [col] 3.29vw)",
-    gridTemplateRows: "repeat(8, [row] 3.29vw)",
+    gridTemplateColumns: maxWidth['900'].matches ? "repeat(10, [col] 9vw)" : "repeat(10, [col] 4vw)",
+    gridTemplateRows: maxWidth['900'].matches ? "repeat(8, [col] 9vw)" : "repeat(8, [col] 4vw)",
     justifyContent: "center",
     alignContent: "center",
     margin: "0 auto"
@@ -77,26 +81,6 @@ const styles = {
   dark: {
     color: '#ffce9e',
   },
-  "@media (max-width: 900px)": {
-    ".classicalSquares": {
-      gridTemplateColumns: "repeat(8, [col] 10vw)",
-      gridTemplateRows: "repeat(8, [row] 10vw)"
-    },
-    ".capablancaSquares": {
-      gridTemplateColumns: "repeat(10, [col] 9vw)",
-      gridTemplateRows: "repeat(8, [row] 9vw)"
-    }
-  },
-  "@media (max-width: 600px)": {
-    ".classicalSquares": {
-      gridTemplateColumns: "repeat(8, [col] 12vw)",
-      gridTemplateRows: "repeat(8, [row] 12vw)"
-    },
-    ".capablancaSquares": {
-      gridTemplateColumns: "repeat(10, [col] 9vw)",
-      gridTemplateRows: "repeat(8, [row] 9vw)"
-    }
-  }
 }
 
 export default styles;

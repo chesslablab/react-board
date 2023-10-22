@@ -1,6 +1,5 @@
 import CapablancaSquares from './CapablancaSquares';
 import ClassicalSquares from './ClassicalSquares';
-import './index.css';
 
 export const CapablancaBoard = ({
   stateBoard,

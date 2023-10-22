@@ -6,10 +6,16 @@ An easy-to-use React chessboard.
 
 Check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
 
+### Install
+
+```
+npm i @chesslablab/react-board
+```
+
 ### Usage
 
 ```js
-import { ClassicalBoard } from 'react-board';
+import { ClassicalBoard } from '@chesslablab/react-board';
 
 function App() {
   const stateBoard = {

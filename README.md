@@ -54,6 +54,8 @@ function App() {
 export default App;
 ```
 
+![Figure 1](/assets/figure_01.png)
+
 ### License
 
 [The MIT License](https://github.com/chesslablab/react-chess/blob/master/LICENSE).

@@ -45,8 +45,7 @@ const styles = {
     boxShadow:
       "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d,\n    inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
   },
-  ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },
-  ".sq span.file": {
+  file: {
     position: "absolute",
     fontWeight: "bold",
     fontSize: "0.8rem",
@@ -55,7 +54,7 @@ const styles = {
     bottom: "0",
     right: "0"
   },
-  ".sq span.rank": {
+  rank: {
     position: "absolute",
     fontWeight: "bold",
     fontSize: "0.8rem",
@@ -64,6 +63,7 @@ const styles = {
     top: "0",
     left: "0"
   },
+  ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },
   ".sq.a1 span,\n.sq.c1 span,\n.sq.e1 span,\n.sq.g1 span,\n.sq.i1 span,\n.sq.j8 span,\n.sq.h8 span,\n.sq.f8 span,\n.sq.d8 span,\n.sq.b8 span": {
     color: "#ffce9e"
   },

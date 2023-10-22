@@ -90,10 +90,6 @@ const Squares = ({
               handleMove(payload);
             }
           }}
-          onContextMenu={(ev)=>{
-            ev.preventDefault();
-            ev.target.classList.toggle('square-right-clicked');
-          }}
           onDragOver={(ev) => {
             ev.preventDefault();
           }}>

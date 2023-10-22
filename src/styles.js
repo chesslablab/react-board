@@ -77,7 +77,6 @@ const styles = {
   dark: {
     color: '#ffce9e',
   },
-  ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },
   "@media (max-width: 900px)": {
     ".classicalSquares": {
       gridTemplateColumns: "repeat(8, [col] 10vw)",

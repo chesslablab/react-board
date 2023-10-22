@@ -39,7 +39,7 @@ function App() {
     flip: 'w',
   };
 
-  const handleFilterMove = () => {
+  const filterMove = () => {
     // Implement pre-processing logic for the chess move.
   }
 
@@ -51,7 +51,7 @@ function App() {
     <ClassicalBoard
       stateBoard={stateBoard}
       goBack={0}
-      filterMove={handleFilterMove}
+      filterMove={filterMove}
       handleMove={handleMove}
     />
   );

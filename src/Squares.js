@@ -107,7 +107,12 @@ const Squares = ({
   }
 
   return (
-    <div style={styles[className]}>
+    <div
+      style={{
+        ...styles[className],
+        ...styles.userSelect,
+      }}
+    >
       {sqs()}
     </div>
   );

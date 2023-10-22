@@ -19,6 +19,14 @@ const styles = {
     alignContent: "center",
     margin: "0 auto"
   },
+  userSelect: {
+    WebkitTouchCallout: "none",
+    WebkitUserSelect: "none",
+    KhtmlUserSelect: "none",
+    MozUserSelect: "none",
+    msUserSelect: "none",
+    userSelect: "none",
+  },
   sq: {
     position: "relative",
     textAlign: "center",
@@ -70,14 +78,6 @@ const styles = {
     color: '#ffce9e',
   },
   ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },
-  "svg,\n.classicalSquares,\n.capablancaSquares": {
-    WebkitTouchCallout: "none",
-    WebkitUserSelect: "none",
-    KhtmlUserSelect: "none",
-    MozUserSelect: "none",
-    msUserSelect: "none",
-    userSelect: "none"
-  },
   "@media (max-width: 900px)": {
     ".classicalSquares": {
       gridTemplateColumns: "repeat(8, [col] 10vw)",

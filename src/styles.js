@@ -63,19 +63,13 @@ const styles = {
     top: "0",
     left: "0"
   },
+  light: {
+    color: '#d18b47',
+  },
+  dark: {
+    color: '#ffce9e',
+  },
   ".square-right-clicked": { backgroundColor: "#eb3131", opacity: 0.75 },
-  ".sq.a1 span,\n.sq.c1 span,\n.sq.e1 span,\n.sq.g1 span,\n.sq.i1 span,\n.sq.j8 span,\n.sq.h8 span,\n.sq.f8 span,\n.sq.d8 span,\n.sq.b8 span": {
-    color: "#ffce9e"
-  },
-  ".sq.b1 span,\n.sq.d1 span,\n.sq.f1 span,\n.sq.h1 span,\n.sq.j1 span,\n.sq.i8 span,\n.sq.g8 span,\n.sq.e8 span,\n.sq.c8 span,\n.sq.a8 span": {
-    color: "#d18b47"
-  },
-  ".sq.j2 span,\n.sq.j4 span,\n.sq.j6 span": { color: "#ffce9e" },
-  ".sq.a3 span,\n.sq.a5 span,\n.sq.a7 span": { color: "#ffce9e" },
-  ".sq.h6 span,\n.sq.h4 span,\n.sq.h2 span": { color: "#ffce9e" },
-  ".sq.j3 span,\n.sq.j5 span,\n.sq.j7 span": { color: "#d18b47" },
-  ".sq.a2 span,\n.sq.a4 span,\n.sq.a6 span": { color: "#d18b47" },
-  ".sq.h7 span,\n.sq.h5 span,\n.sq.h3 span": { color: "#d18b47" },
   "svg,\n.classicalSquares,\n.capablancaSquares": {
     WebkitTouchCallout: "none",
     WebkitUserSelect: "none",

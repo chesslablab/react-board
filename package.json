@@ -16,15 +16,24 @@
   "license": "MIT",
   "private": false,
   "source": "src/index.js",
-  "exports": {
-    "require": "./dist/index.cjs",
-    "default": "./dist/index.modern.js"
-  },
-  "main": "./dist/index.cjs",
+  "main": "./dist/index.js",
+  "jsnext:main": "./dist/index.modern.js",
   "module": "./dist/index.module.js",
-  "unpkg": "./dist/index.umd.js",
+  "syntax": {
+    "esmodules": "./dist/index.modern.js"
+  },
+  "exports": {
+    ".": {
+      "browser": "./dist/index.module.js",
+      "import": "./dist/index.module.js",
+      "require": "./dist/index.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
   "scripts": {
-    "build": "microbundle --no-compress --jsx React.createElement --jsxFragment React.Fragment --jsxImportSource react --globals react/jsx-runtime=jsx",
+    "build": "microbundle --no-compress -f cjs,esm,modern --jsx React.createElement --jsxImportSource react",
     "dev": "microbundle watch",
     "test": "react-scripts test"
   },

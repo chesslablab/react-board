@@ -12,7 +12,9 @@ const Squares = ({
 }) => {
   const sqs = () => {
     const fen = stateBoard.fen[stateBoard.fen.length - 1 + goBack].split(' ');
+
     const ascii = Ascii.toAscii(fen[0]);
+    
     return Ascii.flip(
       stateBoard.flip,
       ascii

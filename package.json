@@ -3,6 +3,19 @@
   "type": "module",
   "version": "0.1.5",
   "description": "An easy-to-use React chessboard.",
+  "main": "dist/chesslablab-react-board.cjs.js",
+  "module": "dist/chesslablab-react-board.esm.js",
+  "license": "MIT",
+  "private": false,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chesslablab/react-board.git"
+  },
+  "author": "Jordi Bassagana",
+  "bugs": {
+    "url": "https://github.com/chesslablab/react-board/issues"
+  },
+  "homepage": "https://github.com/chesslablab/react-board#readme",
   "keywords": [
     "chess",
     "chessboard",
@@ -13,50 +26,24 @@
     "state",
     "ui"
   ],
-  "license": "MIT",
-  "private": false,
-  "source": "src/index.js",
-  "main": "./dist/index.js",
-  "jsnext:main": "./dist/index.modern.js",
-  "module": "./dist/index.module.js",
-  "syntax": {
-    "esmodules": "./dist/index.modern.js"
-  },
-  "exports": {
-    ".": {
-      "browser": "./dist/index.module.js",
-      "import": "./dist/index.module.js",
-      "require": "./dist/index.js"
-    }
-  },
   "files": [
-    "dist"
+    "dist",
+    "src"
   ],
-  "scripts": {
-    "build": "microbundle --no-compress -f cjs,esm,modern --jsx React.createElement --jsxImportSource react",
-    "dev": "microbundle watch",
-    "test": "react-scripts test"
-  },
   "peerDependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "microbundle": "^0.15.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
+    "@babel/cli": "^7.23.0",
+    "@babel/core": "^7.23.2",
+    "@babel/preset-env": "^7.23.2",
+    "@preconstruct/cli": "^2.8.1",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
     "react-scripts": "5.0.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/chesslablab/react-board.git"
-  },
-  "author": "Jordi Bassagana",
-  "bugs": {
-    "url": "https://github.com/chesslablab/react-board/issues"
-  },
-  "homepage": "https://github.com/chesslablab/react-board#readme"
+  }
 }

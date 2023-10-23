@@ -43,19 +43,14 @@ const styles = {
     backgroundColor: '#d18b47',
   },
   isLegal: {
-    boxShadow:
-      "inset -4px 0 0 #ffdd43, inset 0 -4px 0 #ffdd43,\n    inset 4px 0 0 #ffeb8e, inset 0 4px 0 #ffeb8e",
-    cursor: "pointer"
+    boxShadow: "inset -4px 0 0 #ffdd43, inset 0 -4px 0 #ffdd43, inset 4px 0 0 #ffeb8e, inset 0 4px 0 #ffeb8e",
+    cursor: "pointer",
   },
   isSelected: {
-    backgroundColor: "#ffdd43 !important",
-    opacity: 0.75,
-    boxShadow:
-      "inset -4px 0 0 yellow, inset 0 -4px 0 yellow,\n    inset 4px 0 0 yellow, inset 0 4px 0 yellow"
+    backgroundColor: "#ffdd43",
   },
   isCheck: {
-    boxShadow:
-      "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d,\n    inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
+    boxShadow: "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d, inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
   },
   file: {
     position: "absolute",

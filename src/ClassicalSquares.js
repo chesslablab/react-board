@@ -17,8 +17,8 @@ const ClassicalSquares = ({
       style={{
         ...styles.classicalSquares,
         ...{
-          gridTemplateColumns: maxWidth['900'] ? "repeat(10, [col] 9vw)" : "repeat(10, [col] 4vw)",
-          gridTemplateRows: maxWidth['900'] ? "repeat(8, [col] 9vw)" : "repeat(8, [col] 4vw)",
+          gridTemplateColumns: maxWidth['900'] ? "repeat(8, [col] 12vw)" : "repeat(8, [col] 5vw)",
+          gridTemplateRows: maxWidth['900'] ? "repeat(8, [col] 12vw)" : "repeat(8, [col] 5vw)",
         },
       }}
       stateBoard={stateBoard}

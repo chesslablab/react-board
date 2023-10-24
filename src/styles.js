@@ -1,14 +1,8 @@
-const maxWidth = {
-  '900': window.matchMedia("(max-width:900px)")
-};
-
 const styles = {
   classicalSquares: {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",
     gridGap: "0",
-    gridTemplateColumns: maxWidth['900'].matches ? "repeat(8, [col] 12vw)" : "repeat(8, [col] 5vw)",
-    gridTemplateRows: maxWidth['900'].matches ? "repeat(8, [col] 12vw)" : "repeat(8, [col] 5vw)",
     justifyContent: "center",
     alignContent: "center",
     margin: "0 auto"
@@ -17,8 +11,6 @@ const styles = {
     fontFamily: "Arial, Helvetica, sans-serif",
     display: "grid",
     gridGap: "0",
-    gridTemplateColumns: maxWidth['900'].matches ? "repeat(10, [col] 9vw)" : "repeat(10, [col] 4vw)",
-    gridTemplateRows: maxWidth['900'].matches ? "repeat(8, [col] 9vw)" : "repeat(8, [col] 4vw)",
     justifyContent: "center",
     alignContent: "center",
     margin: "0 auto"

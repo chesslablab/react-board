@@ -4,7 +4,7 @@ import AlgebraicNotation from './AlgebraicNotation';
 import styles from './styles';
 
 const Squares = ({
-  className,
+  style,
   stateBoard,
   goBack,
   filterMove,
@@ -14,7 +14,7 @@ const Squares = ({
     const fen = stateBoard.fen[stateBoard.fen.length - 1 + goBack].split(' ');
 
     const ascii = Ascii.toAscii(fen[0]);
-    
+
     return Ascii.flip(
       stateBoard.flip,
       ascii
@@ -107,7 +107,7 @@ const Squares = ({
   return (
     <div
       style={{
-        ...styles[className],
+        ...style,
         ...styles.userSelect,
       }}
     >

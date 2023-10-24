@@ -1,7 +1,7 @@
 {
   "name": "@chesslablab/react-board",
   "type": "module",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "An easy-to-use React chessboard.",
   "main": "dist/chesslablab-react-board.cjs.js",
   "module": "dist/chesslablab-react-board.esm.js",

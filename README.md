@@ -52,7 +52,7 @@ function App() {
   return (
     <ClassicalBoard
       stateBoard={stateBoard}
-      goBack={0}
+      goBack={-5}
       filterMove={filterMove}
       handleMove={handleMove}
     />
@@ -108,6 +108,12 @@ export default App;
 ```
 
 ![Figure 2](/assets/figure_02.png)
+
+### Contributions
+
+See the [contributing guidelines](https://github.com/chesslablab/react-board/blob/master/CONTRIBUTING.md).
+
+Happy learning and coding!
 
 ### License
 

@@ -69,7 +69,7 @@ const styles = {
     color: '#ffce9e',
   },
   slider:{
-    width: "98%",
+    width: "100%",
     background: "#d3d3d3",
     WebkitTransition: ".2s",
     transition: "opacity .2s",

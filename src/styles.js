@@ -68,6 +68,18 @@ const styles = {
   dark: {
     color: '#ffce9e',
   },
+  slider:{
+    WebkitAppearance: "none",
+    height: "25px",
+    borderRadius: "5px",
+    background: "#d3d3d3",
+    outline: "none",
+    opacity: "0.7",
+    WebkitTransition: ".2s",
+    transition: "opacity .2s",
+    display: "grid",
+    margin: "10px auto",
+  }
 }
 
 export default styles;

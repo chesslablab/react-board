@@ -14,6 +14,8 @@ npm i @chesslablab/react-board
 
 ### Usage
 
+#### Initialize a Classical Board
+
 ```js
 import { ClassicalBoard } from '@chesslablab/react-board';
 
@@ -61,6 +63,51 @@ export default App;
 ```
 
 ![Figure 1](/assets/figure_01.png)
+
+#### Initialize a Capablanca Board
+
+```js
+import { CapablancaBoard } from '@chesslablab/react-board';
+
+function App() {
+  const stateBoard = {
+    turn: 'w',
+    isCapture: false,
+    isCheck: false,
+    isMate: false,
+    isStalemate: false,
+    fen: [
+      'rnabqkbcnr/pppppppppp/10/10/10/10/PPPPPPPPPP/RNABQKBCNR w KQkq -',
+      'rnabqkbcnr/pppppppppp/10/10/5P4/10/PPPPP1PPPP/RNABQKBCNR b KQkq f3',
+      'rnabqkbcnr/ppppp1pppp/10/5p4/5P4/10/PPPPP1PPPP/RNABQKBCNR w KQkq f6',
+      'rnabqkbcnr/ppppp1pppp/10/5p4/5P4/7N2/PPPPP1PPPP/RNABQKBC1R b KQkq -',
+      'r1abqkbcnr/ppppp1pppp/2n7/5p4/5P4/7N2/PPPPP1PPPP/RNABQKBC1R w KQkq -',
+    ],
+    flip: 'b',
+  };
+
+  const filterMove = () => {
+    // Implement pre-processing logic for the chess move.
+  }
+
+  const handleMove = () => {
+    // Implement validation logic for the chess move.
+  }
+
+  return (
+    <CapablancaBoard
+      stateBoard={stateBoard}
+      goBack={0}
+      filterMove={filterMove}
+      handleMove={handleMove}
+    />
+  );
+}
+
+export default App;
+```
+
+![Figure 2](/assets/figure_02.png)
 
 ### License
 

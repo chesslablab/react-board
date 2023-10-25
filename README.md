@@ -113,8 +113,6 @@ export default App;
 
 See the [contributing guidelines](https://github.com/chesslablab/react-board/blob/master/CONTRIBUTING.md).
 
-Happy learning and coding!
-
 ### License
 
 [The MIT License](https://github.com/chesslablab/react-chess/blob/master/LICENSE).

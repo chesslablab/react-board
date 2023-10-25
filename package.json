@@ -1,21 +1,21 @@
 {
-  "name": "@chesslablab/react-board",
+  "name": "@chesslablab/reactblab",
   "type": "module",
-  "version": "0.2.4",
-  "description": "An easy-to-use React chessboard.",
-  "main": "dist/chesslablab-react-board.cjs.js",
-  "module": "dist/chesslablab-react-board.esm.js",
+  "version": "0.1.0",
+  "description": "An easy-to-use React library of chess components.",
+  "main": "dist/chesslablab-reactblab.cjs.js",
+  "module": "dist/chesslablab-reactblab.esm.js",
   "license": "MIT",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/chesslablab/react-board.git"
+    "url": "git+https://github.com/chesslablab/reactblab.git"
   },
   "author": "Jordi Bassagana",
   "bugs": {
-    "url": "https://github.com/chesslablab/react-board/issues"
+    "url": "https://github.com/chesslablab/reactblab/issues"
   },
-  "homepage": "https://github.com/chesslablab/react-board#readme",
+  "homepage": "https://github.com/chesslablab/reactblab#readme",
   "keywords": [
     "chess",
     "chessboard",

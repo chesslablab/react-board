@@ -27,7 +27,7 @@ That's it!
 
 ### How to run React Board
 
-The [@chesslablab/react-board](https://www.npmjs.com/package/@chesslablab/react-board) package is being developed locally with the help of `my-app` which `package.json` is described next.
+The [@chesslablab/reactblab](https://www.npmjs.com/package/@chesslablab/reactblab) package is being developed locally with the help of `my-app` which `package.json` is described next.
 
 ```
 {
@@ -65,7 +65,7 @@ The [@chesslablab/react-board](https://www.npmjs.com/package/@chesslablab/react-
     ]
   },
   "localDependencies": {
-    "@chesslablab/react-board": "../@chesslablab/react-board"
+    "@chesslablab/reactblab": "../@chesslablab/reactblab"
   }
 }
 ```
@@ -79,13 +79,13 @@ yarn preconstruct build
 Then, it is installed in `my-app` using [install-local](https://www.npmjs.com/package/install-local).
 
 ```
-install-local --save ../@chesslablab/react-board
+install-local --save ../@chesslablab/reactblab
 ```
 
 ```js
 // App.js
 
-import { ClassicalBoard } from '@chesslablab/react-board';
+import { ClassicalBoard } from '@chesslablab/reactblab';
 
 function App() {
   const stateBoard = {
@@ -130,7 +130,7 @@ function App() {
 export default App;
 ```
 
-It is recommended to use [install-local](https://www.npmjs.com/package/install-local) to develop the NPM package on a local environment because symlinks sometimes may be tricky. An invalid hook call warning will come across if using `npm i file:../@chesslablab/react-board` instead, as it is described next.
+It is recommended to use [install-local](https://www.npmjs.com/package/install-local) to develop the NPM package on a local environment because symlinks sometimes may be tricky. An invalid hook call warning will come across if using `npm i file:../@chesslablab/reactblab` instead, as it is described next.
 
 - [Warning: Invalid hook call](https://github.com/preconstruct/preconstruct/issues/581)
 

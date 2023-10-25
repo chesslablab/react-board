@@ -1,6 +1,6 @@
 ## React Board
 
-An easy-to-use React chessboard.
+An easy-to-use React library of chess components.
 
 ### Demo
 
@@ -9,7 +9,7 @@ Check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://
 ### Install
 
 ```
-npm i @chesslablab/react-board
+npm i @chesslablab/reactblab
 ```
 
 ### Usage
@@ -17,7 +17,7 @@ npm i @chesslablab/react-board
 #### Initialize a Classical Board
 
 ```js
-import { ClassicalBoard } from '@chesslablab/react-board';
+import { ClassicalBoard } from '@chesslablab/reactblab';
 
 function App() {
   const stateBoard = {
@@ -67,7 +67,7 @@ export default App;
 #### Initialize a Capablanca Board
 
 ```js
-import { CapablancaBoard } from '@chesslablab/react-board';
+import { CapablancaBoard } from '@chesslablab/reactblab';
 
 function App() {
   const stateBoard = {
@@ -111,7 +111,7 @@ export default App;
 
 ### Contributions
 
-See the [contributing guidelines](https://github.com/chesslablab/react-board/blob/master/CONTRIBUTING.md).
+See the [contributing guidelines](https://github.com/chesslablab/reactblab/blob/master/CONTRIBUTING.md).
 
 ### License
 

@@ -1,24 +1,13 @@
-import useMediaQuery from './hooks/useMediaQuery';
 import styles from './styles';
 
-const ResizeSlider = ({setSliderValue}) => {
-  const maxWidth = {
-    900: useMediaQuery('(max-width:900px)'),
-  };
-
+const ResizeSlider = ({ setSliderValue }) => {
   return (
     <input
       type="range"
       min="30"
       max="100"
       defaultValue="100"
-      style={{...styles.slider,
-        ...{
-          width: maxWidth['900']
-              ? `96vw`
-              : `40vw`,
-        }
-      }}
+      style={styles.slider}
       onChange={(e) => setSliderValue(e.target.value)}
     />
   );

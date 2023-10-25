@@ -69,16 +69,12 @@ const styles = {
     color: '#ffce9e',
   },
   slider:{
-    WebkitAppearance: "none",
-    height: "25px",
-    borderRadius: "5px",
+    width: "98%",
     background: "#d3d3d3",
-    outline: "none",
-    opacity: "0.7",
     WebkitTransition: ".2s",
     transition: "opacity .2s",
     display: "grid",
-    margin: "10px auto",
+    margin: "15px auto",
   }
 }
 

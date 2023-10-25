@@ -1,4 +1,4 @@
-## React Board
+## ReactBlab
 
 An easy-to-use React library of chess components.
 

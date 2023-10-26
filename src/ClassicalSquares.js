@@ -2,13 +2,13 @@ import { useState } from 'react';
 import useMediaQuery from './hooks/useMediaQuery';
 import ResizeSlider from './ResizeSlider';
 import Squares from './Squares';
-import styles from './styles';
+import styles from './styles/board';
 
 const ClassicalSquares = ({ stateBoard, filterMove, handleMove }) => {
   const maxWidth = {
     900: useMediaQuery('(max-width:900px)'),
   };
-  
+
   const [sliderValue, setSliderValue] = useState(100);
 
   return (

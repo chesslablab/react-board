@@ -1,10 +1,10 @@
 import { Movetext } from './common/Movetext.js';
-import styles from './styles';
+import styles from './styles/movesTable';
 
 export const MovesTable = ({ stateMovesTable, onCellClick }) => {
   const currentMove = (fen) => {
     if (stateMovesTable.fen.length - 1 + stateMovesTable.back === fen ) {
-      return styles.movesTable.current;
+      return styles.current;
     }
 
     return {};
@@ -32,13 +32,14 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
       return (
         <tr
           key={i}
-          style={styles.movesTable.tr}
+          style={styles.tr}
         >
-          <td style={styles.movesTable.td}>
+          <td width="1%" style={styles.td}>
             {row.n}
           </td>
           <td
-            style={styles.movesTable.td}
+            width="3%"
+            style={styles.td}
             onClick={() => {
               if (row.w !== '...') {
                 onCellClick({ back: stateMovesTable.fen.length - 1 - row.wFen });
@@ -48,7 +49,8 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
             {row.w}
           </td>
           <td
-            style={styles.movesTable.td}
+            width="3%"
+            style={styles.td}
             onClick={() => {
               if (row.b) {
                 onCellClick({ back: stateMovesTable.fen.length - 1 - row.bFen });
@@ -63,8 +65,8 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
   };
 
   return (
-    <table style={styles.movesTable.table}>
-      <tbody style={styles.movesTable.tbody}>
+    <table style={styles.table}>
+      <tbody style={styles.tbody}>
         {moves()}
       </tbody>
     </table>

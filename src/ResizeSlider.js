@@ -1,4 +1,4 @@
-import styles from './styles';
+import styles from './styles/slider';
 
 const ResizeSlider = ({ setSliderValue }) => {
   return (
@@ -7,7 +7,7 @@ const ResizeSlider = ({ setSliderValue }) => {
       min="30"
       max="100"
       defaultValue="100"
-      style={styles.slider}
+      style={styles}
       onChange={(e) => setSliderValue(e.target.value)}
     />
   );

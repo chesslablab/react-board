@@ -4,14 +4,13 @@ import AlgebraicNotation from './AlgebraicNotation';
 import styles from './styles';
 
 const Squares = ({
-  style,
+  fen,
   stateBoard,
   filterMove,
-  handleMove
+  handleMove,
+  style
 }) => {
   const sqs = () => {
-    const fen = stateBoard.fen.split(' ');
-
     const ascii = Ascii.toAscii(fen[0]);
 
     return Ascii.flip(

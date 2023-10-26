@@ -1,9 +1,15 @@
 import CapablancaSquares from './CapablancaSquares';
 import ClassicalSquares from './ClassicalSquares';
 
-export const CapablancaBoard = ({ stateBoard, filterMove, handleMove }) => {
+export const CapablancaBoard = ({
+  fen,
+  stateBoard,
+  filterMove,
+  handleMove
+}) => {
   return (
     <CapablancaSquares
+      fen={fen.split(' ')}
       stateBoard={{
         ...stateBoard,
         ...{
@@ -19,9 +25,15 @@ export const CapablancaBoard = ({ stateBoard, filterMove, handleMove }) => {
   );
 }
 
-export const ClassicalBoard = ({ stateBoard, filterMove, handleMove }) => {
+export const ClassicalBoard = ({
+  fen,
+  stateBoard,
+  filterMove,
+  handleMove
+}) => {
   return (
     <ClassicalSquares
+      fen={fen.split(' ')}
       stateBoard={{
         ...stateBoard,
         ...{

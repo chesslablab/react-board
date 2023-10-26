@@ -51,20 +51,6 @@ export const ClassicalBoard = ({
   );
 }
 
-export const MovesBrowser = ({
-  stateBoard,
-  goBack,
-  goTo
-}) => {
-  return (
-    <MovesTable
-      stateBoard={stateBoard}
-      goBack={goBack}
-      goTo={goTo}
-    />
-  );
-}
-
 export * from './common/Ascii';
 
 export * from './common/Movetext';

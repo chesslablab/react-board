@@ -32,10 +32,22 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
       return (
         <tr key={i}>
           <td>{row.n}</td>
-          <td>
+          <td
+            onClick={() => {
+              if (row.w !== '...') {
+                onCellClick({ back: stateMovesTable.fen.length - 1 - row.wFen });
+              }
+            }}
+          >
             {row.w}
           </td>
-          <td>
+          <td
+            onClick={() => {
+              if (row.b) {
+                onCellClick({ back: stateMovesTable.fen.length - 1 - row.bFen });
+              }
+            }}
+          >
             {row.b}
           </td>
         </tr>

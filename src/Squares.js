@@ -6,12 +6,11 @@ import styles from './styles';
 const Squares = ({
   style,
   stateBoard,
-  goBack,
   filterMove,
   handleMove
 }) => {
   const sqs = () => {
-    const fen = stateBoard.fen[stateBoard.fen.length - 1 + goBack].split(' ');
+    const fen = stateBoard.fen.split(' ');
 
     const ascii = Ascii.toAscii(fen[0]);
 

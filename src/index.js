@@ -1,12 +1,7 @@
 import CapablancaSquares from './CapablancaSquares';
 import ClassicalSquares from './ClassicalSquares';
 
-export const CapablancaBoard = ({
-  stateBoard,
-  goBack,
-  filterMove,
-  handleMove
-}) => {
+export const CapablancaBoard = ({ stateBoard, filterMove, handleMove }) => {
   return (
     <CapablancaSquares
       stateBoard={{
@@ -18,19 +13,13 @@ export const CapablancaBoard = ({
           }
         }
       }}
-      goBack={goBack}
       filterMove={filterMove}
       handleMove={handleMove}
     />
   );
 }
 
-export const ClassicalBoard = ({
-  stateBoard,
-  goBack,
-  filterMove,
-  handleMove
-}) => {
+export const ClassicalBoard = ({ stateBoard, filterMove, handleMove }) => {
   return (
     <ClassicalSquares
       stateBoard={{
@@ -42,7 +31,6 @@ export const ClassicalBoard = ({
           }
         }
       }}
-      goBack={goBack}
       filterMove={filterMove}
       handleMove={handleMove}
     />

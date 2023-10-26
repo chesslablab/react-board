@@ -77,26 +77,31 @@ const styles = {
     margin: "15px auto",
   },
   movesTable: {
-    tableContainer: {
+    table: {
+      width: '100%',
       height: 368,
     },
-    tableCell: {
-      "&:hover": {
-        color: '#ffffff',
-        background: '#3d8cd9',
-        cursor: 'pointer',
-      },
-      currentMove: {
-        color: '#ffffff',
-        background: '#1976d2',
-        fontWeight: 'bold',
-      },
-      nMove: {
-        background: '#f6f6f6',
-      },
+    tbody: {
+      display: 'table-row-group',
     },
-    tableRow: {
-      background: '#ffffff',
+    td: {
+      fontWeight: 400,
+      fontSize: "0.875rem",
+      lineHeight: 1.43,
+      display: "table-cell",
+      borderBottom: "1px solid rgb(224, 224, 224)",
+      textAlign: "left",
+      padding: "6px 16px",
+      background: "#ffffff",
+    },
+    current: {
+      color: '#ffffff',
+      background: '#1976d2',
+      fontWeight: 'bold',
+    },
+    tr: {
+      display: 'table-row',
+      verticalAlign: 'middle',
     },
   },
 }

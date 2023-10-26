@@ -4,7 +4,7 @@ import styles from './styles';
 export const MovesTable = ({ stateMovesTable, onCellClick }) => {
   const currentMove = (fen) => {
     if (stateMovesTable.fen.length - 1 + stateMovesTable.back === fen ) {
-      return styles.movesTable.tableCell.currentMove;
+      return styles.movesTable.current;
     }
 
     return {};
@@ -30,9 +30,15 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
 
     return rows.map((row, i) => {
       return (
-        <tr key={i}>
-          <td>{row.n}</td>
+        <tr
+          key={i}
+          style={styles.movesTable.tr}
+        >
+          <td style={styles.movesTable.td}>
+            {row.n}
+          </td>
           <td
+            style={styles.movesTable.td}
             onClick={() => {
               if (row.w !== '...') {
                 onCellClick({ back: stateMovesTable.fen.length - 1 - row.wFen });
@@ -42,6 +48,7 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
             {row.w}
           </td>
           <td
+            style={styles.movesTable.td}
             onClick={() => {
               if (row.b) {
                 onCellClick({ back: stateMovesTable.fen.length - 1 - row.bFen });
@@ -56,8 +63,8 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
   };
 
   return (
-    <table>
-      <tbody>
+    <table style={styles.movesTable.table}>
+      <tbody style={styles.movesTable.tbody}>
         {moves()}
       </tbody>
     </table>

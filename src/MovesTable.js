@@ -1,12 +1,10 @@
-import { Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
-import Movetext from 'common/Movetext.js';
-import * as panel from 'features/panel/panelSlice';
-import styles from 'styles/panel';
+import { Movetext } from './common/Movetext.js';
+import styles from './styles';
 
-const MovesTable = ({ stateBoard, goBack, goTo }) => {
+export const MovesTable = ({ stateMovesTable, onCellClick }) => {
   const currentMove = (fen) => {
-    if (stateBoard.fen.length - 1 + goBack === fen ) {
-      return styles.panel.movesTable.tableCell.currentMove;
+    if (stateMovesTable.fen.length - 1 + stateMovesTable.back === fen ) {
+      return styles.movesTable.tableCell.currentMove;
     }
 
     return {};
@@ -15,7 +13,7 @@ const MovesTable = ({ stateBoard, goBack, goTo }) => {
   const moves = () => {
     let j = 1;
     let rows = Movetext.toRows(
-      stateBoard.movetext?.replace(/\s?\{[^}]+\}/g, '')
+      stateMovesTable.movetext?.replace(/\s?\{[^}]+\}/g, '')
         .replace(/\s?\$[1-9][0-9]*/g, '')
         .trim()
     );
@@ -31,41 +29,25 @@ const MovesTable = ({ stateBoard, goBack, goTo }) => {
     });
 
     return rows.map((row, i) => {
-      return <TableRow key={i} sx={styles.panel.movesTable.tableRow}>
-        <TableCell sx={styles.panel.movesTable.tableCell.nMove}>{row.n}</TableCell>
-        <TableCell
-          sx={[styles.panel.movesTable.tableCell, currentMove(row.wFen)]}
-          onClick={() => {
-            if (row.w !== '...') {
-              dispatch(panel.goTo({ back: stateBoard.fen.length - 1 - row.wFen }));
-            }
-          }}
-        >
-          {row.w}
-        </TableCell>
-        <TableCell
-          sx={[styles.panel.movesTable.tableCell, currentMove(row.bFen)]}
-          onClick={() => {
-            if (row.b) {
-              dispatch(panel.goTo({ back: stateBoard.fen.length - 1 - row.bFen }));
-            }
-          }}
-        >
-          {row.b}
-        </TableCell>
-      </TableRow>
+      return (
+        <tr key={i}>
+          <td>{row.n}</td>
+          <td>
+            {row.w}
+          </td>
+          <td>
+            {row.b}
+          </td>
+        </tr>
+      );
     });
   };
 
   return (
-    <TableContainer sx={styles.panel.movesTable.tableContainer} className="noTextSelection">
-      <Table stickyHeader size="small" aria-label="Movetext">
-        <TableBody>
-          {moves()}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <table>
+      <tbody>
+        {moves()}
+      </tbody>
+    </table>
   );
 }
-
-export default MovesTable;

@@ -1,6 +1,5 @@
 import CapablancaSquares from './CapablancaSquares';
 import ClassicalSquares from './ClassicalSquares';
-import MovesTable from './MovesTable';
 
 export const CapablancaBoard = ({
   stateBoard,
@@ -68,4 +67,10 @@ export const MovesBrowser = ({
 
 export * from './common/Ascii';
 
+export * from './common/Movetext';
+
+export * from './common/Nag';
+
 export * from './piece/SvgPiece';
+
+export * from './MovesTable';

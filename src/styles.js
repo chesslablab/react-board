@@ -75,7 +75,30 @@ const styles = {
     transition: "opacity .2s",
     display: "grid",
     margin: "15px auto",
-  }
+  },
+  movesTable: {
+    tableContainer: {
+      height: 368,
+    },
+    tableCell: {
+      "&:hover": {
+        color: '#ffffff',
+        background: '#3d8cd9',
+        cursor: 'pointer',
+      },
+      currentMove: {
+        color: '#ffffff',
+        background: '#1976d2',
+        fontWeight: 'bold',
+      },
+      nMove: {
+        background: '#f6f6f6',
+      },
+    },
+    tableRow: {
+      background: '#ffffff',
+    },
+  },
 }
 
 export default styles;

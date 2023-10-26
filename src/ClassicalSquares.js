@@ -8,11 +8,15 @@ const ClassicalSquares = ({ stateBoard, filterMove, handleMove }) => {
   const maxWidth = {
     900: useMediaQuery('(max-width:900px)'),
   };
+  
   const [sliderValue, setSliderValue] = useState(100);
 
   return (
     <>
       <Squares
+        stateBoard={stateBoard}
+        filterMove={filterMove}
+        handleMove={handleMove}
         style={{
           ...styles.classicalSquares,
           ...{
@@ -24,9 +28,6 @@ const ClassicalSquares = ({ stateBoard, filterMove, handleMove }) => {
               : `repeat(8, [col] ${0.05 * sliderValue}vw)`,
           },
         }}
-        stateBoard={stateBoard}
-        filterMove={filterMove}
-        handleMove={handleMove}
       />
       <ResizeSlider setSliderValue={setSliderValue} />
     </>

@@ -3,16 +3,9 @@ import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';
 import styles from './styles';
 
-const Squares = ({
-  style,
-  stateBoard,
-  filterMove,
-  handleMove
-}) => {
+const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
   const sqs = () => {
-    const fen = stateBoard.fen.split(' ');
-
-    const ascii = Ascii.toAscii(fen[0]);
+    const ascii = Ascii.toAscii(stateBoard.fen[0]);
 
     return Ascii.flip(
       stateBoard.flip,

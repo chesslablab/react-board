@@ -2,11 +2,18 @@ import CapablancaSquares from './CapablancaSquares';
 import ClassicalSquares from './ClassicalSquares';
 import MovesTable from './MovesTable';
 
-export const CapablancaBoard = ({ stateBoard, filterMove, handleMove }) => {
+export const CapablancaBoard = ({
+  stateBoard,
+  filterMove,
+  handleMove
+}) => {
   return (
     <CapablancaSquares
       stateBoard={{
         ...stateBoard,
+        ...{
+          fen: stateBoard.fen.split(' '),
+        },
         ...{
           size: {
             files: 10,
@@ -20,11 +27,18 @@ export const CapablancaBoard = ({ stateBoard, filterMove, handleMove }) => {
   );
 }
 
-export const ClassicalBoard = ({ stateBoard, filterMove, handleMove }) => {
+export const ClassicalBoard = ({
+  stateBoard,
+  filterMove,
+  handleMove
+}) => {
   return (
     <ClassicalSquares
       stateBoard={{
         ...stateBoard,
+        ...{
+          fen: stateBoard.fen.split(' '),
+        },
         ...{
           size: {
             files: 8,

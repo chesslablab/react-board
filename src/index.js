@@ -2,16 +2,17 @@ import CapablancaSquares from './CapablancaSquares';
 import ClassicalSquares from './ClassicalSquares';
 
 export const CapablancaBoard = ({
-  fen,
   stateBoard,
   filterMove,
   handleMove
 }) => {
   return (
     <CapablancaSquares
-      fen={fen.split(' ')}
       stateBoard={{
         ...stateBoard,
+        ...{
+          fen: stateBoard.fen.split(' '),
+        },
         ...{
           size: {
             files: 10,
@@ -26,16 +27,17 @@ export const CapablancaBoard = ({
 }
 
 export const ClassicalBoard = ({
-  fen,
   stateBoard,
   filterMove,
   handleMove
 }) => {
   return (
     <ClassicalSquares
-      fen={fen.split(' ')}
       stateBoard={{
         ...stateBoard,
+        ...{
+          fen: stateBoard.fen.split(' '),
+        },
         ...{
           size: {
             files: 8,

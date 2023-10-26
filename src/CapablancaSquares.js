@@ -4,21 +4,16 @@ import ResizeSlider from './ResizeSlider';
 import Squares from './Squares';
 import styles from './styles';
 
-const CapablancaSquares = ({
-  fen,
-  stateBoard,
-  filterMove,
-  handleMove
-}) => {
+const CapablancaSquares = ({ stateBoard, filterMove, handleMove }) => {
   const maxWidth = {
     900: useMediaQuery('(max-width:900px)'),
   };
+  
   const [sliderValue, setSliderValue] = useState(100);
 
   return (
     <>
       <Squares
-        fen={fen}
         stateBoard={stateBoard}
         filterMove={filterMove}
         handleMove={handleMove}

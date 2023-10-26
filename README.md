@@ -22,14 +22,10 @@ import { ClassicalBoard } from '@chesslablab/reactblab';
 function App() {
   return (
     <ClassicalBoard
-      fen="rnbq1rk1/pppp1ppp/4pn2/8/1bPP4/2N1PN2/PP3PPP/R1BQKB1R b KQ -"
       stateBoard={{
-        flip: 'w',
-        turn: 'w',
-        isCapture: false,
+        fen: 'rnbq1rk1/pppp1ppp/4pn2/8/1bPP4/2N1PN2/PP3PPP/R1BQKB1R b KQ -',
         isCheck: false,
-        isMate: false,
-        isStalemate: false,
+        flip: 'w',
       }}
       filterMove={() => {
         // Implement pre-processing logic for the chess move.
@@ -52,29 +48,19 @@ export default App;
 import { CapablancaBoard } from '@chesslablab/reactblab';
 
 function App() {
-  const stateBoard = {
-    turn: 'w',
-    isCapture: false,
-    isCheck: false,
-    isMate: false,
-    isStalemate: false,
-    fen: 'r1abqkbcnr/ppppp1pppp/2n7/5p4/5P4/7N2/PPPPP1PPPP/RNABQKBC1R w KQkq -',
-    flip: 'b',
-  };
-
-  const filterMove = () => {
-    // Implement pre-processing logic for the chess move.
-  }
-
-  const handleMove = () => {
-    // Implement validation logic for the chess move.
-  }
-
   return (
     <CapablancaBoard
-      stateBoard={stateBoard}
-      filterMove={filterMove}
-      handleMove={handleMove}
+      stateBoard={{
+        fen: 'r1abqkbcnr/ppppp1pppp/2n7/5p4/5P4/7N2/PPPPP1PPPP/RNABQKBC1R w KQkq -',
+        isCheck: false,
+        flip: 'b',
+      }}
+      filterMove={() => {
+        // Implement pre-processing logic for the chess move.
+      }}
+      handleMove={() => {
+        // Implement validation logic for the chess move.
+      }}
     />
   );
 }

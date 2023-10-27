@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Movetext } from './common/Movetext.js';
-import styles from './styles/movesTable';
+import styles from './styles/sanMovesTable';
 
 export const SanMovesTable = ({ stateSanMovesTable, onCellClick }) => {
   const [hoveredRow, setHoveredRow] = useState(null)

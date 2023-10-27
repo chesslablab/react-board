@@ -5,12 +5,12 @@ import styles from './styles/movesTable';
 export const MovesTable = ({ stateMovesTable, onCellClick }) => {
   const [hoveredRow, setHoveredRow] = useState(null)
 
-  const currentMove = (fen) => {
+  const isActiveMove = (fen) => {
     if (stateMovesTable.fen.length - 1 + stateMovesTable.back === fen ) {
-      return styles.current;
+      return true;
     }
 
-    return {};
+    return false;
   };
 
   const moves = () => {
@@ -42,7 +42,7 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
           </td>
           <td
             width="3%"
-            style={row.wFen === hoveredRow ? styles['td:hover'] : styles.td}
+            style={row.wFen === hoveredRow ? styles['td:hover'] : isActiveMove(row.wFen) ? styles['td:active'] : styles.td}
             onMouseEnter={() => setHoveredRow(row.wFen)}
             onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {
@@ -55,7 +55,7 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
           </td>
           <td
             width="3%"
-            style={row.bFen === hoveredRow ? styles['td:hover'] : styles.td}
+            style={row.bFen === hoveredRow ? styles['td:hover'] : isActiveMove(row.bFen) ? styles['td:active'] : styles.td}
             onMouseEnter={() => setHoveredRow(row.bFen)}
             onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {

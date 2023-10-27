@@ -5,8 +5,6 @@ const styles = {
     overflowY: 'scroll',
     display: 'block',
   },
-  tbody: {
-  },
   td: {
     fontSize: "0.875rem",
     lineHeight: 1.43,
@@ -14,25 +12,18 @@ const styles = {
     padding: "6px 16px",
     background: "#ffffff",
     cursor: 'pointer',
-  },
-  'td:hover': {
-    fontSize: "0.875rem",
-    lineHeight: 1.43,
-    textAlign: "left",
-    padding: "6px 16px",
-    color: '#ffffff',
-    background: "#3d8cd9",
-    cursor: 'pointer',
-  },
-  'td:active': {
-    fontWeight: 'bold',
-    fontSize: "0.875rem",
-    lineHeight: 1.43,
-    textAlign: "left",
-    padding: "6px 16px",
-    color: '#ffffff',
-    background: "#1976d2",
-    cursor: 'pointer',
+    n: {
+      background: "#f6f6f6",
+    },
+    hover: {
+      color: '#ffffff',
+      background: "#3d8cd9",
+    },
+    active: {
+      color: '#ffffff',
+      background: "#1976d2",
+      fontWeight: 'bold',
+    },
   },
   tr: {
     display: 'table-row',

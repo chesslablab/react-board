@@ -42,11 +42,11 @@ const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
             }
           }
         } else if (stateBoard.isCheck) {
-          if (fen[1] === 'w') {
+          if (stateBoard.fen[1] === 'w') {
             if (piece === ' K ') {
               isCheck = 'isCheck';
             }
-          } else if (fen[1] === 'b') {
+          } else if (stateBoard.fen[1] === 'b') {
             if (piece === ' k ') {
               isCheck = 'isCheck';
             }

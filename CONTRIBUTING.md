@@ -135,7 +135,7 @@ You may want to use [install-local](https://www.npmjs.com/package/install-local)
 - [Warning: Invalid hook call](https://github.com/preconstruct/preconstruct/issues/581)
 - [Hooks + multiple instances of React](https://github.com/facebook/react/issues/13991)
 
-However, `install-local` is not ideal if you actually want the browser to update the app live as the NPM package files are edited. If that is the case try the following workaround in the `@chesslablab/reactblab` folder.
+However, `install-local` is not ideal if you actually want the browser to update the app live as the NPM package files are edited. If that is the case try the following workaround.
 
 Create a symbolic link:
 

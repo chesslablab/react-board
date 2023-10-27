@@ -1,4 +1,4 @@
-import styles from './styles';
+import styles from './styles/algebraicNotation';
 
 const AlgebraicNotation = ({ props, payload }) => {
   const spans = [];

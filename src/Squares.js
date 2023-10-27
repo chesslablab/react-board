@@ -1,7 +1,7 @@
 import { Ascii } from './common/Ascii';
 import * as SvgPiece from './piece/SvgPiece';
 import AlgebraicNotation from './AlgebraicNotation';
-import styles from './styles';
+import styles from './styles/board';
 
 const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
   const sqs = () => {

@@ -44,38 +44,6 @@ const styles = {
   isCheck: {
     boxShadow: "inset -5px 0 0 #fdd57d, inset 0 -5px 0 #fdd57d, inset 5px 0 0 #fdd57d, inset 0 5px 0 #fdd57d"
   },
-  file: {
-    position: "absolute",
-    fontWeight: "bold",
-    fontSize: "0.8rem",
-    marginRight: "0.15rem",
-    marginBottom: "0.15rem",
-    bottom: "0",
-    right: "0"
-  },
-  rank: {
-    position: "absolute",
-    fontWeight: "bold",
-    fontSize: "0.8rem",
-    marginLeft: "0.15rem",
-    marginTop: "0.15rem",
-    top: "0",
-    left: "0"
-  },
-  light: {
-    color: '#d18b47',
-  },
-  dark: {
-    color: '#ffce9e',
-  },
-  slider:{
-    width: "100%",
-    background: "#d3d3d3",
-    WebkitTransition: ".2s",
-    transition: "opacity .2s",
-    display: "grid",
-    margin: "15px auto",
-  }
 }
 
 export default styles;

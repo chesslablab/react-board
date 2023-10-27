@@ -140,19 +140,19 @@ However, `install-local` is not ideal if you actually want the browser to update
 Create a symbolic link:
 
 ```
-npm link
+cd /home/standard/projects/@chesslablab/reactblab && npm link
 ```
 
 Wire the local NPM package up to the app's React packages:
 
 ```
-sudo npm link /home/standard/projects/my-app/node_modules/react /home/standard/projects/my-app/node_modules/react-dom
+cd /home/standard/projects/@chesslablab/reactblab && sudo npm link /home/standard/projects/my-app/node_modules/react /home/standard/projects/my-app/node_modules/react-dom
 ```
 
 Finally, link the local NPM package to `my-app` in the `my-app` folder:
 
 ```
-npm link @chesslablab/reactblab
+cd /home/standard/projects/my-app && npm link @chesslablab/reactblab
 ```
 
 Happy learning and coding!

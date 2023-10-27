@@ -56,4 +56,4 @@ export * from './common/Movetext';
 export * from './common/Nag';
 export * from './piece/SvgPiece';
 export * from './HistoryButtons';
-export * from './MovesTable';
+export * from './SanMovesTable';

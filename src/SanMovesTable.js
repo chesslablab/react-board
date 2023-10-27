@@ -2,11 +2,11 @@ import { useState } from 'react';
 import { Movetext } from './common/Movetext.js';
 import styles from './styles/movesTable';
 
-export const MovesTable = ({ stateMovesTable, onCellClick }) => {
+export const SanMovesTable = ({ stateSanMovesTable, onCellClick }) => {
   const [hoveredRow, setHoveredRow] = useState(null)
 
   const isActiveMove = (fen) => {
-    if (stateMovesTable.fen.length - 1 + stateMovesTable.back === fen ) {
+    if (stateSanMovesTable.fen.length - 1 + stateSanMovesTable.back === fen ) {
       return true;
     }
 
@@ -16,7 +16,7 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
   const moves = () => {
     let j = 1;
     let rows = Movetext.toRows(
-      stateMovesTable.movetext?.replace(/\s?\{[^}]+\}/g, '')
+      stateSanMovesTable.movetext?.replace(/\s?\{[^}]+\}/g, '')
         .replace(/\s?\$[1-9][0-9]*/g, '')
         .trim()
     );
@@ -52,7 +52,7 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
             onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {
               if (row.w !== '...') {
-                onCellClick({ back: stateMovesTable.fen.length - 1 - row.wFen });
+                onCellClick({ back: stateSanMovesTable.fen.length - 1 - row.wFen });
               }
             }}
           >
@@ -70,7 +70,7 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
             onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {
               if (row.b) {
-                onCellClick({ back: stateMovesTable.fen.length - 1 - row.bFen });
+                onCellClick({ back: stateSanMovesTable.fen.length - 1 - row.bFen });
               }
             }}
           >

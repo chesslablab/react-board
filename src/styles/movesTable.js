@@ -8,13 +8,20 @@ const styles = {
   tbody: {
   },
   td: {
-    fontWeight: 400,
     fontSize: "0.875rem",
     lineHeight: 1.43,
-    display: "table-cell",
     textAlign: "left",
     padding: "6px 16px",
     background: "#ffffff",
+    cursor: 'pointer',
+  },
+  'td:hover': {
+    fontSize: "0.875rem",
+    lineHeight: 1.43,
+    textAlign: "left",
+    padding: "6px 16px",
+    color: '#ffffff',
+    background: "#3d8cd9",
     cursor: 'pointer',
   },
   current: {

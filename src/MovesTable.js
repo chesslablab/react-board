@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Movetext } from './common/Movetext.js';
 import styles from './styles/movesTable';
 
 export const MovesTable = ({ stateMovesTable, onCellClick }) => {
+  const [hoveredRow, setHoveredRow] = useState(null)
+
   const currentMove = (fen) => {
     if (stateMovesTable.fen.length - 1 + stateMovesTable.back === fen ) {
       return styles.current;
@@ -39,7 +42,9 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
           </td>
           <td
             width="3%"
-            style={styles.td}
+            style={row.wFen === hoveredRow ? styles['td:hover'] : styles.td}
+            onMouseEnter={() => setHoveredRow(row.wFen)}
+            onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {
               if (row.w !== '...') {
                 onCellClick({ back: stateMovesTable.fen.length - 1 - row.wFen });
@@ -50,7 +55,9 @@ export const MovesTable = ({ stateMovesTable, onCellClick }) => {
           </td>
           <td
             width="3%"
-            style={styles.td}
+            style={row.bFen === hoveredRow ? styles['td:hover'] : styles.td}
+            onMouseEnter={() => setHoveredRow(row.bFen)}
+            onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {
               if (row.b) {
                 onCellClick({ back: stateMovesTable.fen.length - 1 - row.bFen });

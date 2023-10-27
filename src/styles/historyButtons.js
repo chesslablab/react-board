@@ -4,7 +4,7 @@ const styles = {
   },
   button: {
     border: 0,
-    fontSize: '1.15rem',
+    fontSize: '1rem',
     backgroundColor: 'transparent',
     margin: '0.5rem 0.8rem',
     cursor: 'pointer',

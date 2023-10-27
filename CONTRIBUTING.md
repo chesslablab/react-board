@@ -130,8 +130,29 @@ function App() {
 export default App;
 ```
 
-It is recommended to use [install-local](https://www.npmjs.com/package/install-local) to develop the NPM package on a local environment because symlinks sometimes may be tricky. An invalid hook call warning will come across if using `npm i file:../@chesslablab/reactblab` instead, as it is described next.
+You may want to use [install-local](https://www.npmjs.com/package/install-local) to develop the NPM package on a local environment because symlinks may sometimes be tricky. An invalid hook call warning will certainly come across as it is described next.
 
 - [Warning: Invalid hook call](https://github.com/preconstruct/preconstruct/issues/581)
+- [Hooks + multiple instances of React](https://github.com/facebook/react/issues/13991)
+
+However, `install-local` is not ideal if you actually want the browser to update the app live as the NPM package files are edited. If that is the case try the following workaround in the `@chesslablab/reactblab` folder.
+
+Create a symbolic link:
+
+```
+npm link
+```
+
+Wire the local NPM package up to the app's React packages:
+
+```
+sudo npm link /home/standard/projects/my-app/node_modules/react /home/standard/projects/my-app/node_modules/react-dom
+```
+
+Finally, link the local NPM package to `my-app` in the `my-app` folder:
+
+```
+npm link @chesslablab/reactblab
+```
 
 Happy learning and coding!

@@ -4,10 +4,11 @@ const styles = {
   },
   button: {
     border: 0,
-    fontSize: '1.25rem',
+    fontSize: '1.15rem',
     backgroundColor: 'transparent',
-    margin: '0.4rem',
+    margin: '0.5rem 0.8rem',
     cursor: 'pointer',
+    color: '#1976d2',
   },
 }
 

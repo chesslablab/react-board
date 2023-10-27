@@ -15,6 +15,7 @@ const styles = {
     textAlign: "left",
     padding: "6px 16px",
     background: "#ffffff",
+    cursor: 'pointer',
   },
   current: {
     color: '#ffffff',

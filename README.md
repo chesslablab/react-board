@@ -1,6 +1,6 @@
 ## ReactBlab
 
-An easy-to-use React library of chess components.
+An easy-to-use React library of chess components and common utilities.
 
 ### Demo
 
@@ -69,6 +69,65 @@ export default App;
 ```
 
 ![Figure 2](/assets/figure_02.png)
+
+#### Initialize a SAN Moves Table
+
+The `HistoryButtons` and `SanMovesTable` components can be combined to allow browsing
+through the history of SAN moves.
+
+```js
+import { HistoryButtons, SanMovesTable } from '@chesslablab/reactblab';
+
+function App() {
+  const back = 0;
+
+  const fen = [
+    'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -',
+    'rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3',
+    'rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -',
+    'rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3',
+    'rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -',
+    'rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -',
+  ];
+
+  return (
+    <>
+      <HistoryButtons
+        stateHistoryButtons={{
+          back: back,
+          fen: fen,
+        }}
+        onFastRewindClick={() => {
+          // Implement on fast rewind logic.
+        }}
+        onSkipPreviousClick={() => {
+          // Implement on skip previous logic.
+        }}
+        onSkipNextClick={() => {
+          // Implement on skip next logic.
+        }}
+        onFastForwardClick={() => {
+          // Implement on fast forward logic.
+        }}
+      />
+      <SanMovesTable
+        stateSanMovesTable={{
+          back: back,
+          fen: fen,
+          movetext: '1.d4 Nf6 2.c4 e6 3.Qb3',
+        }}
+        onCellClick={() => {
+          // Implement on cell click logic.
+        }}
+      />
+    </>
+  );
+}
+
+export default App;
+```
+
+![Figure 3](/assets/figure_03.png)
 
 ### Contributions
 

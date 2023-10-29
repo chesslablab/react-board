@@ -37,7 +37,7 @@ export const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
     const comment = Movetext.description(stateRavMovesTable?.breakdown[0]);
     if (comment) {
       return (
-        <tr>
+        <tr style={styles.tr}>
           <td>{comment}</td>
         </tr>
       );

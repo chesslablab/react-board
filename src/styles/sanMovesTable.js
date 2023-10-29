@@ -14,6 +14,7 @@ const styles = {
     cursor: 'pointer',
     n: {
       background: "#f6f6f6",
+      cursor: 'default',
     },
     hover: {
       color: '#ffffff',
@@ -28,7 +29,7 @@ const styles = {
   tr: {
     display: 'table-row',
     verticalAlign: 'middle',
-    height: '2.5rem',
+    height: '2.25rem',
   },
 }
 

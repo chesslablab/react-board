@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Movetext } from './common/Movetext.js';
 import styles from './styles/ravMovesTable';
 
-const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
+export const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
   const [hoveredRow, setHoveredRow] = useState(null);
 
   const isActiveMove = (fen) => {
@@ -14,8 +14,8 @@ const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
   };
 
   const level = (rows) => {
-    let haystack = Movetext.haystack(stateRavMovesTable.filtered);
-    let needles = Movetext.needles(rows, stateRavMovesTable.breakdown);
+    let haystack = Movetext.haystack(stateRavMovesTable?.filtered);
+    let needles = Movetext.needles(rows, stateRavMovesTable?.breakdown);
     for (let i = needles.length - 1; i >= 0; i--) {
       const position = haystack.lastIndexOf(needles[i]);
       rows[i].level = Movetext.openParentheses(haystack.substring(0, position));
@@ -34,7 +34,7 @@ const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
   };
 
   const description = () => {
-    const comment = Movetext.description(stateRavMovesTable.breakdown[0]);
+    const comment = Movetext.description(stateRavMovesTable?.breakdown[0]);
     if (comment) {
       return <TableRow sx={styles.panel.movesTable.tableRow}>
         <TableCell colSpan={3}>{comment}</TableCell>
@@ -47,7 +47,7 @@ const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
   const moves = () => {
     let j = 1;
     let rows = [];
-    stateRavMovesTable.breakdown.forEach((breakdown, i) => {
+    stateRavMovesTable?.breakdown.forEach((breakdown, i) => {
       rows = [...rows, ...Movetext.toCommentedRows(breakdown, i)];
     });
     rows.forEach((row, i) => {
@@ -123,5 +123,3 @@ const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
     </table>
   );
 }
-
-export default RavMovesTable;

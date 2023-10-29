@@ -1,21 +1,21 @@
 import { useState } from 'react';
-import { Table, TableBody, TableCell, TableContainer, TableRow } from "@mui/material";
-import { Movetext } from '@chesslablab/reactblab';
-import * as panel from 'features/panel/panelSlice';
-import styles from 'styles/panel';
+import { Movetext } from './common/Movetext.js';
+import styles from './styles/ravMovesTable';
 
-const RavMovesTable = ({ stateSanMovesTable, onCellClick }) => {
-  const currentMove = (fen) => {
-    if (stateBoard.fen.length - 1 + statePanel.history.back === fen ) {
-      return styles.panel.movesTable.tableCell.currentMove;
+const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
+  const [hoveredRow, setHoveredRow] = useState(null);
+
+  const isActiveMove = (fen) => {
+    if (stateRavMovesTable.fen.length - 1 + stateRavMovesTable.back === fen ) {
+      return true;
     }
 
-    return {};
+    return false;
   };
 
   const level = (rows) => {
-    let haystack = Movetext.haystack(stateRavMode?.filtered);
-    let needles = Movetext.needles(rows, stateRavMode?.breakdown);
+    let haystack = Movetext.haystack(stateRavMovesTable.filtered);
+    let needles = Movetext.needles(rows, stateRavMovesTable.breakdown);
     for (let i = needles.length - 1; i >= 0; i--) {
       const position = haystack.lastIndexOf(needles[i]);
       rows[i].level = Movetext.openParentheses(haystack.substring(0, position));
@@ -34,7 +34,7 @@ const RavMovesTable = ({ stateSanMovesTable, onCellClick }) => {
   };
 
   const description = () => {
-    const comment = Movetext.description(stateRavMode?.breakdown[0]);
+    const comment = Movetext.description(stateRavMovesTable.breakdown[0]);
     if (comment) {
       return <TableRow sx={styles.panel.movesTable.tableRow}>
         <TableCell colSpan={3}>{comment}</TableCell>
@@ -47,7 +47,7 @@ const RavMovesTable = ({ stateSanMovesTable, onCellClick }) => {
   const moves = () => {
     let j = 1;
     let rows = [];
-    stateRavMode?.breakdown.forEach((breakdown, i) => {
+    stateRavMovesTable.breakdown.forEach((breakdown, i) => {
       rows = [...rows, ...Movetext.toCommentedRows(breakdown, i)];
     });
     rows.forEach((row, i) => {
@@ -64,41 +64,63 @@ const RavMovesTable = ({ stateSanMovesTable, onCellClick }) => {
     const colors = color(rows);
 
     return rows.map((row, i) => {
-      return <TableRow key={i} sx={colors[i]}>
-        <TableCell sx={styles.panel.movesTable.tableCell.nMove}>{row.n}</TableCell>
-        <TableCell
-          sx={[styles.panel.movesTable.tableCell, currentMove(row.wFen)]}
-          onClick={() => {
-            if (row.w !== '...') {
-              dispatch(panel.goTo({ back: stateBoard.fen.length - 1 - row.wFen }));
-            }
-          }}
+      return (
+        <tr
+          key={i}
+          style={{...styles.tr, ...colors[i]}}
         >
-          {row.w}
-        </TableCell>
-        <TableCell
-          sx={[styles.panel.movesTable.tableCell, currentMove(row.bFen)]}
-          onClick={() => {
-            if (row.b) {
-              dispatch(panel.goTo({ back: stateBoard.fen.length - 1 - row.bFen }));
+          <td width="1%" style={{...styles.td, ...styles.td.n}}>
+            {row.n}
+          </td>
+          <td
+            width="3%"
+            style={row.wFen === hoveredRow
+              ? {...styles.td, ...styles.td.hover}
+              : isActiveMove(row.wFen)
+              ? {...styles.td, ...styles.td.active}
+              : styles.td
             }
-          }}
-        >
-          {row.b}
-        </TableCell>
-      </TableRow>
+            onMouseEnter={() => setHoveredRow(row.wFen)}
+            onMouseLeave={() => setHoveredRow(null)}
+            onClick={() => {
+              if (row.w !== '...') {
+                onCellClick({ back: stateRavMovesTable.fen.length - 1 - row.wFen });
+              }
+            }}
+          >
+            {row.w}
+          </td>
+          <td
+            width="3%"
+            style={row.bFen === hoveredRow
+              ? {...styles.td, ...styles.td.hover}
+              : isActiveMove(row.bFen)
+              ? {...styles.td, ...styles.td.active}
+              : styles.td
+            }
+            onMouseEnter={() => setHoveredRow(row.bFen)}
+            onMouseLeave={() => setHoveredRow(null)}
+            onClick={() => {
+              if (row.b) {
+                onCellClick({ back: stateRavMovesTable.fen.length - 1 - row.bFen });
+              }
+            }}
+          >
+            {row.b}
+          </td>
+        </tr>
+      );
     });
+
   };
 
   return (
-    <TableContainer sx={styles.panel.movesTable.tableContainer} className="noTextSelection">
-      <Table stickyHeader size="small" aria-label="Movetext">
-        <TableBody>
-          {description()}
-          {moves()}
-        </TableBody>
-      </Table>
-    </TableContainer>
+    <table style={styles.table}>
+      <tbody style={styles.tbody}>
+        {description()}
+        {moves()}
+      </tbody>
+    </table>
   );
 }
 

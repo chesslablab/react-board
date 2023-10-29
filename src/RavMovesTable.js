@@ -38,7 +38,7 @@ export const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
     if (comment) {
       return (
         <tr style={styles.tr}>
-          <td>{comment}</td>
+          <td style={styles.td} colSpan='3'>{comment}</td>
         </tr>
       );
     }
@@ -66,6 +66,21 @@ export const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
     const colors = color(rows);
 
     return rows.map((row, i) => {
+      let wTdStyle = {...styles.td, ...colors[i]};
+      let bTdStyle = {...styles.td, ...colors[i]};
+
+      if (row.wFen === hoveredRow) {
+        row.w !== '...' ? wTdStyle = {...wTdStyle, ...styles.td.hover} : wTdStyle.cursor = 'default';
+      } else if (isActiveMove(row.wFen)) {
+        wTdStyle = {...wTdStyle, ...styles.td.active};
+      }
+
+      if (row.bFen === hoveredRow) {
+        row.b ? bTdStyle = {...bTdStyle, ...styles.td.hover} : bTdStyle.cursor = 'default';
+      } else if (isActiveMove(row.bFen)) {
+        bTdStyle = {...bTdStyle, ...styles.td.active};
+      }
+
       return (
         <tr
           key={i}
@@ -76,12 +91,7 @@ export const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
           </td>
           <td
             width="3%"
-            style={row.wFen === hoveredRow
-              ? {...styles.td, ...styles.td.hover}
-              : isActiveMove(row.wFen)
-              ? {...styles.td, ...styles.td.active}
-              : styles.td
-            }
+            style={wTdStyle}
             onMouseEnter={() => setHoveredRow(row.wFen)}
             onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {
@@ -94,12 +104,7 @@ export const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
           </td>
           <td
             width="3%"
-            style={row.bFen === hoveredRow
-              ? {...styles.td, ...styles.td.hover}
-              : isActiveMove(row.bFen)
-              ? {...styles.td, ...styles.td.active}
-              : styles.td
-            }
+            style={bTdStyle}
             onMouseEnter={() => setHoveredRow(row.bFen)}
             onMouseLeave={() => setHoveredRow(null)}
             onClick={() => {

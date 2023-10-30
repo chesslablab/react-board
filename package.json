@@ -2,7 +2,7 @@
   "name": "@chesslablab/reactblab",
   "type": "module",
   "version": "0.1.6",
-  "description": "An easy-to-use React library of chess components and common utilities.",
+  "description": "An easy-to-use, state-management agnostic React library of chess components as well as common utilities.",
   "main": "dist/chesslablab-reactblab.cjs.js",
   "module": "dist/chesslablab-reactblab.esm.js",
   "license": "MIT",

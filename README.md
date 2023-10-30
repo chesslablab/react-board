@@ -1,6 +1,6 @@
 ## ReactBlab
 
-An easy-to-use React library of chess components and common utilities.
+An easy-to-use, state-management agnostic React library of chess components as well as common utilities.
 
 ### Demo
 
@@ -8,13 +8,23 @@ Check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://
 
 ### Install
 
-```
+```The state of the chessboard.
 npm i @chesslablab/reactblab
 ```
 
 ### Usage
 
+✨ Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create amazing apps with ReactBlab components. Happy coding and learning!
+
 #### Initialize a Classical Board
+
+FEN stands for Forsyth-Edwards Notation and is the standard way for describing chess positions using text strings.
+
+| ClassicalBoard Props | Description |
+| ---- | ----------- |
+| `stateBoard` | The state of the chessboard. |
+| `filterMove` | Allows to implement pre-processing logic for chess moves. |
+| `handleMove` | Allows to implement validation logic for chess moves. |
 
 ```js
 import { ClassicalBoard } from '@chesslablab/reactblab';
@@ -44,6 +54,12 @@ export default App;
 
 #### Initialize a Capablanca Board
 
+| CapablancaBoard Props | Description |
+| ---- | ----------- |
+| `stateBoard` | The state of the chessboard. |
+| `filterMove` | Allows to implement pre-processing logic for chess moves. |
+| `handleMove` | Allows to implement validation logic for chess moves. |
+
 ```js
 import { CapablancaBoard } from '@chesslablab/reactblab';
 
@@ -70,9 +86,22 @@ export default App;
 
 ![Figure 2](/assets/figure_02.png)
 
-#### Initialize a SAN Moves Table
+#### Allow Browsing Through the History of San Moves
 
 SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations. The `HistoryButtons` and `SanMovesTable` components can be combined to allow browsing through the history of SAN moves.
+
+| HistoryButtons Props | Description |
+| ---- | ----------- |
+| `stateHistoryButtons` | The state of the history buttons. |
+| `onFastRewindClick` | Allows to implement on fast rewind logic. |
+| `onSkipPreviousClick` | Allows to implement on skip previous logic. |
+| `onSkipNextClick` | Allows to implement on skip next logic. |
+| `onFastForwardClick` | Allows to implement on fast forward logic. |
+
+| SanMovesTable Props | Description |
+| ---- | ----------- |
+| `stateSanMovesTable` | The state of the SAN moves table. |
+| `onCellClick` | Allows to implement on cell click logic. |
 
 ```js
 import { HistoryButtons, SanMovesTable } from '@chesslablab/reactblab';
@@ -130,7 +159,12 @@ export default App;
 
 #### Initialize a RAV Moves Table
 
-RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
+Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
+
+| RavMovesTable Props | Description |
+| ---- | ----------- |
+| `stateRavMovesTable` | The state of the RAV moves table. |
+| `onCellClick` | Allows to implement on cell click logic. |
 
 ```js
 import { HistoryButtons, RavMovesTable } from '@chesslablab/reactblab';
@@ -240,7 +274,7 @@ export default App;
 
 ![Figure 4](/assets/figure_04.png)
 
-This RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
+The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
 
 ### Contributions
 

@@ -1,6 +1,6 @@
 ## ReactBlab
 
-An easy-to-use React library of chess components and common utilities.
+An easy-to-use, state-management agnostic React library of chess components as well as common chess utilities.
 
 ### Demo
 
@@ -8,13 +8,25 @@ Check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://
 
 ### Install
 
-```
+```The state of the chessboard.
 npm i @chesslablab/reactblab
 ```
 
 ### Usage
 
+✨ Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create amazing apps with ReactBlab components.
+
+Happy coding and learning!
+
 #### Initialize a Classical Board
+
+FEN stands for Forsyth-Edwards Notation and is the standard way for describing chess positions using text strings.
+
+| ClassicalBoard Props | Description |
+| -------------------- | ----------- |
+| `stateBoard` | The state of the chessboard. |
+| `filterMove` | Allows to implement pre-processing logic for chess moves. |
+| `handleMove` | Allows to implement validation logic for chess moves. |
 
 ```js
 import { ClassicalBoard } from '@chesslablab/reactblab';
@@ -23,9 +35,9 @@ function App() {
   return (
     <ClassicalBoard
       stateBoard={{
-        fen: 'rnbq1rk1/pppp1ppp/4pn2/8/1bPP4/2N1PN2/PP3PPP/R1BQKB1R b KQ -',
+        fen: "rnbq1rk1/pppp1ppp/4pn2/8/1bPP4/2N1PN2/PP3PPP/R1BQKB1R b KQ -",
         isCheck: false,
-        flip: 'w',
+        flip: "w",
       }}
       filterMove={() => {
         // Implement pre-processing logic for the chess move.
@@ -44,6 +56,12 @@ export default App;
 
 #### Initialize a Capablanca Board
 
+| CapablancaBoard Props | Description |
+| --------------------- | ----------- |
+| `stateBoard` | The state of the chessboard. |
+| `filterMove` | Allows to implement pre-processing logic for chess moves. |
+| `handleMove` | Allows to implement validation logic for chess moves. |
+
 ```js
 import { CapablancaBoard } from '@chesslablab/reactblab';
 
@@ -51,9 +69,9 @@ function App() {
   return (
     <CapablancaBoard
       stateBoard={{
-        fen: 'r1abqkbcnr/ppppp1pppp/2n7/5p4/5P4/7N2/PPPPP1PPPP/RNABQKBC1R w KQkq -',
+        fen: "r1abqkbcnr/ppppp1pppp/2n7/5p4/5P4/7N2/PPPPP1PPPP/RNABQKBC1R w KQkq -",
         isCheck: false,
-        flip: 'b',
+        flip: "b",
       }}
       filterMove={() => {
         // Implement pre-processing logic for the chess move.
@@ -70,9 +88,22 @@ export default App;
 
 ![Figure 2](/assets/figure_02.png)
 
-#### Initialize a SAN Moves Table
+#### Allow Browsing Through the History of San Moves
 
 SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations. The `HistoryButtons` and `SanMovesTable` components can be combined to allow browsing through the history of SAN moves.
+
+| HistoryButtons Props | Description |
+| -------------------- | ----------- |
+| `stateHistoryButtons` | The state of the history buttons. |
+| `onFastRewindClick` | Allows to implement on fast rewind logic. |
+| `onSkipPreviousClick` | Allows to implement on skip previous logic. |
+| `onSkipNextClick` | Allows to implement on skip next logic. |
+| `onFastForwardClick` | Allows to implement on fast forward logic. |
+
+| SanMovesTable Props | Description |
+| ------------------- | ----------- |
+| `stateSanMovesTable` | The state of the SAN moves table. |
+| `onCellClick` | Allows to implement on cell click logic. |
 
 ```js
 import { HistoryButtons, SanMovesTable } from '@chesslablab/reactblab';
@@ -81,12 +112,12 @@ function App() {
   const back = 0;
 
   const fen = [
-    'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -',
-    'rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3',
-    'rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -',
-    'rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3',
-    'rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -',
-    'rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -',
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+    "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3",
+    "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -",
   ];
 
   return (
@@ -113,7 +144,7 @@ function App() {
         stateSanMovesTable={{
           back: back,
           fen: fen,
-          movetext: '1.d4 Nf6 2.c4 e6 3.Qb3',
+          movetext: "1.d4 Nf6 2.c4 e6 3.Qb3",
         }}
         onCellClick={() => {
           // Implement on cell click logic.
@@ -128,9 +159,88 @@ export default App;
 
 ![Figure 3](/assets/figure_03.png)
 
+Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can be helpful.
+
+| OpeningTable Props  | Description |
+| ------------------- | ----------- |
+| `stateOpeningTable` | The state of the chess opening table. |
+
+```js
+import { HistoryButtons, OpeningTable, SanMovesTable } from '@chesslablab/reactblab';
+
+function App() {
+  const back = 0;
+
+  const fen = [
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+    "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3",
+    "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -",
+  ];
+
+  const opening = {
+    rows: [
+      {
+        eco: "E00",
+        name: "Indian Defense",
+        movetext: "1.d4 Nf6 2.c4 e6 3.Qb3",
+      },
+    ],
+  };
+
+  return (
+    <>
+      <HistoryButtons
+        stateHistoryButtons={{
+          back: back,
+          fen: fen,
+        }}
+        onFastRewindClick={() => {
+          // Implement on fast rewind logic.
+        }}
+        onSkipPreviousClick={() => {
+          // Implement on skip previous logic.
+        }}
+        onSkipNextClick={() => {
+          // Implement on skip next logic.
+        }}
+        onFastForwardClick={() => {
+          // Implement on fast forward logic.
+        }}
+      />
+      <SanMovesTable
+        stateSanMovesTable={{
+          back: back,
+          fen: fen,
+          movetext: "1.d4 Nf6 2.c4 e6 3.Qb3",
+        }}
+        onCellClick={() => {
+          // Implement on cell click logic.
+        }}
+      />
+      <OpeningTable
+        stateOpeningTable={{
+          opening: opening,
+          fen: fen,
+        }}
+      />
+    </>
+  );
+}
+
+export default App;
+```
+
 #### Initialize a RAV Moves Table
 
-RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
+Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
+
+| RavMovesTable Props | Description |
+| ------------------- | ----------- |
+| `stateRavMovesTable` | The state of the RAV moves table. |
+| `onCellClick` | Allows to implement on cell click logic. |
 
 ```js
 import { HistoryButtons, RavMovesTable } from '@chesslablab/reactblab';
@@ -238,9 +348,43 @@ function App() {
 export default App;
 ```
 
-![Figure 4](/assets/figure_04.png)
+![Figure 5](/assets/figure_05.png)
 
-This RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
+The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
+
+#### Encyclopedia of Chess Openings (ECO)
+
+Chess openings can easily be imported into your app as an array of JavaScript objects.
+
+```js
+import { openings } from '@chesslablab/reactblab';
+```
+
+```js
+[
+  {
+    "eco": "A00",
+    "name": "Amar Gambit",
+    "movetext": "1.Nh3 d5 2.g3 e5 3.f4 Bxh3 4.Bxh3 exf4"
+  },
+  {
+    "eco": "A00",
+    "name": "Amar Opening",
+    "movetext": "1.Nh3"
+  },
+  ...
+  {
+    "eco": "E99",
+    "name": "King's Indian Defense: Orthodox Variation, Classical System, Benko Attack",
+    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5 11.g4"
+  },
+  {
+    "eco": "E99",
+    "name": "King's Indian Defense: Orthodox Variation, Classical System, Traditional Line",
+    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"
+  }
+];
+```
 
 ### Contributions
 

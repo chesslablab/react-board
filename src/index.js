@@ -54,6 +54,7 @@ export const ClassicalBoard = ({
 export * from './common/Ascii';
 export * from './common/Movetext';
 export * from './common/Nag';
+export * from './common/Opening';
 export * from './piece/SvgPiece';
 export * from './HistoryButtons';
 export * from './OpeningTable';

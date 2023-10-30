@@ -21,7 +21,7 @@ npm i @chesslablab/reactblab
 FEN stands for Forsyth-Edwards Notation and is the standard way for describing chess positions using text strings.
 
 | ClassicalBoard Props | Description |
-| ---- | ----------- |
+| -------------------- | ----------- |
 | `stateBoard` | The state of the chessboard. |
 | `filterMove` | Allows to implement pre-processing logic for chess moves. |
 | `handleMove` | Allows to implement validation logic for chess moves. |
@@ -55,7 +55,7 @@ export default App;
 #### Initialize a Capablanca Board
 
 | CapablancaBoard Props | Description |
-| ---- | ----------- |
+| --------------------- | ----------- |
 | `stateBoard` | The state of the chessboard. |
 | `filterMove` | Allows to implement pre-processing logic for chess moves. |
 | `handleMove` | Allows to implement validation logic for chess moves. |
@@ -91,7 +91,7 @@ export default App;
 SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations. The `HistoryButtons` and `SanMovesTable` components can be combined to allow browsing through the history of SAN moves.
 
 | HistoryButtons Props | Description |
-| ---- | ----------- |
+| -------------------- | ----------- |
 | `stateHistoryButtons` | The state of the history buttons. |
 | `onFastRewindClick` | Allows to implement on fast rewind logic. |
 | `onSkipPreviousClick` | Allows to implement on skip previous logic. |
@@ -99,7 +99,7 @@ SAN stands for Standard Algebraic Notation. It is a human-readable text format t
 | `onFastForwardClick` | Allows to implement on fast forward logic. |
 
 | SanMovesTable Props | Description |
-| ---- | ----------- |
+| ------------------- | ----------- |
 | `stateSanMovesTable` | The state of the SAN moves table. |
 | `onCellClick` | Allows to implement on cell click logic. |
 
@@ -157,12 +157,86 @@ export default App;
 
 ![Figure 3](/assets/figure_03.png)
 
+Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can also be used.
+
+| OpeningTable Props  | Description |
+| ------------------- | ----------- |
+| `stateOpeningTable` | The state of the chess opening table. |
+
+```js
+import { HistoryButtons, OpeningTable, SanMovesTable } from '@chesslablab/reactblab';
+
+function App() {
+  const back = 0;
+
+  const fen = [
+    'rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -',
+    'rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3',
+    'rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -',
+    'rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3',
+    'rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -',
+    'rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -',
+  ];
+
+  const opening = {
+    rows: [
+      {
+        eco: "E00",
+        name: "Indian Defense",
+        movetext: "1.d4 Nf6 2.c4 e6 3.Qb3",
+      },
+    ],
+  };
+
+  return (
+    <>
+      <HistoryButtons
+        stateHistoryButtons={{
+          back: back,
+          fen: fen,
+        }}
+        onFastRewindClick={() => {
+          // Implement on fast rewind logic.
+        }}
+        onSkipPreviousClick={() => {
+          // Implement on skip previous logic.
+        }}
+        onSkipNextClick={() => {
+          // Implement on skip next logic.
+        }}
+        onFastForwardClick={() => {
+          // Implement on fast forward logic.
+        }}
+      />
+      <SanMovesTable
+        stateSanMovesTable={{
+          back: back,
+          fen: fen,
+          movetext: '1.d4 Nf6 2.c4 e6 3.Qb3',
+        }}
+        onCellClick={() => {
+          // Implement on cell click logic.
+        }}
+      />
+      <OpeningTable
+        stateOpeningTable={{
+          opening: opening,
+          fen: fen,
+        }}
+      />
+    </>
+  );
+}
+
+export default App;
+```
+
 #### Initialize a RAV Moves Table
 
 Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
 
 | RavMovesTable Props | Description |
-| ---- | ----------- |
+| ------------------- | ----------- |
 | `stateRavMovesTable` | The state of the RAV moves table. |
 | `onCellClick` | Allows to implement on cell click logic. |
 
@@ -272,7 +346,7 @@ function App() {
 export default App;
 ```
 
-![Figure 4](/assets/figure_04.png)
+![Figure 5](/assets/figure_05.png)
 
 The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
 

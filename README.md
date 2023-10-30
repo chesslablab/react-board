@@ -24,9 +24,7 @@ FEN stands for Forsyth-Edwards Notation and is the standard way for describing c
 | -------------------- | ----------- |
 | `stateBoard` | The state of the chessboard. |
 | `filterMove` | Allows to implement pre-processing logic for chess moves. |
-| `handleMove` | Allows to implement validation logic for chess moves. |
-
-<p>&nbsp;</p>
+| `handleMove` | Allows to implement validation logic for chess moves. |  
 
 ```js
 import { ClassicalBoard } from '@chesslablab/reactblab';

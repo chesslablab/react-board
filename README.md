@@ -1,6 +1,6 @@
 ## ReactBlab
 
-An easy-to-use, state-management agnostic React library of chess components as well as common utilities.
+An easy-to-use, state-management agnostic React library of chess components as well as common chess utilities.
 
 ### Demo
 
@@ -14,7 +14,9 @@ npm i @chesslablab/reactblab
 
 ### Usage
 
-✨ Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create amazing apps with ReactBlab components. Happy coding and learning!
+✨ Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create amazing apps with ReactBlab components.
+
+Happy coding and learning!
 
 #### Initialize a Classical Board
 
@@ -157,7 +159,7 @@ export default App;
 
 ![Figure 3](/assets/figure_03.png)
 
-Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can also be used.
+Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can be helpful.
 
 | OpeningTable Props  | Description |
 | ------------------- | ----------- |

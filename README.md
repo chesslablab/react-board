@@ -61,9 +61,7 @@ Similarly as with a classical board, a Capablanca board is initialized by passin
 | --------------------- | ----------- |
 | `stateBoard` | The state of the chessboard. |
 | `filterMove` | Allows to implement pre-processing logic for chess moves. |
-| `handleMove` | Allows to implement validation logic for chess moves. |
-
-<p>&nbsp;</p>
+| `handleMove` | Allows to implement validation logic for chess moves. |  
 
 ```js
 import { CapablancaBoard } from '@chesslablab/reactblab';
@@ -101,16 +99,12 @@ SAN stands for Standard Algebraic Notation. It is a human-readable text format t
 | `onFastRewindClick` | Allows to implement on fast rewind logic. |
 | `onSkipPreviousClick` | Allows to implement on skip previous logic. |
 | `onSkipNextClick` | Allows to implement on skip next logic. |
-| `onFastForwardClick` | Allows to implement on fast forward logic. |
-
-<p>&nbsp;</p>
+| `onFastForwardClick` | Allows to implement on fast forward logic. |  
 
 | SanMovesTable Props | Description |
 | ------------------- | ----------- |
 | `stateSanMovesTable` | The state of the SAN moves table. |
-| `onCellClick` | Allows to implement on cell click logic. |
-
-<p>&nbsp;</p>
+| `onCellClick` | Allows to implement on cell click logic. |  
 
 ```js
 import { HistoryButtons, SanMovesTable } from '@chesslablab/reactblab';
@@ -170,9 +164,7 @@ Also you may want to display the chess opening that is being played at a certain
 
 | OpeningTable Props  | Description |
 | ------------------- | ----------- |
-| `stateOpeningTable` | The state of the chess opening table. |
-
-<p>&nbsp;</p>
+| `stateOpeningTable` | The state of the chess opening table. |  
 
 ```js
 import { HistoryButtons, OpeningTable, SanMovesTable } from '@chesslablab/reactblab';
@@ -249,9 +241,7 @@ Annotated games are games with comments that help understand what is going on th
 | RavMovesTable Props | Description |
 | ------------------- | ----------- |
 | `stateRavMovesTable` | The state of the RAV moves table. |
-| `onCellClick` | Allows to implement on cell click logic. |
-
-<p>&nbsp;</p>
+| `onCellClick` | Allows to implement on cell click logic. |  
 
 ```js
 import { HistoryButtons, RavMovesTable } from '@chesslablab/reactblab';

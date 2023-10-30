@@ -25,8 +25,7 @@ FEN stands for Forsyth-Edwards Notation and is the standard way for describing c
 | `stateBoard` | The state of the chessboard. |
 | `filterMove` | Allows to implement pre-processing logic for chess moves. |
 | `handleMove` | Allows to implement validation logic for chess moves. |
-
-
+<p>&nbsp;</p>
 ```js
 import { ClassicalBoard } from '@chesslablab/reactblab';
 
@@ -63,8 +62,7 @@ Similarly as with a classical board, a Capablanca board is initialized by passin
 | `stateBoard` | The state of the chessboard. |
 | `filterMove` | Allows to implement pre-processing logic for chess moves. |
 | `handleMove` | Allows to implement validation logic for chess moves. |
-
-
+<p>&nbsp;</p>
 ```js
 import { CapablancaBoard } from '@chesslablab/reactblab';
 
@@ -102,14 +100,12 @@ SAN stands for Standard Algebraic Notation. It is a human-readable text format t
 | `onSkipPreviousClick` | Allows to implement on skip previous logic. |
 | `onSkipNextClick` | Allows to implement on skip next logic. |
 | `onFastForwardClick` | Allows to implement on fast forward logic. |
-
-
+<p>&nbsp;</p>
 | SanMovesTable Props | Description |
 | ------------------- | ----------- |
 | `stateSanMovesTable` | The state of the SAN moves table. |
 | `onCellClick` | Allows to implement on cell click logic. |
-
-
+<p>&nbsp;</p>
 ```js
 import { HistoryButtons, SanMovesTable } from '@chesslablab/reactblab';
 
@@ -169,8 +165,7 @@ Also you may want to display the chess opening that is being played at a certain
 | OpeningTable Props  | Description |
 | ------------------- | ----------- |
 | `stateOpeningTable` | The state of the chess opening table. |
-
-
+<p>&nbsp;</p>
 ```js
 import { HistoryButtons, OpeningTable, SanMovesTable } from '@chesslablab/reactblab';
 
@@ -247,8 +242,7 @@ Annotated games are games with comments that help understand what is going on th
 | ------------------- | ----------- |
 | `stateRavMovesTable` | The state of the RAV moves table. |
 | `onCellClick` | Allows to implement on cell click logic. |
-
-
+<p>&nbsp;</p>
 ```js
 import { HistoryButtons, RavMovesTable } from '@chesslablab/reactblab';
 

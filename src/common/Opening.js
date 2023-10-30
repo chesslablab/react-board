@@ -1,4 +1,4 @@
-import openings from '../assets/json/openings.json';
+import { openings } from '../data/data.js';
 
 export class Opening {
   static byEco = (eco) => {

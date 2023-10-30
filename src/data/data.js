@@ -1,4 +1,4 @@
-[
+export const openings = [
 {"eco":"A00","name":"Amar Gambit","movetext":"1.Nh3 d5 2.g3 e5 3.f4 Bxh3 4.Bxh3 exf4"},
 {"eco":"A00","name":"Amar Opening","movetext":"1.Nh3"},
 {"eco":"A00","name":"Amar Opening: Gent Gambit","movetext":"1.Nh3 d5 2.g3 e5 3.f4 Bxh3 4.Bxh3 exf4 5.O-O fxg3 6.hxg3"},
@@ -3608,4 +3608,4 @@
 {"eco":"E98","name":"King's Indian Defense: Orthodox Variation, Classical System, Neo-Classical Line","movetext":"1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.Be3"},
 {"eco":"E99","name":"King's Indian Defense: Orthodox Variation, Classical System, Benko Attack","movetext":"1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5 11.g4"},
 {"eco":"E99","name":"King's Indian Defense: Orthodox Variation, Classical System, Traditional Line","movetext":"1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"}
-]
+];

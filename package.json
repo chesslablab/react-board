@@ -1,7 +1,7 @@
 {
   "name": "@chesslablab/reactblab",
   "type": "module",
-  "version": "0.1.8",
+  "version": "0.1.9",
   "description": "An easy-to-use, state-management agnostic React library of chess components as well as common utilities.",
   "main": "dist/chesslablab-reactblab.cjs.js",
   "module": "dist/chesslablab-reactblab.esm.js",

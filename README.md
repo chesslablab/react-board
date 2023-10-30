@@ -14,17 +14,15 @@ npm i @chesslablab/reactblab
 
 ### Usage
 
-Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create amazing apps with ReactBlab components. Happy coding and learning!
+Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create apps with ReactBlab components. Happy coding and learning!
 
 #### Initialize a Classical Board
 
-FEN stands for Forsyth-Edwards Notation and is the standard way for describing chess positions using text strings. As you can see in the following example, a FEN string representing a chess position is passed as a prop in the `stateBoard` parameter. The `isCheck` and `flip` key-value pairs are also used.
+FEN stands for Forsyth-Edwards Notation and is the standard way for describing chess positions using text strings. As you can see in the following example, a FEN string representing a chess position is passed as a prop to the `ClassicalBoard` component in the `stateBoard` parameter. The `isCheck` and `flip` key-value pairs also need to be passed.
 
-| ClassicalBoard Props | Description |
-| -------------------- | ----------- |
-| `stateBoard` | The state of the chessboard. |
-| `filterMove` | Allows to implement pre-processing logic for chess moves. |
-| `handleMove` | Allows to implement validation logic for chess moves. |  
+- `stateBoard` represents the state of the chessboard.
+- `filterMove` allows to implement pre-processing logic for chess moves.
+- `handleMove` allows to implement validation logic for chess moves.  
 
 ```js
 import { ClassicalBoard } from '@chesslablab/reactblab';
@@ -54,14 +52,11 @@ export default App;
 
 #### Initialize a Capablanca Board
 
-Similarly as with a classical board, a Capablanca board is initialized by passing the `stateBoard` prop to the component. A FEN string is used as well as the `isCheck` and `flip` key-value pairs.
+Similarly as with a classical board, a Capablanca board is initialized by passing the `stateBoard` prop to the `CapablancaBoard` component. A FEN string needs to be passed to the chessboard component as well as the `isCheck` and `flip` key-value pairs.
 
-
-| CapablancaBoard Props | Description |
-| --------------------- | ----------- |
-| `stateBoard` | The state of the chessboard. |
-| `filterMove` | Allows to implement pre-processing logic for chess moves. |
-| `handleMove` | Allows to implement validation logic for chess moves. |  
+- `stateBoard` represents the state of the chessboard.
+- `filterMove` allows to implement pre-processing logic for chess moves.
+- `handleMove` allows to implement validation logic for chess moves.
 
 ```js
 import { CapablancaBoard } from '@chesslablab/reactblab';
@@ -89,22 +84,22 @@ export default App;
 
 ![Figure 2](/assets/figure_02.png)
 
-#### Allow Browsing Through the History of San Moves
+#### Allow Browsing Through the History of SAN Moves
 
-SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations. The `HistoryButtons` and `SanMovesTable` components can be combined to allow browsing through the history of SAN moves.
+SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations.
 
-| HistoryButtons Props | Description |
-| -------------------- | ----------- |
-| `stateHistoryButtons` | The state of the history buttons. |
-| `onFastRewindClick` | Allows to implement on fast rewind logic. |
-| `onSkipPreviousClick` | Allows to implement on skip previous logic. |
-| `onSkipNextClick` | Allows to implement on skip next logic. |
-| `onFastForwardClick` | Allows to implement on fast forward logic. |  
+A SAN Moves table can be initialized by passing the `stateBoard` prop to the `SanMovesTable` component.
 
-| SanMovesTable Props | Description |
-| ------------------- | ----------- |
-| `stateSanMovesTable` | The state of the SAN moves table. |
-| `onCellClick` | Allows to implement on cell click logic. |  
+- `stateSanMovesTable` represents the state of the SAN moves table.
+- `onCellClick` allows to implement on cell click logic.
+
+The `HistoryButtons` and `SanMovesTable` components can be combined to allow browsing through the history of SAN moves.
+
+- `stateHistoryButtons` represents the state of the history buttons.
+- `onFastRewindClick` allows to implement on fast rewind logic.
+- `onSkipPreviousClick` allows to implement on skip previous logic.
+- `onSkipNextClick` allows to implement on skip next logic.
+- `onFastForwardClick` allows to implement on fast forward logic.  
 
 ```js
 import { HistoryButtons, SanMovesTable } from '@chesslablab/reactblab';
@@ -162,9 +157,7 @@ export default App;
 
 Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can be helpful.
 
-| OpeningTable Props  | Description |
-| ------------------- | ----------- |
-| `stateOpeningTable` | The state of the chess opening table. |  
+- `stateOpeningTable` represents the state of the chess opening table.  
 
 ```js
 import { HistoryButtons, OpeningTable, SanMovesTable } from '@chesslablab/reactblab';
@@ -238,10 +231,8 @@ export default App;
 
 Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
 
-| RavMovesTable Props | Description |
-| ------------------- | ----------- |
-| `stateRavMovesTable` | The state of the RAV moves table. |
-| `onCellClick` | Allows to implement on cell click logic. |  
+- `stateRavMovesTable` represents the state of the RAV moves table.
+- `onCellClick` allows to implement on cell click logic.  
 
 ```js
 import { HistoryButtons, RavMovesTable } from '@chesslablab/reactblab';

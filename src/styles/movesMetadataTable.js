@@ -1,6 +1,6 @@
 const styles = {
-  tr: {
-    background: '#f6f6f6',
+  table: {
+    width: '100%',
   },
   td: {
     fontSize: '0.8rem',

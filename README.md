@@ -160,7 +160,11 @@ Also you may want to display the chess opening that is being played at a certain
 - `stateOpeningTable` represents the state of the chess opening table.  
 
 ```js
-import { HistoryButtons, OpeningTable, SanMovesTable } from '@chesslablab/reactblab';
+import {
+  HistoryButtons,
+  OpeningTable,
+  SanMovesTable
+} from '@chesslablab/reactblab';
 
 function App() {
   const back = 0;
@@ -226,6 +230,114 @@ function App() {
 
 export default App;
 ```
+
+![Figure 4](/assets/figure_04.png)
+
+The same thing goes for the `MovesMetadataTable` which can be used to display data about a particular game as it is shown in the following example.
+
+```js
+import {
+  HistoryButtons,
+  MovesMetadataTable,
+  OpeningTable,
+  SanMovesTable
+} from '@chesslablab/reactblab';
+
+function App() {
+  const metadata = {
+    "Event": "World Championship 28th",
+    "Site":"Reykjavik",
+    "Date":"1972.??.??",
+    "White":"Spassky, Boris V",
+    "Black":"Fischer, Robert James",
+    "White ELO":"2660",
+    "Black ELO":"2785",
+    "Result":"1-0",
+    "ECO":"B97",
+  };
+
+  const back = 0;
+
+  const fen = [
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+    "rnbqkbnr/pppppppp/8/8/4P3/8/PPPP1PPP/RNBQKBNR b KQkq e3",
+    "rnbqkbnr/pp1ppppp/8/2p5/4P3/8/PPPP1PPP/RNBQKBNR w KQkq c6",
+    "rnbqkbnr/pp1ppppp/8/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R b KQkq -",
+    "rnbqkbnr/pp2pppp/3p4/2p5/4P3/5N2/PPPP1PPP/RNBQKB1R w KQkq -",
+    "rnbqkbnr/pp2pppp/3p4/2p5/3PP3/5N2/PPP2PPP/RNBQKB1R b KQkq d3",
+    "rnbqkbnr/pp2pppp/3p4/8/3pP3/5N2/PPP2PPP/RNBQKB1R w KQkq -",
+    "rnbqkbnr/pp2pppp/3p4/8/3NP3/8/PPP2PPP/RNBQKB1R b KQkq -",
+    "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/8/PPP2PPP/RNBQKB1R w KQkq -",
+    "rnbqkb1r/pp2pppp/3p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R b KQkq -",
+    "rnbqkb1r/1p2pppp/p2p1n2/8/3NP3/2N5/PPP2PPP/R1BQKB1R w KQkq -",
+    "rnbqkb1r/1p2pppp/p2p1n2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R b KQkq -",
+    "rnbqkb1r/1p3ppp/p2ppn2/6B1/3NP3/2N5/PPP2PPP/R2QKB1R w KQkq -",
+    "rnbqkb1r/1p3ppp/p2ppn2/6B1/3NPP2/2N5/PPP3PP/R2QKB1R b KQkq f3",
+    "rnb1kb1r/1p3ppp/pq1ppn2/6B1/3NPP2/2N5/PPP3PP/R2QKB1R w KQkq -",
+    "rnb1kb1r/1p3ppp/pq1ppn2/6B1/3NPP2/2N5/PPPQ2PP/R3KB1R b KQkq -",
+  ];
+
+  const movetext = "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bg5 e6 7.f4 Qb6";
+
+  const opening = {
+    rows: [
+      {
+        eco: "B97",
+        name: "Sicilian Defense: Najdorf Variation, Poisoned Pawn Variation",
+        movetext: "1.e4 c5 2.Nf3 d6 3.d4 cxd4 4.Nxd4 Nf6 5.Nc3 a6 6.Bg5 e6 7.f4 Qb6",
+      },
+    ],
+  };
+
+  return (
+    <>
+      <MovesMetadataTable
+        stateMovesMetadataTable={{
+          metadata: metadata,
+        }}
+      />
+      <HistoryButtons
+        stateHistoryButtons={{
+          back: back,
+          fen: fen,
+        }}
+        onFastRewindClick={() => {
+          // Implement on fast rewind logic.
+        }}
+        onSkipPreviousClick={() => {
+          // Implement on skip previous logic.
+        }}
+        onSkipNextClick={() => {
+          // Implement on skip next logic.
+        }}
+        onFastForwardClick={() => {
+          // Implement on fast forward logic.
+        }}
+      />
+      <SanMovesTable
+        stateSanMovesTable={{
+          back: back,
+          fen: fen,
+          movetext: movetext,
+        }}
+        onCellClick={() => {
+          // Implement on cell click logic.
+        }}
+      />
+      <OpeningTable
+        stateOpeningTable={{
+          opening: opening,
+          fen: fen,
+        }}
+      />
+    </>
+  );
+}
+
+export default App;
+```
+
+![Figure 5](/assets/figure_05.png)
 
 #### Initialize a RAV Moves Table
 
@@ -340,7 +452,7 @@ function App() {
 export default App;
 ```
 
-![Figure 5](/assets/figure_05.png)
+![Figure 6](/assets/figure_06.png)
 
 The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
 

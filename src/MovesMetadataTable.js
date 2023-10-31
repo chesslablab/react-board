@@ -3,7 +3,7 @@ import styles from './styles/movesMetadataTable';
 export const MovesMetadataTable = ({ stateMovesMetadataTable }) => {
   if (Object.keys(stateMovesMetadataTable.metadata).length) {
     return (
-      <table cellspacing="0" style={styles.table}>
+      <table cellSpacing="0" style={styles.table}>
         <tbody>
           <tr key={0}>
             <td align="left" style={styles.td} >

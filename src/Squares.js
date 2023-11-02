@@ -45,26 +45,6 @@ const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
           }
         }
 
-        /*
-        if (stateBoard.pieceGrabbed) {
-          if (stateBoard.pieceGrabbed.sq === payload.sq) {
-            isSelected = 'isSelected';
-          } else if (stateBoard.pieceGrabbed.fen?.hasOwnProperty(payload.sq)) {
-            isLegal = 'isLegal';
-          }
-        } else if (stateBoard.isCheck) {
-          if (stateBoard.fen[1] === 'w') {
-            if (piece === ' K ') {
-              isCheck = 'isCheck';
-            }
-          } else if (stateBoard.fen[1] === 'b') {
-            if (piece === ' k ') {
-              isCheck = 'isCheck';
-            }
-          }
-        }
-        */
-
         return <div
           key={payload.sq}
           style={{

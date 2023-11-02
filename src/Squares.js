@@ -32,24 +32,16 @@ const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
               stateBoard.size
             )
           };
-        if (stateBoard.pieceGrabbed) {
-          if (stateBoard.pieceGrabbed.sq === payload.sq) {
-            isSelected = 'isSelected';
-          }
-          if (stateBoard.pieceGrabbed.fen) {
-            if (Object.keys(stateBoard.pieceGrabbed.fen).includes(payload.sq)) {
-              isLegal = 'isLegal';
-            }
-          }
+
+        if (stateBoard.pieceGrabbed?.sq === payload.sq) {
+          isSelected = 'isSelected';
+        } else if (stateBoard.pieceGrabbed?.fen?.hasOwnProperty(payload.sq)) {
+          isLegal = 'isLegal';
         } else if (stateBoard.isCheck) {
-          if (stateBoard.fen[1] === 'w') {
-            if (piece === ' K ') {
-              isCheck = 'isCheck';
-            }
-          } else if (stateBoard.fen[1] === 'b') {
-            if (piece === ' k ') {
-              isCheck = 'isCheck';
-            }
+          if (stateBoard.fen[1] === 'w' && piece === ' K ') {
+            isCheck = 'isCheck';
+          } else if (stateBoard.fen[1] === 'b' && piece === ' k ') {
+            isCheck = 'isCheck';
           }
         }
 

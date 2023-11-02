@@ -13,7 +13,6 @@ const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
     ).map((rank, i) => {
       return rank.map((piece, j) => {
         let payload = { piece: piece };
-        let isLegal, isSelected, isCheck = '';
         let color = (i + j) % 2 !== 0 ? 'b' : 'w';
         stateBoard.flip === 'w'
           ? payload = {
@@ -33,26 +32,14 @@ const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
             )
           };
 
-        if (stateBoard.pieceGrabbed?.sq === payload.sq) {
-          isSelected = 'isSelected';
-        } else if (stateBoard.pieceGrabbed?.fen?.hasOwnProperty(payload.sq)) {
-          isLegal = 'isLegal';
-        } else if (stateBoard.isCheck) {
-          if (stateBoard.fen[1] === 'w' && piece === ' K ') {
-            isCheck = 'isCheck';
-          } else if (stateBoard.fen[1] === 'b' && piece === ' k ') {
-            isCheck = 'isCheck';
-          }
-        }
-
         return <div
           key={payload.sq}
           style={{
             ...styles.sq,
             ...styles[color],
-            ...styles[isLegal],
-            ...styles[isSelected],
-            ...styles[isCheck],
+            ...styles[isLegal(payload)],
+            ...styles[isSelected(payload)],
+            ...styles[isCheck(payload)],
           }}
           className={[
               'sq',
@@ -86,6 +73,37 @@ const Squares = ({ stateBoard, filterMove, handleMove, style }) => {
         </div>
       });
     });
+  }
+
+  const isSelected = (payload) => {
+    const className = 'isSelected';
+    if (stateBoard.pieceGrabbed?.sq === payload.sq) {
+      return className;
+    }
+
+    return '';
+  }
+
+  const isLegal = (payload) => {
+    const className = 'isLegal';
+    if (stateBoard.pieceGrabbed?.fen?.hasOwnProperty(payload.sq)) {
+      return className;
+    }
+
+    return '';
+  }
+
+  const isCheck = (payload) => {
+    const className = 'isCheck';
+    if (stateBoard.isCheck) {
+      if (stateBoard.fen[1] === 'w' && payload.piece === ' K ') {
+        return className;
+      } else if (stateBoard.fen[1] === 'b' && payload.piece === ' k ') {
+        return className;
+      }
+    }
+
+    return '';
   }
 
   return (

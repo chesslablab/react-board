@@ -1,8 +1,6 @@
 const styles = {
   div: {
     padding: "0.5rem",
-    height: 368,
-    overflowY: 'scroll',
   },
   span: {
     fontSize: "0.875rem",

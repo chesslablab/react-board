@@ -34,9 +34,6 @@ export const SanMovesInline = ({ stateSanMovesInline, onSpanClick }) => {
     return rows.map((row, i) => {
       return (
         <span key={i}>
-          <span style={{...styles.span, ...styles.span.n}}>
-            {row.n}.
-          </span>
           <span
             style={row.wFen === hoveredSpan
               ? {...styles.span, ...styles.span.hover}
@@ -52,7 +49,7 @@ export const SanMovesInline = ({ stateSanMovesInline, onSpanClick }) => {
               }
             }}
           >
-            {row.w}
+            {row.n}.{row.w}
           </span>
           <span
             style={row.bFen === hoveredSpan

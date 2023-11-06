@@ -9,10 +9,6 @@ const styles = {
     padding: "4px 4px 4px 3px",
     cursor: 'pointer',
     float: 'left',
-    n: {
-      cursor: 'default',
-      paddingRight: 0,
-    },
     hover: {
       color: '#ffffff',
       background: "#3d8cd9",

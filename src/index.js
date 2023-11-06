@@ -61,4 +61,5 @@ export * from './HistoryButtons';
 export * from './MovesMetadataTable';
 export * from './OpeningTable';
 export * from './RavMovesTable';
+export * from './SanMovesInline';
 export * from './SanMovesTable';

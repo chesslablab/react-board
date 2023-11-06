@@ -88,7 +88,7 @@ export default App;
 
 SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations.
 
-A SAN Moves table can be initialized by passing the `stateBoard` prop to the `SanMovesTable` component.
+A SAN moves table can be initialized by passing the `stateBoard` prop to the `SanMovesTable` component.
 
 - `stateSanMovesTable` represents the state of the SAN moves table.
 - `onCellClick` allows to implement on cell click logic.
@@ -154,6 +154,65 @@ export default App;
 ```
 
 ![Figure 3](/assets/figure_03.png)
+
+Alternatively, the `SanMovesInline` component displays the chess moves in a single paragraph rather than in a scrollable table which may be more suitable for mobile devices.
+
+```js
+import { HistoryButtons, SanMovesInline } from '@chesslablab/reactblab';
+
+function App() {
+  const back = 0;
+
+  const fen = [
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+    "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3",
+    "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -",
+  ];
+
+  return (
+    <>
+      <HistoryButtons
+        stateHistoryButtons={{
+          back: back,
+          fen: fen,
+        }}
+        onFastRewindClick={() => {
+          // Implement on fast rewind logic.
+        }}
+        onSkipPreviousClick={() => {
+          // Implement on skip previous logic.
+        }}
+        onSkipNextClick={() => {
+          // Implement on skip next logic.
+        }}
+        onFastForwardClick={() => {
+          // Implement on fast forward logic.
+        }}
+      />
+      <SanMovesInline
+        stateSanMovesInline={{
+          back: back,
+          fen: fen,
+          movetext: "1.d4 Nf6 2.c4 e6 3.Qb3",
+        }}
+        onSpanClick={() => {
+          // Implement on cell click logic.
+        }}
+      />
+    </>
+  );
+}
+
+export default App;
+```
+
+![Figure 4](/assets/figure_04.png)
+
+
+#### Display the Name of the Chess Opening Being Played
 
 Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can be helpful.
 
@@ -231,9 +290,45 @@ function App() {
 export default App;
 ```
 
-![Figure 4](/assets/figure_04.png)
+![Figure 5](/assets/figure_05.png)
 
-The same thing goes for the `MovesMetadataTable` which can be used to display data about a particular game as it is shown in the following example.
+#### Encyclopedia of Chess Openings (ECO)
+
+Chess openings can easily be imported into your app as an array of JavaScript objects.
+
+```js
+import { openings } from '@chesslablab/reactblab';
+```
+
+```js
+[
+  {
+    "eco": "A00",
+    "name": "Amar Gambit",
+    "movetext": "1.Nh3 d5 2.g3 e5 3.f4 Bxh3 4.Bxh3 exf4"
+  },
+  {
+    "eco": "A00",
+    "name": "Amar Opening",
+    "movetext": "1.Nh3"
+  },
+  ...
+  {
+    "eco": "E99",
+    "name": "King's Indian Defense: Orthodox Variation, Classical System, Benko Attack",
+    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5 11.g4"
+  },
+  {
+    "eco": "E99",
+    "name": "King's Indian Defense: Orthodox Variation, Classical System, Traditional Line",
+    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"
+  }
+];
+```
+
+#### Display Metadata About the Chess Game Being Played
+
+Descriptive metadata or metainformation is data that describes other data. The `MovesMetadataTable` component can be used to display data about a particular game as it is shown in the following example.
 
 ```js
 import {
@@ -337,7 +432,7 @@ function App() {
 export default App;
 ```
 
-![Figure 5](/assets/figure_05.png)
+![Figure 6](/assets/figure_06.png)
 
 #### Initialize a RAV Moves Table
 
@@ -452,43 +547,9 @@ function App() {
 export default App;
 ```
 
-![Figure 6](/assets/figure_06.png)
+![Figure 7](/assets/figure_07.png)
 
 The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
-
-#### Encyclopedia of Chess Openings (ECO)
-
-Chess openings can easily be imported into your app as an array of JavaScript objects.
-
-```js
-import { openings } from '@chesslablab/reactblab';
-```
-
-```js
-[
-  {
-    "eco": "A00",
-    "name": "Amar Gambit",
-    "movetext": "1.Nh3 d5 2.g3 e5 3.f4 Bxh3 4.Bxh3 exf4"
-  },
-  {
-    "eco": "A00",
-    "name": "Amar Opening",
-    "movetext": "1.Nh3"
-  },
-  ...
-  {
-    "eco": "E99",
-    "name": "King's Indian Defense: Orthodox Variation, Classical System, Benko Attack",
-    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5 11.g4"
-  },
-  {
-    "eco": "E99",
-    "name": "King's Indian Defense: Orthodox Variation, Classical System, Traditional Line",
-    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"
-  }
-];
-```
 
 ### Contributions
 

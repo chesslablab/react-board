@@ -551,6 +551,82 @@ export default App;
 
 The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
 
+#### Playing the Nimzo-Indian Defense
+
+With everything explained so far, this is how to combine some ReactBlab chess components to browse through the moves of a specific opening: the Nimzo-Indian Defense.
+
+```js
+import { useState } from 'react';
+import {
+  ClassicalBoard,
+  HistoryButtons,
+  SanMovesInline
+} from '@chesslablab/reactblab';
+
+function App() {
+  const [back, setBack] = useState(0);
+
+  const fen = [
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+    "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3",
+    "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -",
+    "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq -",
+    "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq -",
+  ];
+
+  const movetext = "1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2";
+
+  return (
+    <>
+      <HistoryButtons
+        stateHistoryButtons={{
+          back: back,
+          fen: fen,
+        }}
+        onFastRewindClick={() => {
+          setBack((fen.length - 1) * -1);
+        }}
+        onSkipPreviousClick={() => {
+          setBack(prev => prev - 1);
+        }}
+        onSkipNextClick={() => {
+          setBack(prev => prev + 1);
+        }}
+        onFastForwardClick={() => {
+          setBack(0);
+        }}
+      />
+      <ClassicalBoard
+        stateBoard={{
+          fen: fen[fen.length - 1 + back],
+          isCheck: false,
+          flip: "w",
+        }}
+      />
+      <SanMovesInline
+        stateSanMovesInline={{
+          back: back,
+          fen: fen,
+          movetext: movetext,
+        }}
+        onSpanClick={(payload) => {
+          setBack((payload.back) * -1);
+        }}
+      />
+    </>
+  );
+}
+
+export default App;
+```
+
+![Figure 8](/assets/figure_08.gif)
+
+Clicking on the arrow buttons in the `HistoryButtons` component allows to go back and forward accordingly. The same thing goes if clicking on any chess move in the `SanMovesInline` component.
+
 ### Contributions
 
 See the [contributing guidelines](https://github.com/chesslablab/reactblab/blob/master/CONTRIBUTING.md).

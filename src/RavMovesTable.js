@@ -86,7 +86,7 @@ export const RavMovesTable = ({ stateRavMovesTable, onCellClick }) => {
           key={i}
           style={{...styles.tr, ...colors[i]}}
         >
-          <td width="1%" style={{...styles.td, ...styles.td.n}}>
+          <td width="1%" style={{...styles.td, ...styles.td.n, ...colors[i]}}>
             {row.n}
           </td>
           <td

@@ -14,7 +14,7 @@ const styles = {
     background: "#ffffff",
     cursor: 'pointer',
     n: {
-      background: "#f6f6f6",
+      borderRight: "1px solid #f6f6f6",
       cursor: "default",
       textAlign: "right",
     },

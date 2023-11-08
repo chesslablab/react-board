@@ -14,7 +14,7 @@ npm i @chesslablab/reactblab
 
 ### Usage
 
-Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create apps with ReactBlab components. Happy coding and learning!
+✨ The present document is more of a tutorial with examples rather than an API description. Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create apps with ReactBlab components. Happy coding and learning!
 
 #### Initialize a Classical Board
 
@@ -50,9 +50,13 @@ export default App;
 
 ![Figure 1](/assets/figure_01.png)
 
+🎉 That's it! For now let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity.
+
 #### Initialize a Capablanca Board
 
-Similarly as with a classical board, a Capablanca board is initialized by passing the `stateBoard` prop to the `CapablancaBoard` component. A FEN string needs to be passed to the chessboard component as well as the `isCheck` and `flip` key-value pairs.
+In the 1920s, world chess champion Jose Raul Capablanca believed that chess would be played out in a few decades and invented a new variant. Capablanca chess incorporates two new pieces and is played on a 10×8 board. The archbishop (A) combines powers of a bishop and a knight while the chancellor (C) combines powers of a rook and a knight.
+
+A Capablanca board can be easily initialized by passing the `stateBoard` prop to the `CapablancaBoard` component. Also the `fen`, `isCheck` and `flip` key-value pairs need to be passed to the chessboard component in the `stateBoard` parameter.
 
 - `stateBoard` represents the state of the chessboard.
 - `filterMove` allows to implement pre-processing logic for chess moves.
@@ -83,6 +87,8 @@ export default App;
 ```
 
 ![Figure 2](/assets/figure_02.png)
+
+🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. For now let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity.
 
 #### Allow Browsing Through the History of SAN Moves
 

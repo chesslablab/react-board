@@ -79,32 +79,36 @@ export const RavMovesInline = ({ stateRavMovesInline, onSpanClick }) => {
         bSpanStyle = {...bSpanStyle, ...styles.span.active};
       }
 
+      let w;
+      if (row.w !== '...') {
+        w = <span
+          style={wSpanStyle}
+          onMouseEnter={() => setHoveredSpan(row.wFen)}
+          onMouseLeave={() => setHoveredSpan(null)}
+          onClick={() => {
+            onSpanClick({ back: stateRavMovesInline.fen.length - 1 - row.wFen });
+          }}
+        >
+          {row.n}.{row.w}
+        </span>;
+      }
+
+      let b = <span
+        style={bSpanStyle}
+        onMouseEnter={() => setHoveredSpan(row.bFen)}
+        onMouseLeave={() => setHoveredSpan(null)}
+        onClick={() => {
+          if (row.b) {
+            onSpanClick({ back: stateRavMovesInline.fen.length - 1 - row.bFen });
+          }
+        }}
+      >
+        {row.w === '...' ? `${row.n}...${row.b}` : row.b}
+      </span>;
+
       return (
         <span key={i}>
-          <span
-            style={wSpanStyle}
-            onMouseEnter={() => setHoveredSpan(row.wFen)}
-            onMouseLeave={() => setHoveredSpan(null)}
-            onClick={() => {
-              if (row.w !== '...') {
-                onSpanClick({ back: stateRavMovesInline.fen.length - 1 - row.wFen });
-              }
-            }}
-          >
-            {row.w === '...' ? `` : `${row.n}.${row.w}`}
-          </span>
-          <span
-            style={bSpanStyle}
-            onMouseEnter={() => setHoveredSpan(row.bFen)}
-            onMouseLeave={() => setHoveredSpan(null)}
-            onClick={() => {
-              if (row.b) {
-                onSpanClick({ back: stateRavMovesInline.fen.length - 1 - row.bFen });
-              }
-            }}
-          >
-            {row.w === '...' ? `${row.n}...${row.b}` : row.b}
-          </span>
+          {w}{b}
         </span>
       );
     });

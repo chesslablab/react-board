@@ -90,7 +90,7 @@ export default App;
 
 🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. Let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity. For further details please check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
 
-#### Browse Through the History of SAN Moves
+#### Browse the History of SAN Moves
 
 Have you ever attended a chess tournament? If so, you've probably noticed that each player writes down their move on a piece of paper. SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. This example shows how the `HistoryButtons` and `SanMovesTable` components can be combined to do a specific thing: Allow browsing through the history of SAN moves.
 
@@ -161,7 +161,7 @@ export default App;
 
 ![Figure 3](/assets/figure_03.png)
 
-🎉 Well done! This example basically displays the components. Please note that no interaction is implemented in the on click functions.
+🎉 Well done! This example basically displays the components. Note that no interaction is implemented in the on click functions yet. For further details check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
 
 Alternatively, the `SanMovesInline` component can be used to display the chess moves in a single paragraph rather than in a scrollable table which may be more suitable for mobile devices.
 
@@ -219,6 +219,79 @@ export default App;
 
 ![Figure 4](/assets/figure_04.png)
 
+With everything explained so far, let's now implement some user interactions and have them change the state. This is how to combine the `ClassicalBoard`, `HistoryButtons` and `SanMovesInline` components to allow browsing the moves of a specific opening: The Nimzo-Indian Defense.
+
+```js
+import { useState } from 'react';
+import {
+  ClassicalBoard,
+  HistoryButtons,
+  SanMovesInline
+} from '@chesslablab/reactblab';
+
+function App() {
+  const [back, setBack] = useState(0);
+
+  const fen = [
+    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
+    "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3",
+    "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
+    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -",
+    "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq -",
+    "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq -",
+  ];
+
+  const movetext = "1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2";
+
+  return (
+    <>
+      <HistoryButtons
+        stateHistoryButtons={{
+          back: back,
+          fen: fen,
+        }}
+        onFastRewindClick={() => {
+          setBack((fen.length - 1) * -1);
+        }}
+        onSkipPreviousClick={() => {
+          setBack(prev => prev - 1);
+        }}
+        onSkipNextClick={() => {
+          setBack(prev => prev + 1);
+        }}
+        onFastForwardClick={() => {
+          setBack(0);
+        }}
+      />
+      <ClassicalBoard
+        stateBoard={{
+          fen: fen[fen.length - 1 + back],
+          isCheck: false,
+          flip: "w",
+        }}
+      />
+      <SanMovesInline
+        stateSanMovesInline={{
+          back: back,
+          fen: fen,
+          movetext: movetext,
+        }}
+        onSpanClick={(payload) => {
+          setBack((payload.back) * -1);
+        }}
+      />
+    </>
+  );
+}
+
+export default App;
+```
+
+![Figure 5](/assets/figure_05.gif)
+
+🎉 Congrats! Clicking on the arrow buttons in the `HistoryButtons` component allows to go back and forward accordingly. The same thing goes if clicking on any chess move in the `SanMovesInline` component.
 
 #### Display the Name of the Chess Opening Being Played
 
@@ -298,7 +371,7 @@ function App() {
 export default App;
 ```
 
-![Figure 5](/assets/figure_05.png)
+![Figure 6](/assets/figure_06.png)
 
 #### Encyclopedia of Chess Openings (ECO)
 
@@ -440,7 +513,7 @@ function App() {
 export default App;
 ```
 
-![Figure 6](/assets/figure_06.png)
+![Figure 7](/assets/figure_07.png)
 
 #### Initialize a RAV Moves Table
 
@@ -557,85 +630,9 @@ function App() {
 export default App;
 ```
 
-![Figure 7](/assets/figure_07.png)
+![Figure 8](/assets/figure_08.png)
 
 The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
-
-#### Playing the Nimzo-Indian Defense
-
-With everything explained so far, this is how to combine some ReactBlab chess components to browse through the moves of a specific opening: the Nimzo-Indian Defense.
-
-```js
-import { useState } from 'react';
-import {
-  ClassicalBoard,
-  HistoryButtons,
-  SanMovesInline
-} from '@chesslablab/reactblab';
-
-function App() {
-  const [back, setBack] = useState(0);
-
-  const fen = [
-    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
-    "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3",
-    "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
-    "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3",
-    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
-    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/2N5/PP2PPPP/R1BQKBNR b KQkq -",
-    "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PP2PPPP/R1BQKBNR w KQkq -",
-    "rnbqk2r/pppp1ppp/4pn2/8/1bPP4/2N5/PPQ1PPPP/R1B1KBNR b KQkq -",
-  ];
-
-  const movetext = "1.d4 Nf6 2.c4 e6 3.Nc3 Bb4 4.Qc2";
-
-  return (
-    <>
-      <HistoryButtons
-        stateHistoryButtons={{
-          back: back,
-          fen: fen,
-        }}
-        onFastRewindClick={() => {
-          setBack((fen.length - 1) * -1);
-        }}
-        onSkipPreviousClick={() => {
-          setBack(prev => prev - 1);
-        }}
-        onSkipNextClick={() => {
-          setBack(prev => prev + 1);
-        }}
-        onFastForwardClick={() => {
-          setBack(0);
-        }}
-      />
-      <ClassicalBoard
-        stateBoard={{
-          fen: fen[fen.length - 1 + back],
-          isCheck: false,
-          flip: "w",
-        }}
-      />
-      <SanMovesInline
-        stateSanMovesInline={{
-          back: back,
-          fen: fen,
-          movetext: movetext,
-        }}
-        onSpanClick={(payload) => {
-          setBack((payload.back) * -1);
-        }}
-      />
-    </>
-  );
-}
-
-export default App;
-```
-
-![Figure 8](/assets/figure_08.gif)
-
-Clicking on the arrow buttons in the `HistoryButtons` component allows to go back and forward accordingly. The same thing goes if clicking on any chess move in the `SanMovesInline` component.
 
 ### Contributions
 

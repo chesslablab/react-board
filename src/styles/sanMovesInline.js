@@ -6,6 +6,7 @@ const styles = {
     flexWrap: "wrap",
   },
   span: {
+    display: "inline-block",
     fontSize: "0.875rem",
     lineHeight: 1.43,
     textAlign: "left",

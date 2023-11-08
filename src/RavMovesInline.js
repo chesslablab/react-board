@@ -3,7 +3,7 @@ import { Movetext } from './common/Movetext.js';
 import styles from './styles/ravMovesInline';
 
 export const RavMovesInline = ({ stateRavMovesInline, onSpanClick }) => {
-  const [hoveredRow, setHoveredRow] = useState(null);
+  const [hoveredSpan, setHoveredSpan] = useState(null);
 
   const isActiveMove = (fen) => {
     if (stateRavMovesInline.fen.length - 1 + stateRavMovesInline.back === fen ) {
@@ -64,27 +64,27 @@ export const RavMovesInline = ({ stateRavMovesInline, onSpanClick }) => {
     const colors = color(rows);
 
     return rows.map((row, i) => {
-      let wTdStyle = {...styles.span, ...colors[i]};
-      let bTdStyle = {...styles.span, ...colors[i]};
+      let wSpanStyle = {...styles.span, ...colors[i]};
+      let bSpanStyle = {...styles.span, ...colors[i]};
 
-      if (row.wFen === hoveredRow) {
-        row.w !== '...' ? wTdStyle = {...wTdStyle, ...styles.span.hover} : wTdStyle.cursor = 'default';
+      if (row.wFen === hoveredSpan) {
+        row.w !== '...' ? wSpanStyle = {...wSpanStyle, ...styles.span.hover} : wSpanStyle.cursor = 'default';
       } else if (isActiveMove(row.wFen)) {
-        wTdStyle = {...wTdStyle, ...styles.span.active};
+        wSpanStyle = {...wSpanStyle, ...styles.span.active};
       }
 
-      if (row.bFen === hoveredRow) {
-        row.b ? bTdStyle = {...bTdStyle, ...styles.span.hover} : bTdStyle.cursor = 'default';
+      if (row.bFen === hoveredSpan) {
+        row.b ? bSpanStyle = {...bSpanStyle, ...styles.span.hover} : bSpanStyle.cursor = 'default';
       } else if (isActiveMove(row.bFen)) {
-        bTdStyle = {...bTdStyle, ...styles.span.active};
+        bSpanStyle = {...bSpanStyle, ...styles.span.active};
       }
 
       return (
         <span key={i}>
           <span
-            style={wTdStyle}
-            onMouseEnter={() => setHoveredRow(row.wFen)}
-            onMouseLeave={() => setHoveredRow(null)}
+            style={wSpanStyle}
+            onMouseEnter={() => setHoveredSpan(row.wFen)}
+            onMouseLeave={() => setHoveredSpan(null)}
             onClick={() => {
               if (row.w !== '...') {
                 onSpanClick({ back: stateRavMovesInline.fen.length - 1 - row.wFen });
@@ -94,9 +94,9 @@ export const RavMovesInline = ({ stateRavMovesInline, onSpanClick }) => {
             {row.n}{row.w === '...' ? '' : '.'}{row.w}
           </span>
           <span
-            style={bTdStyle}
-            onMouseEnter={() => setHoveredRow(row.bFen)}
-            onMouseLeave={() => setHoveredRow(null)}
+            style={bSpanStyle}
+            onMouseEnter={() => setHoveredSpan(row.bFen)}
+            onMouseLeave={() => setHoveredSpan(null)}
             onClick={() => {
               if (row.b) {
                 onSpanClick({ back: stateRavMovesInline.fen.length - 1 - row.bFen });

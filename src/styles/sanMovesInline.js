@@ -1,14 +1,17 @@
 const styles = {
   div: {
     padding: "0.5rem",
+    display: "flex",
+    flexDirection: "row",
+    flexWrap: "wrap",
   },
   span: {
+    display: "inline-block",
     fontSize: "0.875rem",
     lineHeight: 1.43,
     textAlign: "left",
     padding: "4px 4px 4px 3px",
     cursor: 'pointer',
-    float: 'left',
     hover: {
       color: '#ffffff',
       background: "#3d8cd9",

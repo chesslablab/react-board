@@ -4,6 +4,7 @@ const styles = {
     height: 368,
     overflowY: 'scroll',
     display: 'block',
+    borderCollapse: 'collapse',
   },
   td: {
     fontSize: "0.875rem",
@@ -13,8 +14,9 @@ const styles = {
     background: "#ffffff",
     cursor: 'pointer',
     n: {
-      background: "#f6f6f6",
-      cursor: 'default',
+      borderRight: "1px solid #f6f6f6",
+      cursor: "default",
+      textAlign: "right",
     },
     hover: {
       color: '#ffffff',
@@ -29,7 +31,6 @@ const styles = {
   tr: {
     display: 'table-row',
     verticalAlign: 'middle',
-    height: '2.25rem',
   },
 }
 

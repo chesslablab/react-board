@@ -3,7 +3,7 @@ import { Movetext } from './common/Movetext.js';
 import styles from './styles/sanMovesInline';
 
 export const SanMovesInline = ({ stateSanMovesInline, onSpanClick }) => {
-  const [hoveredSpan, setHoveredSpan] = useState(null)
+  const [hoveredSpan, setHoveredSpan] = useState(null);
 
   const isActiveMove = (fen) => {
     if (stateSanMovesInline.fen.length - 1 + stateSanMovesInline.back === fen ) {

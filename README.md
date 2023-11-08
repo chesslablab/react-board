@@ -50,7 +50,7 @@ export default App;
 
 ![Figure 1](/assets/figure_01.png)
 
-🎉 That's it! For now let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity.
+🎉 That's it! Let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity. For further details please check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
 
 #### Initialize a Capablanca Board
 
@@ -88,18 +88,18 @@ export default App;
 
 ![Figure 2](/assets/figure_02.png)
 
-🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. For now let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity.
+🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. Let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity. For further details please check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
 
-#### Allow Browsing Through the History of SAN Moves
+#### Browse Through the History of SAN Moves
 
-SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations.
+Have you ever attended a chess tournament? If so, you've probably noticed that each player writes down their move on a piece of paper. SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. This example shows how the `HistoryButtons` and `SanMovesTable` components can be combined to do a specific thing: Allow browsing through the history of SAN moves.
 
-A SAN moves table can be initialized by passing the `stateBoard` prop to the `SanMovesTable` component.
+The SAN moves table can be initialized by passing the `stateSanMovesTable` prop to the `SanMovesTable` component.
 
 - `stateSanMovesTable` represents the state of the SAN moves table.
 - `onCellClick` allows to implement on cell click logic.
 
-The `HistoryButtons` and `SanMovesTable` components can be combined to allow browsing through the history of SAN moves.
+The `HistoryButtons` component is initialized as described below.
 
 - `stateHistoryButtons` represents the state of the history buttons.
 - `onFastRewindClick` allows to implement on fast rewind logic.
@@ -161,7 +161,9 @@ export default App;
 
 ![Figure 3](/assets/figure_03.png)
 
-Alternatively, the `SanMovesInline` component displays the chess moves in a single paragraph rather than in a scrollable table which may be more suitable for mobile devices.
+🎉 Well done! This example basically displays the components. Please note that no interaction is implemented in the on click functions.
+
+Alternatively, the `SanMovesInline` component can be used to display the chess moves in a single paragraph rather than in a scrollable table which may be more suitable for mobile devices.
 
 ```js
 import { HistoryButtons, SanMovesInline } from '@chesslablab/reactblab';
@@ -442,7 +444,9 @@ export default App;
 
 #### Initialize a RAV Moves Table
 
-Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
+Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations.
+
+The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
 
 - `stateRavMovesTable` represents the state of the RAV moves table.
 - `onCellClick` allows to implement on cell click logic.  

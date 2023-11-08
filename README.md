@@ -88,7 +88,7 @@ export default App;
 
 ![Figure 2](/assets/figure_02.png)
 
-🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. Let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity. For further details please check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
+🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. Let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity.
 
 #### Browse the History of SAN Moves
 
@@ -105,7 +105,9 @@ The `HistoryButtons` component is initialized as described below.
 - `onFastRewindClick` allows to implement on fast rewind logic.
 - `onSkipPreviousClick` allows to implement on skip previous logic.
 - `onSkipNextClick` allows to implement on skip next logic.
-- `onFastForwardClick` allows to implement on fast forward logic.  
+- `onFastForwardClick` allows to implement on fast forward logic.
+
+An array of FEN strings representing the history of moves is passed as a prop to both components in the `stateSanMovesTable` and `stateHistoryButtons` parameters, respectively. The `back` key-value pair, which indicates which one of the FEN positions is currently displayed, also needs to be passed.
 
 ```js
 import { HistoryButtons, SanMovesTable } from '@chesslablab/reactblab';
@@ -161,7 +163,7 @@ export default App;
 
 ![Figure 3](/assets/figure_03.png)
 
-🎉 Well done! This example basically displays the components. Note that no interaction is implemented in the on click functions yet. For further details check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
+🎉 Well done! This example basically displays the components. Note that no interaction is implemented in the on click functions yet.
 
 Alternatively, the `SanMovesInline` component can be used to display the chess moves in a single paragraph rather than in a scrollable table which may be more suitable for mobile devices.
 
@@ -293,7 +295,39 @@ export default App;
 
 🎉 Congrats! Clicking on the arrow buttons in the `HistoryButtons` component allows to go back and forward accordingly. The same thing goes if clicking on any chess move in the `SanMovesInline` component.
 
-#### Display the Name of the Chess Opening Being Played
+#### Encyclopedia of Chess Openings (ECO)
+
+Chess openings can easily be imported into your app as an array of JavaScript objects.
+
+```js
+import { openings } from '@chesslablab/reactblab';
+```
+
+```js
+[
+  {
+    "eco": "A00",
+    "name": "Amar Gambit",
+    "movetext": "1.Nh3 d5 2.g3 e5 3.f4 Bxh3 4.Bxh3 exf4"
+  },
+  {
+    "eco": "A00",
+    "name": "Amar Opening",
+    "movetext": "1.Nh3"
+  },
+  ...
+  {
+    "eco": "E99",
+    "name": "King's Indian Defense: Orthodox Variation, Classical System, Benko Attack",
+    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5 11.g4"
+  },
+  {
+    "eco": "E99",
+    "name": "King's Indian Defense: Orthodox Variation, Classical System, Traditional Line",
+    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"
+  }
+];
+```
 
 Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can be helpful.
 
@@ -373,41 +407,9 @@ export default App;
 
 ![Figure 6](/assets/figure_06.png)
 
-#### Encyclopedia of Chess Openings (ECO)
+🎉 Well done! This example basically displays the components. Note that no interaction is implemented in the on click functions.
 
-Chess openings can easily be imported into your app as an array of JavaScript objects.
-
-```js
-import { openings } from '@chesslablab/reactblab';
-```
-
-```js
-[
-  {
-    "eco": "A00",
-    "name": "Amar Gambit",
-    "movetext": "1.Nh3 d5 2.g3 e5 3.f4 Bxh3 4.Bxh3 exf4"
-  },
-  {
-    "eco": "A00",
-    "name": "Amar Opening",
-    "movetext": "1.Nh3"
-  },
-  ...
-  {
-    "eco": "E99",
-    "name": "King's Indian Defense: Orthodox Variation, Classical System, Benko Attack",
-    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5 11.g4"
-  },
-  {
-    "eco": "E99",
-    "name": "King's Indian Defense: Orthodox Variation, Classical System, Traditional Line",
-    "movetext": "1.d4 Nf6 2.c4 g6 3.Nc3 Bg7 4.e4 d6 5.Nf3 O-O 6.Be2 e5 7.O-O Nc6 8.d5 Ne7 9.Ne1 Nd7 10.f3 f5"
-  }
-];
-```
-
-#### Display Metadata About the Chess Game Being Played
+#### Metadata About the Chess Game Being Played
 
 Descriptive metadata or metainformation is data that describes other data. The `MovesMetadataTable` component can be used to display data about a particular game as it is shown in the following example.
 
@@ -517,12 +519,14 @@ export default App;
 
 #### Initialize a RAV Moves Table
 
-Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games. A SAN movetext is basically the same thing as a RAV movetext with the only difference that it doesn't include variations.
+Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games.
 
-The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing through the history of RAV moves.
+The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing the history of RAV moves.
 
 - `stateRavMovesTable` represents the state of the RAV moves table.
-- `onCellClick` allows to implement on cell click logic.  
+- `onCellClick` allows to implement on cell click logic.
+
+The `filtered`, `breakdown` and `fen` key-value pairs must be passed to the `RavMovesTable` component in the `stateRavMovesTable` prop. These values are calculated in the [POST /play/rav](https://chess-api.readthedocs.io/en/latest/post-play-rav/) endpoint as it is documented in [Read RAV](https://php-chess.readthedocs.io/en/latest/read-rav/). The `back` key-value pair, which indicates which one of the FEN positions is currently displayed, also needs to be passed.
 
 ```js
 import { HistoryButtons, RavMovesTable } from '@chesslablab/reactblab';

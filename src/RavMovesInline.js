@@ -91,7 +91,7 @@ export const RavMovesInline = ({ stateRavMovesInline, onSpanClick }) => {
               }
             }}
           >
-            {row.n}.{row.w}
+            {row.n}{row.w === '...' ? '' : '.'}{row.w}
           </span>
           <span
             style={bTdStyle}

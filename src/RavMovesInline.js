@@ -91,7 +91,7 @@ export const RavMovesInline = ({ stateRavMovesInline, onSpanClick }) => {
               }
             }}
           >
-            {row.n}{row.w === '...' ? '' : '.'}{row.w}
+            {row.w === '...' ? `` : `${row.n}.${row.w}`}
           </span>
           <span
             style={bSpanStyle}
@@ -103,7 +103,7 @@ export const RavMovesInline = ({ stateRavMovesInline, onSpanClick }) => {
               }
             }}
           >
-            {row.b}
+            {row.w === '...' ? `${row.n}...${row.b}` : row.b}
           </span>
         </span>
       );

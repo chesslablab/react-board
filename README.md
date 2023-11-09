@@ -14,13 +14,13 @@ npm i @chesslablab/reactblab
 
 ### Usage
 
-✨ The present document is more of a tutorial with examples rather than an API description. Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create apps with ReactBlab components. Happy coding and learning!
+✨ Rather than an API specification, the present document is more of a tutorial with plenty of examples on how to use chess components in your React apps. Some familiarity with chess terms and concepts is required but if you're new to chess this document will guide you through how to easily create apps with ReactBlab components. Happy coding and learning!
 
 #### Initialize a Classical Board
 
 FEN stands for Forsyth-Edwards Notation and is the standard way for describing chess positions using text strings. As you can see in the following example, a FEN string representing a chess position is passed as a prop to the `ClassicalBoard` component in the `stateBoard` parameter. The `isCheck` and `flip` key-value pairs also need to be passed.
 
-- `stateBoard` represents the state of the chessboard.
+- `stateBoard` represents the state of the component.
 - `filterMove` allows to implement pre-processing logic for chess moves.
 - `handleMove` allows to implement validation logic for chess moves.  
 
@@ -50,7 +50,7 @@ export default App;
 
 ![Figure 1](/assets/figure_01.png)
 
-🎉 That's it! Let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity. For further details please check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
+🎉 That's it! Let's just initialize the chessboard for now without implementing any logic in the `filterMove` and `handleMove` functions. For further details please check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository, or continue reading for an example on how to use multiple ReactBlab components implementing user interactions.
 
 #### Initialize a Capablanca Board
 
@@ -58,7 +58,7 @@ In the 1920s, world chess champion Jose Raul Capablanca believed that chess woul
 
 A Capablanca board can be easily initialized by passing the `stateBoard` prop to the `CapablancaBoard` component. Also the `fen`, `isCheck` and `flip` key-value pairs need to be passed to the chessboard component in the `stateBoard` parameter.
 
-- `stateBoard` represents the state of the chessboard.
+- `stateBoard` represents the state of the component.
 - `filterMove` allows to implement pre-processing logic for chess moves.
 - `handleMove` allows to implement validation logic for chess moves.
 
@@ -88,24 +88,24 @@ export default App;
 
 ![Figure 2](/assets/figure_02.png)
 
-🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. Let's just initialize the chessboard. There is no need to implement any logic in the `filterMove` and `handleMove` functions for the sake of simplicity.
+🎉 So this is amazing! Initializing a Capablanca board using ReactBlab components is almost the same thing as initializing a classical board. Let's just initialize it for now without implementing any logic in the `filterMove` and `handleMove` functions.
 
 #### Browse the History of SAN Moves
 
 Have you ever attended a chess tournament? If so, you've probably noticed that each player writes down their move on a piece of paper. SAN stands for Standard Algebraic Notation. It is a human-readable text format that allows chess players to read and write chess games in Portable Game Notation (PGN) format. This example shows how the `HistoryButtons` and `SanMovesTable` components can be combined to do a specific thing: Allow browsing through the history of SAN moves.
 
-The SAN moves table can be initialized by passing the `stateSanMovesTable` prop to the `SanMovesTable` component.
-
-- `stateSanMovesTable` represents the state of the SAN moves table.
-- `onCellClick` allows to implement on cell click logic.
-
 The `HistoryButtons` component is initialized as described below.
 
-- `stateHistoryButtons` represents the state of the history buttons.
+- `stateHistoryButtons` represents the state of the component.
 - `onFastRewindClick` allows to implement on fast rewind logic.
 - `onSkipPreviousClick` allows to implement on skip previous logic.
 - `onSkipNextClick` allows to implement on skip next logic.
 - `onFastForwardClick` allows to implement on fast forward logic.
+
+The SAN moves table can be initialized by passing the `stateSanMovesTable` prop to the `SanMovesTable` component.
+
+- `stateSanMovesTable` represents the state of the component.
+- `onCellClick` allows to implement on cell click logic.
 
 An array of FEN strings representing the history of moves is passed as a prop to both components in the `stateSanMovesTable` and `stateHistoryButtons` parameters, respectively. The `back` key-value pair, which indicates which one of the FEN positions is currently displayed, also needs to be passed.
 
@@ -167,57 +167,8 @@ export default App;
 
 Alternatively, the `SanMovesInline` component can be used to display the chess moves in a single paragraph rather than in a scrollable table which may be more suitable for mobile devices.
 
-```js
-import { HistoryButtons, SanMovesInline } from '@chesslablab/reactblab';
-
-function App() {
-  const back = 0;
-
-  const fen = [
-    "rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq -",
-    "rnbqkbnr/pppppppp/8/8/3P4/8/PPP1PPPP/RNBQKBNR b KQkq d3",
-    "rnbqkb1r/pppppppp/5n2/8/3P4/8/PPP1PPPP/RNBQKBNR w KQkq -",
-    "rnbqkb1r/pppppppp/5n2/8/2PP4/8/PP2PPPP/RNBQKBNR b KQkq c3",
-    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
-    "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -",
-  ];
-
-  return (
-    <>
-      <HistoryButtons
-        stateHistoryButtons={{
-          back: back,
-          fen: fen,
-        }}
-        onFastRewindClick={() => {
-          // Implement on fast rewind logic.
-        }}
-        onSkipPreviousClick={() => {
-          // Implement on skip previous logic.
-        }}
-        onSkipNextClick={() => {
-          // Implement on skip next logic.
-        }}
-        onFastForwardClick={() => {
-          // Implement on fast forward logic.
-        }}
-      />
-      <SanMovesInline
-        stateSanMovesInline={{
-          back: back,
-          fen: fen,
-          movetext: "1.d4 Nf6 2.c4 e6 3.Qb3",
-        }}
-        onSpanClick={() => {
-          // Implement on cell click logic.
-        }}
-      />
-    </>
-  );
-}
-
-export default App;
-```
+- `stateSanMovesInline` represents the state of the component.
+- `onSpanClick` allows to implement on span click logic.
 
 ![Figure 4](/assets/figure_04.png)
 
@@ -329,9 +280,11 @@ import { openings } from '@chesslablab/reactblab';
 ];
 ```
 
-Also you may want to display the chess opening that is being played at a certain point in which case the `OpeningTable` component can be helpful.
+The `OpeningTable` component can be helpful to display the chess opening that is being played at a certain point.
 
-- `stateOpeningTable` represents the state of the chess opening table.  
+- `stateOpeningTable` represents the state of the component.
+
+An array of FEN strings representing the history of moves is passed as a prop to the `stateOpeningTable` parameter. The `opening` key-value pair, which is a JSON object with information about the chess opening, also needs to be passed.
 
 ```js
 import {
@@ -351,6 +304,8 @@ function App() {
     "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/8/PP2PPPP/RNBQKBNR w KQkq -",
     "rnbqkb1r/pppp1ppp/4pn2/8/2PP4/1Q6/PP2PPPP/RNB1KBNR b KQkq -",
   ];
+
+  const movetext = "1.d4 Nf6 2.c4 e6 3.Qb3";
 
   const opening = {
     rows: [
@@ -386,7 +341,7 @@ function App() {
         stateSanMovesTable={{
           back: back,
           fen: fen,
-          movetext: "1.d4 Nf6 2.c4 e6 3.Qb3",
+          movetext: movetext,
         }}
         onCellClick={() => {
           // Implement on cell click logic.
@@ -517,16 +472,16 @@ export default App;
 
 ![Figure 7](/assets/figure_07.png)
 
-#### Initialize a RAV Moves Table
+#### Initialize a RAV Reader
 
 Annotated games are games with comments that help understand what is going on the chessboard. They usually include variations showing the development of the game in selected positions that require an in-depth understanding. RAV stands for Recursive Annotation Variation. It is the standard format for annotated chess games.
 
 The `HistoryButtons` and `RavMovesTable` components can be combined to allow browsing the history of RAV moves.
 
-- `stateRavMovesTable` represents the state of the RAV moves table.
+- `stateRavMovesTable` represents the state of the component.
 - `onCellClick` allows to implement on cell click logic.
 
-The `filtered`, `breakdown` and `fen` key-value pairs must be passed to the `RavMovesTable` component in the `stateRavMovesTable` prop. These values are calculated in the [POST /play/rav](https://chess-api.readthedocs.io/en/latest/post-play-rav/) endpoint as it is documented in [Read RAV](https://php-chess.readthedocs.io/en/latest/read-rav/). The `back` key-value pair, which indicates which one of the FEN positions is currently displayed, also needs to be passed.
+The `filtered`, `breakdown` and `fen` key-value pairs must be passed to the `RavMovesTable` component in the `stateRavMovesTable` prop. These values have been calculated using the [POST /play/rav](https://chess-api.readthedocs.io/en/latest/post-play-rav/) endpoint as it is documented in [Read RAV](https://php-chess.readthedocs.io/en/latest/read-rav/). The `back` key-value pair, which indicates which one of the FEN positions is currently displayed, also needs to be passed.
 
 ```js
 import { HistoryButtons, RavMovesTable } from '@chesslablab/reactblab';
@@ -637,6 +592,13 @@ export default App;
 ![Figure 8](/assets/figure_08.png)
 
 The RAV reader displays the variation levels in different shades of gray. It is a 2D scrollable HTML table where the main line is shown in a white background color. The deeper the level, the darker the background color is displayed.
+
+Alternatively, the `RavMovesInline` component can be used to display the chess moves in a single paragraph rather than in a scrollable table which may be more suitable for mobile devices.
+
+- `stateRavMovesInline` represents the state of the component.
+- `onSpanClick` allows to implement on span click logic.
+
+![Figure 9](/assets/figure_09.png)
 
 ### Contributions
 

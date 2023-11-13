@@ -2,10 +2,6 @@
 
 An easy-to-use, state-management agnostic React library of chess components as well as common chess utilities.
 
-### Demo
-
-Check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository.
-
 ### Install
 
 ```The state of the chessboard.
@@ -50,7 +46,7 @@ export default App;
 
 ![Figure 1](/assets/figure_01.png)
 
-🎉 That's it! Let's just initialize the chessboard for now without implementing any logic in the `filterMove` and `handleMove` functions. For further details please check out the [demo](https://www.chesslablab.com/) in the [React Chess](https://github.com/chesslablab/react-chess) repository, or continue reading for an example on how to use multiple ReactBlab components implementing user interactions.
+🎉 That's it! Let's just initialize the chessboard for now without implementing any logic in the `filterMove` and `handleMove` functions. For further details please continue reading for an example on how to use multiple ReactBlab components implementing user interactions.
 
 #### Initialize a Capablanca Board
 

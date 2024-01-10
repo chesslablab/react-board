@@ -18,7 +18,8 @@ FEN stands for Forsyth-Edwards Notation and is the standard way for describing c
 
 - `stateBoard` represents the state of the component.
 - `filterMove` allows to implement pre-processing logic for chess moves.
-- `handleMove` allows to implement validation logic for chess moves.  
+- `handleMove` allows to implement validation logic for chess moves.
+- `styleBoard` allows to customize the styles of the component.
 
 ```js
 import { ClassicalBoard } from '@chesslablab/reactblab';
@@ -36,6 +37,9 @@ function App() {
       }}
       handleMove={() => {
         // Implement validation logic for the chess move.
+      }}
+      styleBoard={{
+        sqSize: 4.9
       }}
     />
   );
@@ -57,6 +61,7 @@ A Capablanca board can be easily initialized by passing the `stateBoard` prop to
 - `stateBoard` represents the state of the component.
 - `filterMove` allows to implement pre-processing logic for chess moves.
 - `handleMove` allows to implement validation logic for chess moves.
+- `styleBoard` allows to customize the styles of the component.
 
 ```js
 import { CapablancaBoard } from '@chesslablab/reactblab';
@@ -74,6 +79,9 @@ function App() {
       }}
       handleMove={() => {
         // Implement validation logic for the chess move.
+      }}
+      styleBoard={{
+        sqSize: 3.95
       }}
     />
   );
@@ -220,6 +228,9 @@ function App() {
           isCheck: false,
           flip: "w",
         }}
+        styleBoard={{
+          sqSize: 4.9
+        }}
       />
       <SanMovesInline
         stateSanMovesInline={{
@@ -238,7 +249,7 @@ function App() {
 export default App;
 ```
 
-![Figure 5](/assets/figure_05.gif)
+![Figure 5](/assets/figure_05.png)
 
 🎉 Congrats! Clicking on the arrow buttons in the `HistoryButtons` component allows to go back and forward accordingly. The same thing goes if clicking on any chess move in the `SanMovesInline` component.
 

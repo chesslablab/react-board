@@ -4,7 +4,8 @@ import ClassicalSquares from './ClassicalSquares';
 export const CapablancaBoard = ({
   stateBoard,
   filterMove,
-  handleMove
+  handleMove,
+  styleBoard
 }) => {
   return (
     <CapablancaSquares
@@ -22,6 +23,7 @@ export const CapablancaBoard = ({
       }}
       filterMove={filterMove}
       handleMove={handleMove}
+      styleBoard={styleBoard}
     />
   );
 }
@@ -29,7 +31,8 @@ export const CapablancaBoard = ({
 export const ClassicalBoard = ({
   stateBoard,
   filterMove,
-  handleMove
+  handleMove,
+  styleBoard
 }) => {
   return (
     <ClassicalSquares
@@ -47,6 +50,7 @@ export const ClassicalBoard = ({
       }}
       filterMove={filterMove}
       handleMove={handleMove}
+      styleBoard={styleBoard}
     />
   );
 }

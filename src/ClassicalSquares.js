@@ -4,7 +4,7 @@ import ResizeSlider from './ResizeSlider';
 import Squares from './Squares';
 import styles from './styles/board';
 
-const ClassicalSquares = ({ stateBoard, filterMove, handleMove }) => {
+const ClassicalSquares = ({ stateBoard, filterMove, handleMove, styleBoard }) => {
   const maxWidth = {
     900: useMediaQuery('(max-width:900px)'),
   };
@@ -22,10 +22,10 @@ const ClassicalSquares = ({ stateBoard, filterMove, handleMove }) => {
           ...{
             gridTemplateColumns: maxWidth['900']
               ? `repeat(8, [col] ${0.12 * sliderValue}vw)`
-              : `repeat(8, [col] ${0.05 * sliderValue}vw)`,
+              : `repeat(8, [col] ${styleBoard.size * sliderValue}vw)`,
             gridTemplateRows: maxWidth['900']
               ? `repeat(8, [col] ${0.12 * sliderValue}vw)`
-              : `repeat(8, [col] ${0.05 * sliderValue}vw)`,
+              : `repeat(8, [col] ${styleBoard.size * sliderValue}vw)`,
           },
         }}
       />

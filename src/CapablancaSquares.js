@@ -22,10 +22,10 @@ const CapablancaSquares = ({ stateBoard, filterMove, handleMove, styleBoard }) =
           ...{
             gridTemplateColumns: maxWidth['900']
               ? `repeat(10, [col] ${0.09 * sliderValue}vw)`
-              : `repeat(10, [col] ${styleBoard.size * sliderValue}vw)`,
+              : `repeat(10, [col] ${styleBoard.sqSize / 100 * sliderValue}vw)`,
             gridTemplateRows: maxWidth['900']
               ? `repeat(8, [col] ${0.09 * sliderValue}vw)`
-              : `repeat(8, [col] ${styleBoard.size * sliderValue}vw)`,
+              : `repeat(8, [col] ${styleBoard.sqSize / 100 * sliderValue}vw)`,
           },
         }}
       />

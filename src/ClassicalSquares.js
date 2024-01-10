@@ -22,10 +22,10 @@ const ClassicalSquares = ({ stateBoard, filterMove, handleMove, styleBoard }) =>
           ...{
             gridTemplateColumns: maxWidth['900']
               ? `repeat(8, [col] ${0.12 * sliderValue}vw)`
-              : `repeat(8, [col] ${styleBoard.size * sliderValue}vw)`,
+              : `repeat(8, [col] ${styleBoard.sqSize / 100 * sliderValue}vw)`,
             gridTemplateRows: maxWidth['900']
               ? `repeat(8, [col] ${0.12 * sliderValue}vw)`
-              : `repeat(8, [col] ${styleBoard.size * sliderValue}vw)`,
+              : `repeat(8, [col] ${styleBoard.sqSize / 100 * sliderValue}vw)`,
           },
         }}
       />

@@ -1,6 +1,6 @@
 ## ReactBlab
 
-An easy-to-use, state-management agnostic React library of chess components as well as common chess utilities.
+An easy-to-use, state-management agnostic React library of chess components and utilities.
 
 ### Install
 

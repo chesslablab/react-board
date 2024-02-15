@@ -613,4 +613,4 @@ See the [contributing guidelines](https://github.com/chesslablab/reactblab/blob/
 
 ### License
 
-[The MIT License](https://github.com/chesslablab/react-chess/blob/master/LICENSE).
+[The MIT License](https://github.com/chesslablab/spablab/blob/master/LICENSE).
